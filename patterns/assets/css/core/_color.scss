@@ -6,6 +6,9 @@
 // https://bitbucket.org/fffunction/wiki/wiki/Design%20styles
 // ------------------------------------------------------------
 
+$mist                               : #C7C6C4;
+$sand                               : #FFF50F;
+$earth                              : #675753;
 
 
 // Social shit
@@ -28,23 +31,23 @@ $flickr-color 						: #ff0084;
 // ------------------------------------------------------------
 
 // Defaults
-$body-color 						: #fff;  					
-$base-color							: #444;  					
-$heading-color						: #333;  					
+$body-color 						: #fff;
+$base-color							: $earth;
+$heading-color						: $earth;
 
 // Actions
-$action								: #09c;						
-$action-respond						: #f0c;						
+$action								: $earth;
+$action-respond						: $sand;
 
 // Borders
-$default-border-color 				: #ddd;						
+$default-border-color 				: $mist;
 
 // Forms
-$form-label-color					: $heading-color;			
-$form-legend-color					: $heading-color;			
-$form-placeholder-color				: #ddd;						
-$form-checkbox-color				: $heading-color;			
-$form-radio-color					: $heading-color;			
+$form-label-color					: $heading-color;
+$form-legend-color					: $heading-color;
+$form-placeholder-color				: #ddd;
+$form-checkbox-color				: $heading-color;
+$form-radio-color					: $heading-color;
 
 // Navigation
 $nav-toggle-color					: $heading-color;
