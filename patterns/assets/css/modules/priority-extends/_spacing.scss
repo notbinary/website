@@ -1,0 +1,15 @@
+// ------------------------------------------------------------
+// Sections
+// Relates to the spacing and padding of whole sections
+// ------------------------------------------------------------
+
+// Padding
+.padd-section-top 		{ @include padding-top: $internal-spacing; }
+.padd-section-bottom 	{ @include padding-bottom: $internal-spacing; }
+.padd-section-both 		{ @extend .padd-section-top; @extend .padd-section-bottom; }
+
+
+// Spacing
+.space-section-top 		{ @include margin-top: $internal-spacing; }
+.space-section-bottom 	{ @include margin-bottom: $internal-spacing; }
+.space-section-both 	{ @extend .space-section-top; @extend .space-section-bottom; }
