@@ -84,13 +84,13 @@
         max-width: 100%;
     }
     &__left {
-        clip-path: polygon(0 0, 26% 0, 68% 100%, 0% 100%);
+        clip-path: polygon(0 0, 26% 0, 64% 100%, 0% 100%);
     }
     &__right {
         position: absolute;
         top: -1em;
         right: 0;
-        clip-path: polygon(26% 0, 100% 0, 100% 100%, 68% 100%);
+        clip-path: polygon(26% 0, 100% 0, 100% 100%, 64% 100%);
     }
     @include respond-to($c-vp) {
         margin-top: 6em;
