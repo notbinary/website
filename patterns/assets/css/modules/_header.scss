@@ -4,11 +4,10 @@
 
 .header {
 	position: relative;
-	margin-bottom: 2em;
-	border-bottom: 1px solid $default-border-color;
+	background-color: $sand;
 	.row {
 		position: relative;
-		padding-top: 2em;
+		// padding-top: 4em;
 		padding-bottom: 2em;
 	}
 }

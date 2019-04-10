@@ -1,28 +1,28 @@
 {
     "primary": [
-	    { 
-		    "label": "Option A",
-		    "in_section": "",
+	    {
+		    "label": "What we do",
+		    "in_section": "What-we-do",
 		    "hidden": false
 		},
-		{ 
-		    "label": "Option B",
-		    "in_section": "",
+		{
+		    "label": "About us",
+		    "in_section": "about-us",
 		    "hidden": false
 		},
-		{ 
-		    "label": "Option C",
-		    "in_section": "",
+		{
+		    "label": "Jobs",
+		    "in_section": "jobs",
 		    "hidden": false
 		},
-		{ 
-		    "label": "Option D",
-		    "in_section": "",
+		{
+		    "label": "Blog",
+		    "in_section": "blog",
 		    "hidden": false
 		},
-		{ 
-		    "label": "Option E",
-		    "in_section": "",
+		{
+		    "label": "Contact",
+		    "in_section": "contact",
 		    "hidden": false
 		}
     ]

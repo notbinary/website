@@ -12,7 +12,8 @@
 	width: 44px;
 	height: 42px;
 	position: absolute;
-	top: 4px; // Tweak as needed
+	z-index: 3;
+	top: 27px; // Tweak as needed
 	right: $internal-spacing;
 	&:before,
 	&:after {
@@ -40,7 +41,7 @@
 	&:focus {
 		outline: none;
 		span {
-			
+
 		}
 	}
 	@include respond-to-max($menu-respond) {
@@ -77,14 +78,25 @@
 		html.js & {
 			//display: none;
 			max-height: 0;
-			margin-top: 1em;
+			position: absolute;
+			width: 100%;
+			background-color: $sand;
+			left: 0;
+			z-index: 2;
+			height: 100vh;
 		}
 		&--active {
 			html.js & {
 				//display: block;
 				transition: max-height ease-out 0.5s;
 				max-height: 1000px;
+
 			}
+		}
+		.navigation-primary__items {
+			text-align: center;
+			top: -50%;
+			transform: translateY(50%);
 		}
 	}
 	@include respond-to($menu-respond) {
@@ -96,12 +108,12 @@
 	}
 	&__item {
 		position: relative;
-		overflow: hidden;
-		@include font-size($para);
+		@include font-size($delta + 2);
 		@include respond-to($menu-respond) {
 			display: inline-block;
 			float: left;
-			margin-left: 1em;
+			margin-left: 3em;
+			@include font-size($para);
 			&:first-child {
 				margin-left: 0;
 			}
@@ -109,26 +121,78 @@
 		a {
 			display: block;
 			position: relative;
+			color: #000;
 			span {
 				font-size: inherit;
 				position: relative;
 				z-index: 1;
 			}
 			@include respond-to-max($menu-respond) {
-				padding: 0.75em 0;
-				border-bottom: $default-border-width solid $heading-color;
+				padding: 1em 0;
+				&:before {
+					opacity: 0;
+					content: "";
+					position: absolute;
+					height: 1px;
+					width: 3em;
+					background-color: rgba($earth, 0.5);
+					top: 1.75em;
+					left: 43%;
+					transform: rotate(45deg);
+					z-index: -1;
+					transition: all, ease-in-out, 0.3s;
+				}
+				@include link-active-styles {
+					&:before {
+						opacity: 1;
+					}
+				}
 			}
 			@include respond-to($menu-respond) {
-			
-			}
-			@include link-active-styles {
-				
+				padding-top: 3.5em;
+				color: #000;
+				&:before {
+					content: "";
+					position: absolute;
+					height: 5px;
+					width: 100%;
+					background-color: #000;
+					top: -5px;
+					transition: all, ease-in-out, 0.3s;
+				}
+				@include link-active-styles {
+					&:before {
+						top: 0;
+					}
+				}
 			}
 		}
 		&--active {
 			a {
-				@include link-active-styles {
-					
+				@include respond-to-max($menu-respond) {
+					&:before {
+						content: "";
+						position: absolute;
+						height: 1px;
+						width: 3em;
+						background-color: rgba($earth, 0.5);
+						top: 1.75em;
+						left: 43%;
+						transform: rotate(45deg);
+						z-index: -1;
+						opacity: 1;
+					}
+				}
+				@include respond-to($menu-respond) {
+					&:before {
+						content: "";
+						position: absolute;
+						height: 5px;
+						width: 100%;
+						background-color: #000;
+						top: 0px;
+						transition: all, ease-in-out, 0.3s;
+					}
 				}
 			}
 		}

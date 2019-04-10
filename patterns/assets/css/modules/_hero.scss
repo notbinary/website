@@ -1,0 +1,98 @@
+// -----------------------------------------------------------
+// Hero
+// -----------------------------------------------------------
+
+.hero {
+    background-color: $sand;
+    padding: 7em 0 5em 0;
+    margin-bottom: 3em;
+    &--image {
+        position: relative;
+        padding-bottom: 0;
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-color: #fff;
+            width: 100%;
+            height: 15%;
+            z-index: 0;
+        }
+    }
+    @include respond-to($c-vp) {
+        padding: 14em 0 10em 0;
+        margin-bottom: 6em;
+        &--image {
+            position: relative;
+            padding-bottom: 0;
+            &:after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                background-color: #fff;
+                width: 100%;
+                height: 25%;
+                z-index: 0;
+            }
+        }
+    }
+}
+
+.hero__caption {
+    @include respond-to($menu-respond) {
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.hero__title {
+    @extend %font-heading;
+    @include font-size($alpha);
+    @include respond-to($c-vp) {
+        @include font-size($alpha-papa);
+    }
+}
+
+.hero__meta {
+    overflow: hidden;
+    margin-top: 2em;
+    &__image {
+        width: 60px;
+        height: auto;
+        float: left;
+        img {
+            max-width: 100%;
+            display: block;
+        }
+    }
+    &__copy {
+        @include font-size($para);
+        float: left;
+        margin-left: 1em;
+        margin-top: 1em;
+    }
+}
+
+.hero-image {
+    position: relative;
+    z-index: 1;
+    margin-top: 3em;
+    img {
+        max-width: 100%;
+    }
+    &__left {
+        clip-path: polygon(0 0, 26% 0, 75% 100%, 0% 100%);
+    }
+    &__right {
+        position: absolute;
+        top: -1em;
+        right: 0;
+        clip-path: polygon(26% 0, 100% 0, 100% 100%, 75% 100%);
+    }
+    @include respond-to($c-vp) {
+        margin-top: 6em;
+    }
+}

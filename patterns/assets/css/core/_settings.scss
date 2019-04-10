@@ -23,7 +23,7 @@ $a-vp								: 300px;
 $b-vp 								: 500px;
 $c-vp 								: 780px;
 $d-vp 								: 1000px;
-$e-vp 								: 1400px;
+$e-vp 								: 1200px;
 
 
 // Grid assignments
@@ -35,7 +35,7 @@ $max-vp								: $e-vp + $internal-spacing-pixel*2;	// Max viewport
 // Set assignments
 // --------------------------
 $table-respond						: $c-vp;								// Responsive tables
-$menu-respond						: $c-vp;								// If using ss/non ss navigation
+$menu-respond						: 880px;								// If using ss/non ss navigation
 $sidebar-respond					: $c-vp;								// Sidebar switch point
 $sidebar-aside-width				: 32.5%;								// Sidebar column default
 $sidebar-body-width					: 67.5%;								// Sidebar body default
@@ -62,6 +62,7 @@ $form-padding						: 20px;		// Padd forms with fixed measure
 // :: Type (Renders in REM using @include font-size($#);
 // ------------------------------------------------------------
 
+$alpha-papa : 48;
 $alpha   	: 32;
 $beta		: 28;
 $gamma		: 22;
@@ -73,8 +74,8 @@ $eta		: 11;
 // Set units
 // --------------------------------
 
-$base-font-size		: $delta; 		// Page default size
-$para				: $delta;  	 	// Paragraph size
+$base-font-size		: $epsilon; 		// Page default size
+$para				: $epsilon;  	 	// Paragraph size
 $quote				: $beta;		// Quote size
 $form-label-size    : $epsilon;		// Form label size
 $form-legend-size	: $gamma;		// Form legend size
