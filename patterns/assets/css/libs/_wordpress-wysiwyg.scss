@@ -4,13 +4,13 @@
 // ------------------------------------------------------------
 
 .wysiwyg {
-	
+
 	.wp-smiley {
 		display: none!important; // They're darn ugly
 	}
-	
+
 	.wp-caption {
-		clear: both; 
+		clear: both;
 		@extend .media-figure;
 		p.wp-caption-text {
 			@extend .media-figure__caption;
@@ -20,8 +20,8 @@
 			margin-bottom: 0.5em;
 		}
 	}
-	
-	
+
+
 	%wp-image-align {
 		max-width: 500px;
 		width: 100%;
@@ -30,7 +30,7 @@
 		position: relative;
 	}
 
-	.alignleft, blockquote.left {
+	.alignleft, blockquote.left, aside.left {
 		@extend %wp-image-align;
 		@include respond-to($menu-respond) {
 			margin-right: 40px;
@@ -38,7 +38,7 @@
 		}
 	}
 
-	.alignright, blockquote.right {
+	.alignright, blockquote.right, aside.right {
 		@extend %wp-image-align;
 		@include respond-to($menu-respond) {
 			margin-left: 40px;
@@ -53,11 +53,11 @@
 		vertical-align: top;
 		clear: both;
 	}
-	
-	.alignnone { 
-		clear: both; 
+
+	.alignnone {
+		clear: both;
 	}
-	
+
 
 	// Image size control
 	.size-full {
@@ -74,5 +74,48 @@
 
 	.size-thumbnail {
 
+	}
+
+	// Callout control
+	aside.left {
+		@extend %wp-image-align;
+		@include respond-to($menu-respond) {
+			margin-right: 40px;
+			margin-left: -40px;
+			float: left;
+			max-width: 400px;
+		}
+	}
+
+	aside.right {
+		@extend %wp-image-align;
+		@include respond-to($menu-respond) {
+			margin-left: 40px;
+			margin-right: -40px;
+			float: right;
+			max-width: 400px;
+		}
+	}
+
+	aside blockquote {
+		background-color: $sand;
+		padding: 3em;
+		margin: 2em 0 2em 0;
+		p {
+			color: $heading-color;
+		}
+		span {
+			display: block;
+			color: $heading-color;
+			margin-bottom: 1em;
+			@include font-size($para);
+		}
+		cite {
+			color: $heading-color;
+		}
+		a {
+			color: $heading-color;
+			text-decoration: underline;
+		}
 	}
 }

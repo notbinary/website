@@ -1,3 +1,87 @@
 // ------------------------------------------------------------
 // Footer
 // ------------------------------------------------------------
+
+.footer {
+    margin-top: 2em;
+}
+
+.footer__main {
+    background-color: darken($earth, 5%);
+    padding: 3em 0;
+    overflow: hidden;
+    p {
+        @include font-size($zeta);
+        color: #fff;
+        margin-top: 1em;
+    }
+    a {
+        color: #fff;
+        text-decoration: underline;
+    }
+}
+
+.footer__strip {
+    background-color: $earth;
+    padding: 3em 0;
+    overflow: hidden;
+}
+
+.footer__navigation {
+    @include font-size($para);
+    padding-top: 8px;
+    li {
+        display: inline-block;
+        margin-right: 3em;
+        position: relative;
+        &:after {
+            content: "/";
+            position: absolute;
+            right: -2em;
+            color: #fff;
+        }
+        a {
+            color: #fff;
+        }
+        &:last-child {
+            margin-right: 0;
+            &:after {
+                content: none;
+            }
+        }
+    }
+    @include respond-to($c-vp) {
+        float: left;
+    }
+}
+.footer__social {
+    li {
+        background-size: contain;
+        background-repeat: no-repeat;
+        display: inline-block;
+        margin-right: 1em;
+        a {
+            display: block;
+            text-indent: -9999em;
+        }
+    }
+    .footer__social--twitter a {
+        background-image: url('../svg/source/icon-twitter.svg');
+        height: 40px;
+        width: 40px;
+    }
+    .footer__social--medium a {
+        background-image: url('../svg/source/icon-medium.svg');
+        height: 34px;
+        width: 40px;
+        transform: translateY(3px);
+    }
+    .footer__social--linkedin a {
+        background-image: url('../svg/source/icon-linkedin.svg');
+        height: 40px;
+        width: 40px;
+    }
+    @include respond-to($c-vp) {
+        float: right;
+    }
+}

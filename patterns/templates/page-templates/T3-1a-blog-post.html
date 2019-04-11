@@ -29,25 +29,33 @@
 {# --------------------------------------- #}
 
 {% block body %}
-	<div class="hero hero--image">
+	{% include 'partials/hero.html' %}
+
+    <section class="section">
         <div class="row">
-            <div class="hero__caption">
-                <h1 class="hero__title">{{ title }}</h1>
-                <div class="hero__meta">
-                    <div class="hero__meta__image">
-                        <img src="{{ global.assets_root }}/img/profile.png" alt="alt">
-                    </div>
-                    <p class="hero__meta__copy">Written by Matt Jukes on Nov 21, 2018</p>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="hero-image__left">
-                    <img src="{{ global.assets_root }}/img/hero-placeholder.jpg" alt="alt">
-                </div>
-                <div class="hero-image__right">
-                    <img src="{{ global.assets_root }}/img/hero-placeholder.jpg" alt="alt">
-                </div>
+            <div class="max-meter max-meter--center is-typeset wysiwyg">
+                {% include 'content/wysiwyg.html' %}
             </div>
         </div>
-    </div>
+    </section>
+
+    <section class="section">
+        <div class="row">
+            <h2 class="section__title">Related content title</h2>
+            <div class="l-3up">
+                <a href="#" class="card">
+                    <h3 class="card__title">Page title</h3>
+                    <p class="card__copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis commodo mattis nisi eu adipiscing. </p>
+                </a>
+                <a href="#" class="card">
+                    <h3 class="card__title">Page title</h3>
+                    <p class="card__copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis commodo mattis nisi eu adipiscing. </p>
+                </a>
+                <a href="#" class="card">
+                    <h3 class="card__title">Page title</h3>
+                    <p class="card__copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis commodo mattis nisi eu adipiscing. </p>
+                </a>
+            </div>
+        </div>
+    </section>
 {% endblock %}

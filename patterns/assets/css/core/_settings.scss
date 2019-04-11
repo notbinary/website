@@ -68,7 +68,7 @@ $beta		: 28;
 $gamma		: 22;
 $delta		: 18;
 $epsilon	: 16;
-$zeta		: 13;
+$zeta		: 14;
 $eta		: 11;
 
 // Set units
@@ -76,7 +76,7 @@ $eta		: 11;
 
 $base-font-size		: $epsilon; 		// Page default size
 $para				: $epsilon;  	 	// Paragraph size
-$quote				: $beta;		// Quote size
+$quote				: $gamma - 2;		// Quote size
 $form-label-size    : $epsilon;		// Form label size
 $form-legend-size	: $gamma;		// Form legend size
 

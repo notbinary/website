@@ -164,10 +164,16 @@
 
 	ol {
 		@extend .ordered-list;
+		li ol {
+			margin-top: 0.5em;
+		}
 	}
 
 	ul {
 		@extend .unordered-list;
+		li ul {
+			margin-top: 0.5em;
+		}
 	}
 
 	p {
