@@ -10,11 +10,6 @@
     background-color: darken($earth, 5%);
     padding: 3em 0;
     overflow: hidden;
-    p {
-        @include font-size($zeta);
-        color: #fff;
-        margin-top: 1em;
-    }
     a {
         color: #fff;
         text-decoration: underline;
@@ -54,7 +49,33 @@
         float: left;
     }
 }
+
+.footer__copy {
+    position: relative;
+    @include font-size($zeta);
+    color: #fff;
+    padding-left: 5em;
+    p {
+        margin-top: 1em;
+    }
+    @include respond-to($c-vp) {
+        padding-right: 8em;
+    }
+}
+
+.footer__marque {
+    background-image: url('../svg/source/tpx-logo.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 52px;
+    height: 62px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 .footer__social {
+    margin-top: 2em;
     li {
         background-size: contain;
         background-repeat: no-repeat;
@@ -83,5 +104,25 @@
     }
     @include respond-to($c-vp) {
         float: right;
+        margin-top: 0;
+    }
+}
+
+.footer__meta {
+    color: #fff;
+    @include font-size($eta);
+    margin-top: 3em;
+    display: block;
+}
+
+.footer__logos {
+    margin-top: 15px;
+    li {
+        display: inline-block;
+        width: 33%;
+        background-color: #fff;
+        img {
+            @extend %max-width;
+        }
     }
 }
