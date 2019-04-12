@@ -9,6 +9,7 @@
 	display: inline-block;
 	text-align: left;
 	padding: 1em;
+	@extend %font-heading;
 	@include font-size($para);
 	line-height: 1;
 	color: #fff;
@@ -17,8 +18,9 @@
 	position: relative;
 	vertical-align: middle;
 	cursor: pointer;
+	transition: all, ease-in-out, 0.3s;
 	@include link-active-styles {
-		color: #fff;
+		color: $heading-color;
 		background-color: $action-respond;
 	}
 }

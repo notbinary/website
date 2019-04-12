@@ -3,8 +3,9 @@
 // -----------------------------------------------------------
 
 .hero {
+    position: relative;
     background-color: $sand;
-    padding: 7em 0 5em 0;
+    padding: 7em 0 7em 0;
     margin-bottom: 3em;
     &--image {
         position: relative;
@@ -40,17 +41,32 @@
 
 .hero__caption {
     @include respond-to($menu-respond) {
-        max-width: 800px;
+        max-width: 1000px;
         margin-left: auto;
         margin-right: auto;
+        .hero--image & {
+            max-width: 800px;
+        }
     }
 }
 
 .hero__title {
     @extend %font-heading;
     @include font-size($alpha);
+    line-height: 1.4;
     @include respond-to($c-vp) {
         @include font-size($alpha-papa);
+    }
+}
+
+.hero__subtitle {
+    @extend %font-heading;
+    @include font-size($beta);
+    margin-top: 0.5em;
+    line-height: 1.4;
+    @include respond-to($c-vp) {
+        @include font-size($alpha);
+        padding-right: 7em;
     }
 }
 
@@ -101,5 +117,23 @@
     }
     @include respond-to($c-vp) {
         margin-top: 6em;
+    }
+}
+
+.hero__flourish {
+    display: none;
+    @include respond-to($c-vp) {
+        display: block;
+        position: absolute;
+        height: 1px;
+        width: 350px;
+        background-color: #fff;
+        transform: rotate(50deg);
+        right: 0;
+        bottom: 0;
+        &--alt {
+            right: 9em;
+            bottom: 8em;
+        }
     }
 }

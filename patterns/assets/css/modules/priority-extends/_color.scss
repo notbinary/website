@@ -13,7 +13,9 @@
 		color: $color;
 	}
 	.fill-#{$name} {
+		position: relative;
 		background-color: $color;
+		z-index: -2;
 	}
 // ------------------------------------------------------------
 // For Pattern library colour swatches. Remove if this isn't include in a project

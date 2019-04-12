@@ -38,8 +38,9 @@
 // Initial paragraph styles
 .is-typeset--additionals {
 	> p:first-of-type {
+		@extend %font-heading;
 		color: $heading-color;
-		font-size: 125%;
+		@include font-size($gamma + 2);
 		@include leading($base-font-size*1.05);
 	}
 }

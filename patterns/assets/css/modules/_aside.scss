@@ -1,0 +1,13 @@
+// ------------------------------------------------------------
+// Aside
+// ------------------------------------------------------------
+
+.aside {
+    background-color: $mist;
+    padding: 3em;
+}
+
+.aside__title {
+    @extend %font-heading;
+    @include font-size($gamma);
+}

@@ -8,6 +8,10 @@
 		"stage": "approved"
 	},
 	{
+		"name": "T2-what-we-do",
+		"stage": "Template"
+	},
+	{
 		"name": "T3-1a-blog-post",
 		"stage": "Template"
 	}

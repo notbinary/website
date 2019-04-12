@@ -1,0 +1,21 @@
+// ------------------------------------------------------------
+// Callout
+// ------------------------------------------------------------
+
+.callout {
+    background-color: $sand;
+    padding: 3em;
+}
+
+.callout__copy {
+    @include font-size($gamma);
+    @extend %font-heading;
+    line-height: 1.4;
+    margin-bottom: 1em;
+}
+
+.callout__link {
+    color: $heading-color;
+    @include font-size($zeta);
+    text-decoration: underline;
+}

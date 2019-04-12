@@ -116,6 +116,7 @@
 		a {
 			color: $heading-color;
 			text-decoration: underline;
+			@include font-size($zeta);
 		}
 	}
 }

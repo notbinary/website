@@ -36,9 +36,10 @@
 
 .l-sidebar {
 	@extend %l;
+	@extend .padd-section-both;
 	&__aside {
 		@include respond-to($sidebar-respond) {
-			float: left;
+			float: right;
 			display: inline-block;
 			width: $sidebar-aside-width;
 		}

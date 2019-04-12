@@ -38,7 +38,7 @@ $table-respond						: $c-vp;								// Responsive tables
 $menu-respond						: 880px;								// If using ss/non ss navigation
 $sidebar-respond					: $c-vp;								// Sidebar switch point
 $sidebar-aside-width				: 32.5%;								// Sidebar column default
-$sidebar-body-width					: 67.5%;								// Sidebar body default
+$sidebar-body-width					: 60%;								// Sidebar body default
 
 
 // FFS assignments
@@ -84,4 +84,4 @@ $form-legend-size	: $gamma;		// Form legend size
 // Calc units
 // --------------------------------
 $rembase 			: 10;			// What do we want our units to calculate from. 10 is nice and easy
-$base-rhythm		: 24;			// Vertical rhythm
+$base-rhythm		: 28;			// Vertical rhythm

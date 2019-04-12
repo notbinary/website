@@ -198,3 +198,54 @@
 		}
 	}
 }
+
+
+// ------------------------------------------------------------
+// Secondary navigation
+// ------------------------------------------------------------
+
+.navigation-secondary {
+	margin-top: 1em;
+}
+
+.navigation-secondary__item {
+	@include font-size($para);
+	a {
+		position: relative;
+		padding: 0.5em 0;
+		display: block;
+		color: $base-color;
+		transition: all, ease-in-out, 0.3s;
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 0;
+			height: 100%;
+			background-color: $sand;
+			transition: all, ease-in-out, 0.3s;
+		}
+		@include link-active-styles {
+			background-color: $sand;
+			&:before {
+				left: -50px;
+				width: 50px;
+			}
+		}
+	}
+	&--active {
+		a {
+			background-color: $sand;
+			&:before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: -50px;
+				width: 50px;
+				height: 100%;
+				background-color: $sand;
+			}
+		}
+	}
+}
