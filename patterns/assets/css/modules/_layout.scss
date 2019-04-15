@@ -139,6 +139,79 @@
 }
 
 // ------------------------------------------------------------
+// 4 column grid
+// ------------------------------------------------------------
+.l-4up {
+	@extend %l;
+	@supports (display: grid) {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-column-gap: 40px;
+	}
+	@supports (display: -ms-grid) {
+		display: block;
+	}
+	@include respond-to($c-vp) {
+		@supports (display: grid) {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+			grid-column-gap: 40px;
+		}
+		@supports (display: -ms-grid) {
+			display: block;
+		}
+	}
+	&__col, .card {
+		margin-bottom: 3em;
+		float: left;
+		width: 47.5%;
+		margin-right: 5%;
+		&:nth-child(2n) {
+			margin-right: 0;
+		}
+		@supports (display: grid) {
+			width: auto;
+			margin-right: 0;
+		}
+		@supports (display: -ms-grid) {
+			float: left;
+			width: 47.5%;
+			margin-right: 5%;
+			&:nth-child(2n) {
+				margin-right: 0;
+			}
+		}
+		@include respond-to($c-vp) {
+			width: 21.25%;
+			&:nth-child(2n) {
+				margin-right: 21.25%;
+			}
+			&:nth-child(4n) {
+				margin-right: 0;
+			}
+			@supports (display: grid) {
+				width: auto;
+				margin-right: 0;
+				&:nth-child(2n) {
+					margin-right: 0;
+				}
+			}
+			@supports (display: -ms-grid) {
+				float: left;
+				width: 21.25%;
+				margin-right: 5%;
+				&:nth-child(2n) {
+					margin-right: 21.25%;
+				}
+				&:nth-child(4n) {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+}
+
+// ------------------------------------------------------------
 // Listings
 // ------------------------------------------------------------
 

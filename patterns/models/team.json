@@ -1,0 +1,36 @@
+{
+    "team_list": [
+	    {
+		    "image": "profile.png",
+		    "name": "Matt Jukes"
+		},
+        {
+		    "image": "profile-ingrid.png",
+		    "name": "Ingrid Kristine Leinum"
+		},
+        {
+		    "image": "profile-adam.png",
+		    "name": "Adam Elghazi"
+		},
+        {
+		    "image": "profile-rebecca.png",
+		    "name": "Rebecca Hull"
+		},
+        {
+           "image": "profile.png",
+           "name": "Matt Jukes"
+       },
+        {
+           "image": "profile-ingrid.png",
+           "name": "Ingrid Kristine Leinum"
+       },
+        {
+           "image": "profile-adam.png",
+           "name": "Adam Elghazi"
+       },
+        {
+           "image": "profile-rebecca.png",
+           "name": "Rebecca Hull"
+       }
+    ]
+}

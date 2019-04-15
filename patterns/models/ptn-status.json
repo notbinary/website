@@ -9,10 +9,18 @@
 	},
 	{
 		"name": "T2-what-we-do",
+		"stage": "review"
+	},
+	{
+		"name": "T2-2-team",
+		"stage": "review"
+	},
+	{
+		"name": "T3-0-case-studies",
 		"stage": "Template"
 	},
 	{
 		"name": "T3-1a-blog-post",
-		"stage": "Template"
+		"stage": "review"
 	}
 ]

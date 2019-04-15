@@ -23,6 +23,9 @@
     &__main {
         position: relative;
         margin-bottom: 5em;
+        .button {
+            margin-top: 1em;
+        }
         @include respond-to($c-vp) {
             width: 60%;
             float: left;
@@ -37,9 +40,23 @@
         .button {
             margin-top: 1em;
         }
+        &--major {
+            display: none;
+        }
         @include respond-to($c-vp) {
             width: 35%;
             float: right;
+            &--major {
+                display: block;
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 32%;
+                height: 100%;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-color: #fff;
+            }
         }
     }
 }
