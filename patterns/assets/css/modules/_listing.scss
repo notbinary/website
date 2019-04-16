@@ -4,23 +4,53 @@
 
 .listing {
 	margin-top: 3em;
-	&__heading {
-		@extend .type-xl;
-		@extend .heading;
-		margin-bottom: 0.25em;
+	border-bottom: 1px solid $mist;
+	padding-bottom: 3em;
+	.button {
+		margin-top: 1em;
+	}
+	&--block {
+		position: relative;
+		padding-bottom: 0;
+		border-bottom: none;
+		background-color: $mist;
+		padding: 3em 5em;
+		&:before {
+			content: "";
+			display: block;
+	        position: absolute;
+	        height: 1px;
+	        width: 60px;
+	        background-color: $sand;
+	        transform: rotate(50deg);
+	        left: -1em;
+	        top: 3.5em;
+		}
+	}
+	&__title {
+		@extend %font-heading;
+		@include font-size($beta);
+		margin-bottom: 0.5em;
+		line-height: 1.4;
 		a {
 			font-size: inherit;
 			line-height: inherit;
+			color: $heading-color;
+			border-bottom: 2px solid $sand;
 		}
 	}
-	&__metadata {
+	&__meta {
 		display: block;
-		@include font-size($epsilon);
-		margin-bottom: 0.25em;
+		@include font-size($eta);
+		text-transform: uppercase;
+		margin-bottom: 1em;
 	}
 	&__excerpt {
-		p {
-			@include font-size($epsilon);
+		@include font-size($epsilon);
+	}
+	&__media {
+		img {
+			@extend %max-width;
 		}
 	}
 }

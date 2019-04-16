@@ -23,6 +23,7 @@
 }
 
 a.card {
+    display: block;
     &:hover {
         background-color: $sand;
         &:before {

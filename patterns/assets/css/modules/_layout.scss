@@ -217,4 +217,17 @@
 
 .l-listing {
 	@extend %l;
+	&__aside {
+		margin-bottom: 1em;
+		@include respond-to($c-vp) {
+			float: left;
+			width: 30%;
+		}
+	}
+	&__main {
+		@include respond-to($c-vp) {
+			float: right;
+			width: 65%;
+		}
+	}
 }

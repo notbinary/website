@@ -17,10 +17,22 @@
 	},
 	{
 		"name": "T3-0-case-studies",
-		"stage": "Template"
+		"stage": "review"
+	},
+	{
+		"name": "T3-0a-job-listing",
+		"stage": "review"
+	},
+	{
+		"name": "T3-0b-blog-listing",
+		"stage": "review"
 	},
 	{
 		"name": "T3-1a-blog-post",
+		"stage": "review"
+	},
+	{
+		"name": "T4-contact",
 		"stage": "review"
 	}
 ]

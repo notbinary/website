@@ -1,0 +1,82 @@
+{# 1. Extend the relevant layout #}
+{# --------------------------------------- #}
+
+{% extends 'default.html' %}
+
+
+{# --------------------------------------- #}
+{# 2. Assign Settings and variables #}
+{# --------------------------------------- #}
+
+{% set id = "jobs" %}
+{% set section = "jobs" %}
+{% set title = "Vacancies" %}
+{% set subtitle = "Lorem ipsum dolor sit amet" %}
+
+
+{# --------------------------------------- #}
+{# 3. Add models and macros #}
+{# --------------------------------------- #}
+
+{% import 'macros/button.html' as buttons %}
+{% import 'macros/icon.html' as icons %}
+
+
+{# --------------------------------------- #}
+{#
+   4. Add page content into relevant areas
+      Add/Delete blocks as necessary
+#}
+{# --------------------------------------- #}
+
+{% block hero %}
+    {% include 'partials/hero.html' %}
+{% endblock %}
+
+{% block body %}
+    <section class="section">
+        <div class="row">
+            <div class="max-meter max-meter--center">
+                <div class="is-typeset is-typeset--additionals">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div class="listing listing--block">
+                    <h3 class="listing__title">Job listing title</h3>
+                    <p class="listing__excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <a href="#" class="button">View job</a>
+                </div>
+                <div class="listing listing--block">
+                    <h3 class="listing__title">Job listing title</h3>
+                    <p class="listing__excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <a href="#" class="button">View job</a>
+                </div>
+                <div class="listing listing--block">
+                    <h3 class="listing__title">Job listing title</h3>
+                    <p class="listing__excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <a href="#" class="button">View job</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="row">
+            <h2 class="section__title">More about us</h2>
+            <div class="l-3up">
+                <a href="#" class="card">
+                    <h3 class="card__title">Page title</h3>
+                    <p class="card__copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis commodo mattis nisi eu adipiscing.</p>
+                </a>
+                <a href="#" class="card">
+                    <h3 class="card__title">Page title</h3>
+                    <p class="card__copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis commodo mattis nisi eu adipiscing.</p>
+                </a>
+                <a href="#" class="card">
+                    <h3 class="card__title">Page title</h3>
+                    <p class="card__copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis commodo mattis nisi eu adipiscing.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

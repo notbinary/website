@@ -1,0 +1,42 @@
+{
+    "input": [
+	    {
+		    "field_spacing": false,
+		    "field_error": false,
+		    "item_id": "name",
+		    "item_label": "Name",
+		    "item_label_type": "",
+		    "item_type": "text",
+		    "item_placeholder": "Enter your name",
+		    "item_extras": ""
+		},
+		{
+		    "field_spacing": true,
+		    "field_error": false,
+		    "item_id": "email",
+		    "item_label": "Email",
+		    "item_label_type": "",
+		    "item_type": "email",
+		    "item_placeholder": "Email address",
+		    "item_extras": ""
+		},
+		{
+		    "field_spacing": true,
+		    "field_error": false,
+		    "item_id": "company",
+		    "item_label": "Company",
+		    "item_label_type": "",
+		    "item_type": "text",
+		    "item_placeholder": "Enter your company name"
+		}
+    ],
+    "textarea": [
+	    {
+		    "field_spacing": true,
+		    "field_error": false,
+		    "item_id": "textarea",
+		    "item_label": "Message",
+		    "item_label_type": ""
+		}
+	]
+}
