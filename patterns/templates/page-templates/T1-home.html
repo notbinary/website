@@ -1,0 +1,50 @@
+{# 1. Extend the relevant layout #}
+{# --------------------------------------- #}
+
+{% extends 'default.html' %}
+
+
+{# --------------------------------------- #}
+{# 2. Assign Settings and variables #}
+{# --------------------------------------- #}
+
+{% set id = "" %}
+{% set section = "blog" %}
+{% set title = "" %}
+
+
+{# --------------------------------------- #}
+{# 3. Add models and macros #}
+{# --------------------------------------- #}
+
+{% import 'macros/button.html' as buttons %}
+{% import 'macros/icon.html' as icons %}
+
+
+{# --------------------------------------- #}
+{#
+   4. Add page content into relevant areas
+      Add/Delete blocks as necessary
+#}
+{# --------------------------------------- #}
+
+{% block body %}
+	{% include 'partials/hero-home.html' %}
+
+    <section class="section">
+        <div class="row">
+            <div class="max-meter max-meter--center is-typeset is-typeset--additionals">
+                <p>Notbinary works with institutions to help them embrace the opportunities of the internet-era.</p>
+                <p>Trusted by government, education, charities and industry to design and engineer user-centric solutions to hard problems using modern cloud based technologies.</p>
+                <p>More than just technology challenges Notbinary supports institutions to implement lean & agile methodologies, new business models and engage their users to secure sustainable, successful change.</p>
+                <p>Many of our team are veterans of the very kinds of institutions we now seek to support which gives us both insights and empathy with the challenges our clients face and the expectations of their users.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="row">
+            
+        </div>
+    </section>
+{% endblock %}

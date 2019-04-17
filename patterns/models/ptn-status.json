@@ -8,6 +8,10 @@
 		"stage": "approved"
 	},
 	{
+		"name": "T1-home",
+		"stage": "template"
+	},
+	{
 		"name": "T2-what-we-do",
 		"stage": "review"
 	},

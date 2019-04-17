@@ -22,6 +22,9 @@
         }
     }
     @include respond-to($c-vp) {
+        &--home {
+            padding: 15em 0 17em 0;
+        }
         &--image {
             position: relative;
             padding-bottom: 0;
@@ -56,6 +59,43 @@
     line-height: 1.4;
     @include respond-to($c-vp) {
         @include font-size($alpha-papa);
+    }
+    .hero--home & {
+        display: inline-block;
+        margin-right: 10px;
+    }
+    // Animation
+    &.animate-big {
+        opacity: 0;
+        animation-name: big;
+        animation-duration: 0.5s;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
+    }
+    &.animate-small {
+        opacity: 0;
+        animation-name: small;
+        animation-duration: 0.5s;
+        animation-timing-function: ease-out;
+        animation-delay: 0.5s;
+        animation-fill-mode: forwards;
+    }
+    &.animate-swipe {
+        position: relative;
+        &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            background-color: $sand;
+            animation-name: swipe;
+            animation-duration: 0.5s;
+            animation-timing-function: ease-out;
+            animation-delay: 1s;
+            animation-fill-mode: forwards;
+        }
     }
 }
 
