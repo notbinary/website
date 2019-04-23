@@ -9,7 +9,7 @@
 {# --------------------------------------- #}
 
 {% set id = "" %}
-{% set section = "blog" %}
+{% set section = "" %}
 {% set title = "" %}
 
 
@@ -44,7 +44,37 @@
 
     <section class="section">
         <div class="row">
-            
+            <div class="l-2up">
+                <a href="#" class="card">
+                    <h3 class="card__title">What we do</h3>
+                    <p class="card__copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </a>
+                <a href="#" class="card">
+                    <h3 class="card__title">About us</h3>
+                    <p class="card__copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="row space-section-top">
+            <div class="l-2up">
+                <div class="l-2up__col">
+                    <div class="callout">
+                        <p class="callout__copy">… Notbinary have been amazing! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis commodo mattis nisi eu adipiscing…</p>
+                        <a class="callout__link" href="#">https://public.digital/2018/10/12/internet-era-ways-of-working/</a>
+                    </div>
+                </div>
+                <div class="l-2up__col">
+                    <aside class="banner__aside">
+                        <div class="banner__logo">
+                            <img src="{{ global.assets_root }}/img/case-study-logo.jpg" alt="alt tag">
+                        </div>
+                        <h3 class="banner__subtitle">MHGLC case study</h3>
+                        <p class="banner__copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <a href="#" class="button">Read case study</a>
+                    </aside>
+                </div>
+            </div>
         </div>
     </section>
 {% endblock %}

@@ -43,19 +43,28 @@
         &--major {
             display: none;
         }
+        .l-2up__col & {
+            margin-left: 2em;
+            margin-top: 4em;
+        }
         @include respond-to($c-vp) {
-            width: 35%;
-            float: right;
-            &--major {
-                display: block;
-                position: absolute;
-                top: 0;
-                right: 0;
-                width: 32%;
-                height: 100%;
-                background-size: contain;
-                background-repeat: no-repeat;
-                background-color: #fff;
+            .l-2up__col & {
+                margin-top: 0;
+            }
+            .banner & {
+                width: 35%;
+                float: right;
+                &--major {
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 32%;
+                    height: 100%;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-color: #fff;
+                }
             }
         }
     }

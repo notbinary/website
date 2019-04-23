@@ -186,6 +186,14 @@
 		margin: ($para/$rembase) + em 0;
 	}
 
+	a:not(.button) {
+		color: $heading-color;
+		border-bottom: 2px solid $sand;
+		@include link-active-styles {
+			border-color: $earth;
+		}
+	}
+
 	// Tear out the initial top margin to allow things to flush together
 	> h1:first-child,
 	> h2:first-child,

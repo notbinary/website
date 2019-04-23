@@ -28,6 +28,7 @@
 .l-error {
 	@extend %l;
 	padding-top: 2em;
+	padding-bottom: 4em;
 }
 
 // ------------------------------------------------------------
@@ -38,10 +39,12 @@
 	@extend %l;
 	@extend .padd-section-both;
 	&__aside {
+		margin-bottom: 3em;
 		@include respond-to($sidebar-respond) {
 			float: right;
 			display: inline-block;
 			width: $sidebar-aside-width;
+			margin-bottom: 0;
 		}
 	}
 	&__body {
@@ -184,7 +187,7 @@
 		@include respond-to($c-vp) {
 			width: 21.25%;
 			&:nth-child(2n) {
-				margin-right: 21.25%;
+				margin-right: 5%;
 			}
 			&:nth-child(4n) {
 				margin-right: 0;
@@ -201,7 +204,7 @@
 				width: 21.25%;
 				margin-right: 5%;
 				&:nth-child(2n) {
-					margin-right: 21.25%;
+					margin-right: 5%;
 				}
 				&:nth-child(4n) {
 					margin-right: 0;
