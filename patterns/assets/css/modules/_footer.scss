@@ -3,7 +3,7 @@
 // ------------------------------------------------------------
 
 .footer {
-    
+
 }
 
 .footer__main {
@@ -118,6 +118,9 @@
 .footer__logos {
     margin-top: 15px;
     li {
+        background-size: cover;
+        background-position: center;
+        min-height: 65px;
         display: inline-block;
         width: 33%;
         background-color: #fff;

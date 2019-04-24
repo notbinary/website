@@ -3,7 +3,7 @@
 // ------------------------------------------------------------
 
 .profile {
-
+    margin-bottom: 2em;
 }
 
 .profile__image {
@@ -36,4 +36,10 @@
     text-align: center;
     @include font-size($delta);
     line-height: 1.4;
+}
+
+.profile__bio {
+    @include font-size($para - 2);
+    margin-top: 0.5em;
+    text-align: center;
 }

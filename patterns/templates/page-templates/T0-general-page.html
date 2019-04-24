@@ -9,8 +9,8 @@
 {# --------------------------------------- #}
 
 {% set id = "" %}
-{% set section = "blog" %}
-{% set title = "Neither art nor science — my product philosophy" %}
+{% set section = "" %}
+{% set title = "Page title" %}
 
 
 {# --------------------------------------- #}
@@ -29,7 +29,7 @@
 {# --------------------------------------- #}
 
 {% block body %}
-	{% include 'partials/hero-post.html' %}
+	{% include 'partials/hero.html' %}
 
     <section class="section">
         <div class="row">
@@ -41,7 +41,7 @@
 
     <section class="section">
         <div class="row">
-            <h2 class="section__title">Related content title</h2>
+            <h2 class="section__title">More about us</h2>
             {% include 'partials/wayfinder.html' %}
         </div>
     </section>

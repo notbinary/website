@@ -41,6 +41,7 @@
             <div class="max-meter max-meter--center">
                 <div class="is-typeset">
                     <p>Whether you’re looking to become a client or you want to join our team we'd love to hear from you.</p>
+                    <p>Email: <a href="mailto:">contact@notbinary.co.uk</a></p>
                 </div>
                 <form class="form" action="index.html" method="post">
                     {% for item in form.input %}
@@ -53,6 +54,7 @@
                         <input class="button" type="submit" value="Submit">
                     </div>
                 </form>
+                <!-- <div class="ContactUsForm__Box-sc-12kitjm-0 jQBGrv"><div><div id="reactHubspotForm0" style="display: block;"><iframe id="hs-form-iframe-0" class="hs-form-iframe" scrolling="no" style="position: static; border: none; display: block; overflow: hidden; width: 503px; height: 517px;" height="517" width="503"></iframe></div></div></div> -->
             </div>
         </div>
     </section>
@@ -60,20 +62,7 @@
     <section class="section">
         <div class="row">
             <h2 class="section__title">More about us</h2>
-            <div class="l-3up">
-                <a href="#" class="card">
-                    <h3 class="card__title">Page title</h3>
-                    <p class="card__copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis commodo mattis nisi eu adipiscing.</p>
-                </a>
-                <a href="#" class="card">
-                    <h3 class="card__title">Page title</h3>
-                    <p class="card__copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis commodo mattis nisi eu adipiscing.</p>
-                </a>
-                <a href="#" class="card">
-                    <h3 class="card__title">Page title</h3>
-                    <p class="card__copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis commodo mattis nisi eu adipiscing.</p>
-                </a>
-            </div>
+            {% include 'partials/wayfinder.html' %}
         </div>
     </section>
 {% endblock %}

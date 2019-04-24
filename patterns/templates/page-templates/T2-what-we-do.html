@@ -82,9 +82,9 @@
                 </div>
                 <aside class="banner__aside">
                     <div class="banner__logo">
-                        <img src="{{ global.assets_root }}/img/case-study-logo.jpg" alt="alt tag">
+                        <img src="{{ global.assets_root }}/img/case-study-logo-2.jpg" alt="alt tag">
                     </div>
-                    <h3 class="banner__subtitle">MHGLC case study</h3>
+                    <h3 class="banner__subtitle">Ranger services case study</h3>
                     <p class="banner__copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     <a href="#" class="button">Read case study</a>
                 </aside>
@@ -97,9 +97,9 @@
                 </div>
                 <aside class="banner__aside">
                     <div class="banner__logo">
-                        <img src="{{ global.assets_root }}/img/case-study-logo.jpg" alt="alt tag">
+                        <img src="{{ global.assets_root }}/img/case-study-logo-3.jpg" alt="alt tag">
                     </div>
-                    <h3 class="banner__subtitle">MHGLC case study</h3>
+                    <h3 class="banner__subtitle">BBC case study</h3>
                     <p class="banner__copy">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     <a href="#" class="button">Read case study</a>
                 </aside>
@@ -124,20 +124,8 @@
         </div>
         <div class="row space-section-top">
             <h2 class="section__title">More about us</h2>
-            <div class="l-3up">
-                <a href="#" class="card">
-                    <h3 class="card__title">Page title</h3>
-                    <p class="card__copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis commodo mattis nisi eu adipiscing. </p>
-                </a>
-                <a href="#" class="card">
-                    <h3 class="card__title">Page title</h3>
-                    <p class="card__copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis commodo mattis nisi eu adipiscing. </p>
-                </a>
-                <a href="#" class="card">
-                    <h3 class="card__title">Page title</h3>
-                    <p class="card__copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis commodo mattis nisi eu adipiscing. </p>
-                </a>
-            </div>
+            {% include 'partials/wayfinder.html' %}
         </div>
+        </section>
     </section>
 {% endblock %}

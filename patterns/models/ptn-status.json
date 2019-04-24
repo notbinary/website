@@ -8,11 +8,19 @@
 		"stage": "approved"
 	},
 	{
+		"name": "T0-general-page",
+		"stage": "review"
+	},
+	{
 		"name": "T1-home",
 		"stage": "review"
 	},
 	{
 		"name": "T2-what-we-do",
+		"stage": "review"
+	},
+	{
+		"name": "T2a-about",
 		"stage": "review"
 	},
 	{
@@ -32,7 +40,15 @@
 		"stage": "review"
 	},
 	{
+		"name": "T3-1-case-study",
+		"stage": "review"
+	},
+	{
 		"name": "T3-1a-blog-post",
+		"stage": "review"
+	},
+	{
+		"name": "T3-1b-job-single",
 		"stage": "review"
 	},
 	{

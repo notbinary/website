@@ -4,8 +4,6 @@
 
 .card {
     position: relative;
-    background-color: #fff;
-    padding: 3em;
     box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.1);
     display: block;
     transition: all, ease-in-out, 0.3s;
@@ -25,7 +23,9 @@
 a.card {
     display: block;
     &:hover {
-        background-color: $sand;
+        .card__content {
+            background-color: $sand;
+        }
         &:before {
             left: 0;
             top: 0;
@@ -33,13 +33,41 @@ a.card {
     }
 }
 
+.card__media {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    min-height: 200px;
+    &--major {
+        min-height: 300px;
+    }
+}
+
+.card__content {
+    background-color: #fff;
+    padding: 3em;
+    transition: all, ease-in-out, 0.3s;
+}
+
 .card__title {
     @extend %font-heading;
     @include font-size($gamma);
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
 }
 
 .card__copy {
     @include font-size($para);
     color: $base-color;
+}
+
+.card__link {
+    @include font-size($para);
+    color: $base-color;
+    margin-top: 0.5em;
+    display: inline-block;
+    border-bottom: 2px solid $sand;
+    @include link-active-styles {
+        color: $base-color;
+        border-color: $earth;
+    }
 }
