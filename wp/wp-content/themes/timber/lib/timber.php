@@ -44,9 +44,7 @@ function add_to_context($data) {
                 'small_print' => get_field('small_print', 'option'),
             ),
             'twitter_link' => get_field('twitter_link', 'option'),
-            'facebook_link' => get_field('facebook_link', 'option'),
-            'instagram_link' => get_field('instagram_link', 'option'),
-            'youtube_link' => get_field('youtube_link', 'option'),
+            'medium_link' => get_field('medium_link', 'option'),
             'linkedin_link' => get_field('linkedin_link', 'option'),
             '404' => array(
                 'title' => get_field('error_404_title', 'option'),

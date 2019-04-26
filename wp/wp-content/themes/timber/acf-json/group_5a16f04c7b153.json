@@ -3,22 +3,6 @@
     "title": "Common - Social accounts",
     "fields": [
         {
-            "key": "field_5c754acc35176",
-            "label": "Facebook link",
-            "name": "facebook_link",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": ""
-        },
-        {
             "key": "field_5c754b0e35177",
             "label": "Twitter link",
             "name": "twitter_link",
@@ -36,24 +20,8 @@
         },
         {
             "key": "field_5c754b1635178",
-            "label": "Instagram link",
-            "name": "instagram_link",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": ""
-        },
-        {
-            "key": "field_5c754b3b35179",
-            "label": "YouTube link",
-            "name": "youtube_link",
+            "label": "Medium link",
+            "name": "medium_link",
             "type": "url",
             "instructions": "",
             "required": 0,
@@ -100,5 +68,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Global options for social accounts",
-    "modified": 1552647556
+    "modified": 1556297001
 }
