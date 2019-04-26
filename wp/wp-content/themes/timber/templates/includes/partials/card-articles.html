@@ -28,7 +28,7 @@
 	<div class="card__content">
 		<h2 class="card__heading"><a href="{{ item.link }}">{{ item.title }}</a></h2>
 		{% if item.imported_hero_image_url %}
-			<p class="card__excerpt">{{ item|content_excerpt_imported }}</p>
+			<p class="card__excerpt">{{ item|content }}</p>
 		{% else %}
 			<p class="card__excerpt">{{ item|content_excerpt }}</p>
 		{% endif %}

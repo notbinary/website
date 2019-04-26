@@ -2,9 +2,9 @@
     <div class="row">
         <div class="hero__caption">
         	<h1>
-        		<span class="hero__title animate-big">Think big.</span>
-        		<span class="hero__title animate-small">Start small.</span>
-        		<span class="hero__title animate-swipe">Learn fast.</span>
+        		{% for item in animated_strapline %}
+        			<span class="hero__title {{ item.select_an_animation_option }}">{{ item.strapline_part }}</span>
+        		{% endfor %}
         	</h1>
         </div>
         <span class="hero__flourish"></span>

@@ -80,7 +80,6 @@ function add_to_twig($twig) {
     $twig->addFilter('human_filesize', new Twig_Filter_Function('human_filesize_filter'));
     $twig->addFilter('includes', new Twig_Filter_Function('includes_string'));
     $twig->addFilter('content_excerpt', new Twig_Filter_Function('content_excerpt'));
-    $twig->addFilter('content_excerpt_imported', new Twig_Filter_Function('content_excerpt_imported'));
     $twig->addFilter('nice_name', new Twig_Filter_Function('nice_name'));
     $twig->addFilter('comments_length', new Twig_Filter_Function('comments_length'));
     $twig->addFilter('wrap_not_first', new Twig_Filter_Function('wrap_not_first'));
@@ -227,27 +226,13 @@ function includes_string ($text1, $text2) {
     return strpos($text1, $text2);
 }
 
-function content_excerpt($item, $content = 'simple_content') {
+function content_excerpt($item, $content = 'post_content') {
     try {
         if ($item->post_excerpt != '') {
             return $item->post_excerpt;
         }
         else {
-            return Timber\TextHelper::trim_words($item->$content, 20, false, '');
-        }
-    } catch (Exception $e) {
-        return '';
-    }
-}
-
-// Imported articles excerpt filter
-function content_excerpt_imported($item, $content = 'imported_content') {
-    try {
-        if ($item->post_excerpt != '') {
-            return $item->post_excerpt;
-        }
-        else {
-            return Timber\TextHelper::trim_words($item->$content, 20, false, '') . '&hellip;';
+            return Timber\TextHelper::trim_words($item->$content, 40, '&hellip;', '');
         }
     } catch (Exception $e) {
         return '';

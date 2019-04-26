@@ -9,7 +9,8 @@ require_once __DIR__ . '/tinymce.php';
  */
 function unregister_default_taxonomies(){
     global $wp_taxonomies;
-    $taxonomies = array('category', 'post_tag');
+    // $taxonomies = array('category', 'post_tag');
+    $taxonomies = array('post_tag');
     foreach($taxonomies as $taxonomy) {
         if (taxonomy_exists($taxonomy)) {
             unset($wp_taxonomies[$taxonomy]);
@@ -46,7 +47,7 @@ if (!empty($post_type_files)) {
 add_action('admin_init', 'remove_page_support');
 function remove_page_support() {
     // remove_post_type_support('page', 'editor');     // content editor
-    remove_post_type_support('page', 'thumbnail');  // thumbnail
+    // remove_post_type_support('page', 'thumbnail');  // thumbnail
 }
 
 
