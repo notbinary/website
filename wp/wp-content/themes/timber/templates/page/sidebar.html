@@ -1,0 +1,16 @@
+{% extends 'sidebar.html' %}
+
+{% block body_id %}who-we-are{% endblock %}
+{% block body_class %}who-we-are{% endblock %}
+
+{% block hero %}
+    {% include 'partials/hero.html' %}
+{% endblock %}
+
+{% block aside %}
+    {% include 'navigation/aside.html' %}
+{% endblock %}
+
+{% block main %}
+    {% include 'partials/flexible-content-sidebar.html' with { item: content } %}
+{% endblock %}

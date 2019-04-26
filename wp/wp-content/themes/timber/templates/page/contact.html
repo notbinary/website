@@ -1,0 +1,33 @@
+{% extends 'default.html' %}
+
+{% block body_id %}contact{% endblock %}
+
+{% block hero %}
+    {% include 'partials/hero.html' %}
+{% endblock %}
+
+{% block body %}
+
+    {% include 'partials/location-contact-intro.html' %}
+
+    <div class="row" id="form">
+        <section class="section section--cloud section--headed section--padded">
+            <div class="section__heading">
+                <h2 class="section__title">Get in <span>touch</span></h2>
+            </div>
+            <div class="form form--max-meter js-contact-form">
+                {{ post.contact_form_shortcode|shortcodes }}
+            </div>
+        </section>
+    </div>
+
+    {% if show_tenant_services_block %}
+        <div class="row">
+            {% include 'partials/tenant-services.html' with{
+                controls_class : "controls--leader"
+                }
+            %}
+        </div>
+    {% endif %}
+
+{% endblock %}

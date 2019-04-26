@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--[if IE 9]> <html lang="en-GB" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en-GB" class="no-js"><!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{{ wp_title }}{% endblock %}</title>
+
+    {% block html_header %}
+        {% include 'scaffold/header-assets.html' %}
+    {% endblock %}
+
+    {% include 'scaffold/seo.html' %}
+    {{ wp_head }}
+
+    {% block head_extra %}{% endblock %}
+</head>
+<body class="body body--{% block body_class %}{% endblock %} {{ fn('get_body_class') | join(' ') }}" id="body-{% block body_id %}{% endblock %}">
+    <div class="ui-base">
+        <a href="#pagecontent" class="skiplink" data-js="skiplink">Skip to main content</a>
+        {% block header %}
+            {% include 'scaffold/header.html' %}
+        {% endblock %}
+        {% block hero %}{% endblock %}
+        <!-- ID and -nofocus required for proper skiplink operation -->
+        <main id="pagecontent" class="pagecontent -nofocus" role="main" tabindex="-1">
+            {% block body %}{% endblock %}
+            {% block postbody %}{% endblock %}
+        </main>
+        {% block footer %}
+            {% include 'scaffold/footer.html' %}
+        {% endblock %}
+    </div>
+    {% include 'scaffold/footer-assets.html' %}
+    {% block html_footer %}
+    {% endblock %}
+    <div class="cms-out">
+        {{ wp_footer() }}
+    </div>
+</body>
+</html>

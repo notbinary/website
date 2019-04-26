@@ -1,0 +1,43 @@
+{
+    "key": "group_5a16ef82a55a2",
+    "title": "Small print",
+    "fields": [
+        {
+            "key": "field_5a16ef896500c",
+            "label": "Small print",
+            "name": "small_print",
+            "type": "textarea",
+            "instructions": "Small print text is displayed after © and current year",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": "br"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-footer"
+            }
+        ]
+    ],
+    "menu_order": 10,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "Small print for the footer",
+    "modified": 1551191660
+}

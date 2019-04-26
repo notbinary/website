@@ -1,0 +1,16 @@
+{% extends 'default.html' %}
+
+{% block body %}
+    <section class="section">
+        <div class="row">
+            <div class="l-standard">
+                <div class="l-standard__body article-canvas">
+                    <div class="is-typeset">
+                        {% block main %}{% endblock %}
+                    </div>
+                    {% block post_main %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
