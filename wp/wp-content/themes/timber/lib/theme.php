@@ -59,7 +59,7 @@ if( function_exists('acf_add_options_page') ) {
     $parent = acf_add_options_page(array(
         'page_title'    => 'Common',
         'menu_title'    => 'Common',
-        'position'      => '-100',
+        'position'      => '40',
         'capability'    => 'delete_others_pages',
         'redirect'      => true
     ));

@@ -1,22 +1,19 @@
 <footer role="contentinfo" class="footer">
-    <div class="row">
-        <div class="footer__contact">
-            <div class="branding"></div>
-            <div class="footer__contact__message">
-                <p>{{ global.footer.footer_contact_message}}</p>
-            </div>
-            <ul class="footer__icons">
+    <div class="footer__strip">
+        <div class="row">
+            {% if footer_menu %}
+            <ul class="footer__navigation">
+                {% for item in footer_menu.get_items %}
+                    <li><a href="{{ item.link }}">{{ item.title }}</a></li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <ul class="footer__social">
             	{% if global.twitter_link %}
             		<li><a class="icon icon--twitter" href="{{ global.twitter_link }}"><em>Twitter</em></a></li>
             	{% endif %}
-            	{% if global.facebook_link %}
-            		<li><a class="icon icon--facebook" href="{{ global.facebook_link }}"><em>Facebook</em></a></li>
-            	{% endif %}
-            	{% if global.instagram_link %}
-            		<li><a class="icon icon--instagram" href="{{ global.instagram_link }}"><em>Instagram</em></a></li>
-            	{% endif %}
-            	{% if global.youtube_link %}
-            		<li><a class="icon icon--youtube" href="{{ global.youtube_link }}"><em>YouTube</em></a></li>
+            	{% if global.medium_link %}
+            		<li><a class="icon icon--medium" href="{{ global.medium_link }}"><em>Medium</em></a></li>
             	{% endif %}
             	{% if global.linkedin_link %}
             		<li><a class="icon icon--linkedin" href="{{ global.linkedin_link }}"><em>LinkedIn</em></a></li>
@@ -24,22 +21,28 @@
             </ul>
         </div>
     </div>
-    <div class="row">
-        <div class="footer__secondary">
-            {% if global.footer.small_print %}
-            <div class="footer__meta">
-                	<p>{{ global.footer.small_print }}</p>
+    <div class="footer__main">
+        <div class="row">
+            <div class="l-2up">
+                <div class="l-2up__col">
+                    <div class="footer__copy">
+                        <span class="footer__marque"></span>
+                        {{ group_content|wpautop }}
+                    </div>
+                </div>
+                <div class="l-2up__col">
+                    <ul class="footer__logos">
+                        {% for item in group_logos %}
+                            <li style="background-image: url({{ TimberImage(item.group_logo.url) | resize(500,0) }});"></li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
-            {% endif %}
-            {% if footer_menu %}
-	            <div class="footer__menu">
-	                <ul class="menu">
-	                	{% for item in footer_menu.get_items %}
-							<li class="menu__item"><a class="menu__item__link" href="{{ item.link }}">{{ item.title }}</a></li>
-				        {% endfor %}
-	                </ul>
-	            </div>
-            {% endif %}
         </div>
+        {% if global.footer.small_print %}
+        <div class="row">
+            <span class="footer__meta">&copy; {{ 'now' | date('Y') }} {{ global.footer.small_print }}</span>
+        </div>
+        {% endif %}
     </div>
 </footer>

@@ -1,6 +1,6 @@
 {
     "key": "group_5a16ef82a55a2",
-    "title": "Small print",
+    "title": "Global - Footer",
     "fields": [
         {
             "key": "field_5a16ef896500c",
@@ -20,6 +20,70 @@
             "maxlength": "",
             "rows": "",
             "new_lines": "br"
+        },
+        {
+            "key": "field_5cc330c6b3a7e",
+            "label": "Group content",
+            "name": "group_content",
+            "type": "wysiwyg",
+            "instructions": "Enter content to describe the Panoply group in the footer",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "link",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_5cc3314564421",
+            "label": "Group logos",
+            "name": "group_logos",
+            "type": "repeater",
+            "instructions": "Enter logos for other Panoply Group members",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_5cc3315f64422",
+                    "label": "Group logo",
+                    "name": "group_logo",
+                    "type": "image",
+                    "instructions": "Add an image of a group member logo, ideal size is around 500px wide and preferably as a transparent PNG file.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -39,5 +103,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Small print for the footer",
-    "modified": 1551191660
+    "modified": 1556296397
 }
