@@ -1,0 +1,36 @@
+<div class="hero hero--simple">
+	<div class="row">
+	    <div class="hero__caption">
+	        <h1 class="hero__heading">{{ post.title }}</h1>
+	        {% if post.hero_meta %}
+				<div class="hero__meta">
+					<p>{{ post.hero_meta }}</p>
+				</div>
+			{% endif %}
+			{% if post.post_type == 'articles' or post.post_type == 'help' and  archive != true%}
+				<div class="person-info">
+					{% if post.author.avatar %}
+						<div class="person-info__img" style="background-image: url({{ post.author.avatar }}"></div>
+					{% endif %}
+					<div class="person-info__name">Written by {{ post.author.name }}</div>
+				</div>
+			{% endif %}
+	    </div>
+		{% if ( post.slug != 'home') %}
+			<div class="hero__breadcrumbs">
+				<a href="{{ home }}" class="page">Home</a>
+				<i class="divider">/</i>
+				{% if post.parent.title %}
+					<a href="{{ post.parent.link }}" class="page">{{ post.parent.title }}</a>
+					<i class="divider">/</i>
+
+				{% elseif post.post_type == 'articles' %}
+					<a href="/news/" class="page">News</a>
+					<i class="divider">/</i>
+
+				{% endif %}
+				<div class="page page--active">{{ post.title }}</div>
+			</div>
+		{% endif %}
+	</div>
+</div>

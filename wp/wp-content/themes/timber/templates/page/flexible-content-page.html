@@ -1,0 +1,14 @@
+{% extends 'default.html' %}
+
+{% block body_id %}page{% endblock %}
+{% block body_class %}page{% endblock %}
+
+{% block hero %}
+    {% include 'partials/hero.html' %}
+{% endblock %}
+
+{% block body %}
+
+	{% include 'partials/flexible-content-article.html' with { item: content } %}
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{
+    "key": "group_5a16f4b064a7a",
+    "title": "Global - Contact form include",
+    "fields": [
+        {
+            "key": "field_5a16f5c005cb9",
+            "label": "Contact form shortcode",
+            "name": "contact_form_shortcode",
+            "type": "text",
+            "instructions": "The shortcode from the related <a href=\"\/wp\/wp-admin\/admin.php?page=wpcf7\" target=\"_blank\">Contact form<\/a>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "default"
+            }
+        ]
+    ],
+    "menu_order": 20,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 0,
+    "description": "",
+    "modified": 1556223697
+}

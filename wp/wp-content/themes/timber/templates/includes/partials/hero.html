@@ -1,0 +1,66 @@
+{% if imported_hero_image_url %}
+	er hello?
+	<div class="hero background-cover{% if ( post.slug == 'home') %} hero--home{% endif %} {% if ( post.post_type == 'article') %} hero--article{% endif %}" style="background-image:url({{ TimberImage(imported_hero_image_url) | resize(1600, 900) }})">
+{% else %}
+	<div id="ri{{hero_image.ID}}" class="hero background-cover{% if ( post.slug == 'home') %} hero--home{% endif %} {% if ( post.post_type == 'article') %} hero--article{% endif %}">
+	{% include 'includes/responsive/ri.html'
+        with {
+            id: hero_image.ID,
+            image: hero_image,
+            orig_width: 1600,
+            orig_height: 900
+        }
+    %}
+{% endif %}
+	<div class="row">
+		<div class="hero__caption">
+			{% if post.post_type == 'articles' %}
+				<p class="hero__date">{{ post.date|date("d M y") }}</p>
+			{% endif %}
+			<h1 class="hero__heading">{{ post.title }}</h1>
+			{% if post.hero_meta %}
+				<div class="hero__meta">
+					<p>{{ post.hero_meta }}</p>
+				</div>
+			{% endif %}
+			{% if post.post_type == 'articles' or post.post_type == 'help' and  archive != true%}
+				<div class="person-info">
+					{% if post.author.avatar %}
+    					<div class="person-info__img" style="background-image: url({{ post.author.avatar }}"></div>
+    				{% endif %}
+    				<div class="person-info__name">Written by {{ post.author.name }}</div>
+    			</div>
+			{% endif %}
+			{% if post.post_name == 'work-with-us' %}
+				<a href="{{ vacancies_module_button_link }}" class="button">{{ vacancies_module_button_label }}</a>
+			{% endif %}
+		</div>
+		{% if ( post.slug != 'home') %}
+		<div class="hero__breadcrumbs">
+			<a href="{{ home }}" class="page">Home</a>
+			<i class="divider">/</i>
+			{% if post.parent.title %}
+				<a href="{{ post.parent.link }}" class="page">{{ post.parent.title }}</a>
+				<i class="divider">/</i>
+
+			{% elseif post.post_type == 'articles' %}
+				<a href="/news/" class="page">News</a>
+				<i class="divider">/</i>
+
+			{% elseif post.post_type == 'locations' %}
+				<a href="/locations/" class="page">Locations</a>
+				<i class="divider">/</i>
+
+			{% elseif post.post_type == 'help' %}
+				<a href="/help-guidance/" class="page">Help &amp; Guidance</a>
+				<i class="divider">/</i>
+				{% if archive != true%}
+					<a href="{{ help_guidance_term.link }}" class="page">{{ help_guidance_term.name }}</a>
+					<i class="divider">/</i>
+				{% endif %}
+			{% endif %}
+			<div class="page page--active">{{ post.title }}</div>
+		</div>
+		{% endif %}
+	</div>
+</div>

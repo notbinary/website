@@ -1,0 +1,49 @@
+{
+    "key": "group_5a5cc650af394",
+    "title": "Related content for articles",
+    "fields": [
+        {
+            "key": "field_5a5cc6830c3a7",
+            "label": "Related Content",
+            "name": "related_content",
+            "type": "relationship",
+            "instructions": "Select up to three other articles to link to from this article.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "articles"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": "",
+            "max": 3,
+            "return_format": "id"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "articles"
+            }
+        ]
+    ],
+    "menu_order": 11,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "Related content selection for individual articles",
+    "modified": 1551874862
+}

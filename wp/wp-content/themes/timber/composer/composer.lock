@@ -1,0 +1,54 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "867d49ac665abd5911ee5aa704b864f2",
+    "packages": [
+        {
+            "name": "fffunction/twig-static",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fffunction/twig-static.git",
+                "reference": "2c8114310192e8591e965da3148118c2dc32c989"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fffunction/twig-static/zipball/2c8114310192e8591e965da3148118c2dc32c989",
+                "reference": "2c8114310192e8591e965da3148118c2dc32c989",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "6"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/twig-static.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dan Reeves",
+                    "email": "danr@fffunction.co"
+                }
+            ],
+            "description": "A filter that takes a static file path and returns a URL versioned with the file hash",
+            "time": "2017-07-07T15:38:48+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

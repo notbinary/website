@@ -1,0 +1,110 @@
+{
+    "key": "group_5cc33986943a3",
+    "title": "Home - Page links",
+    "fields": [
+        {
+            "key": "field_5cc3398c0f70d",
+            "label": "Page links",
+            "name": "page_links",
+            "type": "repeater",
+            "instructions": "Add links to up to two pages to include on the homepage. Designed to be links to About us and What we do pages",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 1,
+            "max": 2,
+            "layout": "row",
+            "button_label": "Add page link",
+            "sub_fields": [
+                {
+                    "key": "field_5cc339bd0f70e",
+                    "label": "Page link",
+                    "name": "page_link",
+                    "type": "post_object",
+                    "instructions": "Select a page to link to",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "page"
+                    ],
+                    "taxonomy": "",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "return_format": "object",
+                    "ui": 1
+                },
+                {
+                    "key": "field_5cc339da0f70f",
+                    "label": "Page excerpt override (optional)",
+                    "name": "page_excerpt_override",
+                    "type": "textarea",
+                    "instructions": "Add content here to override the excerpt of the page linked to",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": ""
+                },
+                {
+                    "key": "field_5cc3409762cd4",
+                    "label": "Page thumbnail override (optional)",
+                    "name": "page_thumbnail_override",
+                    "type": "image",
+                    "instructions": "Will override the page's post thumbnail",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page",
+                "operator": "==",
+                "value": "2"
+            }
+        ]
+    ],
+    "menu_order": 10,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1556300101
+}

@@ -1,0 +1,59 @@
+{
+    "key": "group_5cc3439f679bc",
+    "title": "Home - Callout",
+    "fields": [
+        {
+            "key": "field_5cc343a9944ae",
+            "label": "Callout content",
+            "name": "callout_content",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "link",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_5cc343c5944af",
+            "label": "Callout link",
+            "name": "callout_link",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page",
+                "operator": "==",
+                "value": "2"
+            }
+        ]
+    ],
+    "menu_order": 20,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1556300857
+}

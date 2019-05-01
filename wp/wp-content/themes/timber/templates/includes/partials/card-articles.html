@@ -1,0 +1,36 @@
+<div class="card">
+	<div class="card__media">
+		<a class="card__media__link" href="{{ item.link }}">
+			{% if item.event_article == true %}
+				<div class="card__tag">Event</div>
+			{% endif %}
+			{% if item.imported_hero_image_url %}
+				<img src="{{ TimberImage(item.imported_hero_image_url) | resize(720, 390) }}" alt="Image for {{ item.title }}">
+			{% else %}
+				{% include 'includes/responsive/srcset.html'
+					with {
+						image: item.hero_image,
+						vw: '(min-width: 1700px) 25vw, (min-width: 1060px) 30vw, (min-width: 780px) 50vw, 100vw',
+						target_width: 720,
+						target_height: 390,
+						alt: 'Image for ' ~ item.title,
+						class: 'card__image'
+					}
+				%}
+			{% endif %}
+		</a>
+		{% if item.post_type != 'help' %}
+			<div class="card__tab">
+				<div class="card__date">{{ item.date|date('d M y') }}</div>
+			</div>
+		{% endif %}
+	</div>
+	<div class="card__content">
+		<h2 class="card__heading"><a href="{{ item.link }}">{{ item.title }}</a></h2>
+		{% if item.imported_hero_image_url %}
+			<p class="card__excerpt">{{ item|content }}</p>
+		{% else %}
+			<p class="card__excerpt">{{ item|content_excerpt }}</p>
+		{% endif %}
+	</div>
+</div>

@@ -1,0 +1,17 @@
+<style scoped>
+    {% if not crop %}{% set crop = 'center' %}{% endif %}
+    {% if not prefix %}{% set prefix = 'ri' %}{% endif %}
+    {% set multiplier = 2 %}
+    {% for size in responsive_sizes %}
+        {% if loop.index < loop.length %}{% set dimensions = responsive_sizes[loop.index] %}{% else %}{% set dimensions = size %}{% endif %}
+        {% set maxwidth = 1920 %}
+        {% set width = dimensions %}
+        {% set height = (orig_height / orig_width) * width %}
+        {% if size > maxwidth * 0.667 %}{% set multiplier = 1.3 %}{% endif %}
+        {% set width2x = width * multiplier %}
+        {% set height2x = height * multiplier %}
+        {% set url = TimberImage(image) | resize(width, height, crop) %}
+        {% set url_2x = TimberImage(image) | resize(width2x, height2x, crop) %}
+        @media all and (min-width: {{ size }}px) { #{{ prefix }}{{ id }} {background-image: url({{ url }});background-image: -webkit-image-set(url("{{ url }}") 1x, url("{{ url_2x }}") 2x);background-image: image-set(url("{{ url }}") 1x, url("{{ url_2x }}") 2x);}}
+    {% endfor %}
+</style>

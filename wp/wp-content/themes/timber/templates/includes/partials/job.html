@@ -1,0 +1,36 @@
+<div class="job">
+    <div class="job__main">
+        <h4 class="job__title">{{ item.job_title }}</h4>
+        {% if item.application_deadline %}
+            <span class="job__meta">Application deadline: {{ item.application_deadline|date('d.m.Y') }}</span>
+        {% endif %}
+        <div class="job__description is-typeset">
+            {{ item.description|content }}
+        </div>
+    </div>
+    <aside class="job__aside">
+        <ul class="job__list">
+            {% if item.salary %}
+                <li>Salary: {{ item.salary }}</li>
+            {% endif %}
+            {% if item.hours %}
+                <li>Hours: {{ item.hours }}</li>
+            {% endif %}
+            {% if item.holiday %}
+                <li>Holiday: {{ item.holiday }}</li>
+            {% endif %}
+            {% if item.other_benefits %}
+                <li class="job__list__subhead">Other benefits</li>
+                {% set other_benefits = item.other_benefits|split('\r\n') %}
+                {% for term in other_benefits %}
+                    {% if term %}
+                        <li>{{ term }}</li>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </ul>
+        {% if item.display_apply_button %}
+            <a href="mailto:{{ item.application_email }}" class="job__button">Apply</a>
+        {% endif %}
+    </aside>
+</div>

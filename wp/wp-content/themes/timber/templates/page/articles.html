@@ -1,0 +1,32 @@
+{% extends 'default.html' %}
+
+{% block hero %}
+    {% include 'partials/hero.html' %}
+{% endblock %}
+
+{% block body_id %}news{% endblock %}
+{% block body_class %}news{% endblock %}
+
+{% block body %}
+    {% if featured_article and pagination.page <= 1 %}
+        <div class="row">
+            {% include 'partials/card-featured.html' %}
+        </div>
+    {% endif %}
+    <div class="row">
+        <div class="l-3up l-3up--switch">
+            {% for item in articles %}
+                <div class="l-3up__col">
+                    {% include 'partials/card-articles.html'%}
+                </div>
+            {% endfor %}
+        </div>
+        {% if not articles %}
+            <span class="alert alert--error">Sorry, no articles found.</span>
+        {% endif %}
+        {% include 'navigation/pagination.html'%}
+    </div>
+    {% if newsletter_module_title %}
+        {% include 'partials/newsletter.html' %}
+    {% endif %}
+{% endblock %}
