@@ -1,15 +1,11 @@
-<a href="{{ item.page_link.url }}" class="card">
-                    {% if item.page_thumbnail_override %}
-                        <div class="card__media card__media--major" style="background-image: url({{ item.page_thumbnail_override|resize(580,300) }});"></div>
-                    {% elseif item.page_link.thumbnail %}
-                        <div class="card__media card__media--major" style="background-image: url({{ item.page_link.thumbnail|resize(580,300) }});"></div>
-                    {% endif %}
-                    <div class="card__content">
-                        <h3 class="card__title">{{ item.page_link.post_title }}</h3>
-                        {% if item.page_excerpt_override %}
-                            <p class="card__copy">{{ item.page_excerpt_override }}</p>
-                        {% else %}
-                            <p class="card__copy">{{ item.page_link|content_excerpt }}</p>
+<a href="{{ item.link }}" class="card">
+                        {% if item.post_type == 'post' %}
+                            <div class="card__media" style="background-image: url({{ TimberImage(item.hero_image)|resize(720,480) }});"></div>
+                        {% elseif item.post_type == 'page' %}
+                            <div class="card__media" style="background-image: url({{ item.thumbnail|resize(720,480) }});"></div>
                         {% endif %}
-                    </div>
-                </a>
+                        <div class="card__content">
+                            <h3 class="card__title">{{ item.post_title }}</h3>
+                            <p class="card__copy">{{ item|content_excerpt }}</p>
+                        </div>
+                    </a>

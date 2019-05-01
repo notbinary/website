@@ -27,12 +27,13 @@ if ( is_day() ) {
 
 $blog_posts_mixin = listing_mixin(array(
     'post_type'      => 'post',
-    'posts_per_page' => 10,
+    'posts_per_page' => 12,
     'orderby'        => 'date',
     'order'          => 'DESC',
 ));
 $context = $blog_posts_mixin($context);
 
 $context['categories'] = get_categories();
+$context['subheading'] = get_field('subheading');
 
 Timber::render( $templates, $context );

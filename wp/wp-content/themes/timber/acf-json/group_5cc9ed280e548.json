@@ -1,9 +1,9 @@
 {
-    "key": "group_5a5cc650af394",
-    "title": "Blog - Related content",
+    "key": "group_5cc9ed280e548",
+    "title": "Page - Related content",
     "fields": [
         {
-            "key": "field_5cc9b6cb12272",
+            "key": "field_5cc9ed2811e20",
             "label": "Related content title",
             "name": "related_content_title",
             "type": "text",
@@ -22,11 +22,11 @@
             "maxlength": ""
         },
         {
-            "key": "field_5a5cc6830c3a7",
+            "key": "field_5cc9ed2811e39",
             "label": "Related Content",
             "name": "related_content",
             "type": "relationship",
-            "instructions": "Select up to three other articles to link to from this article.",
+            "instructions": "Select up to three other pages to link to from this page. Used to link to About \/ What we do \/ Culture pages",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -35,13 +35,11 @@
                 "id": ""
             },
             "post_type": [
-                "page",
-                "post"
+                "page"
             ],
             "taxonomy": "",
             "filters": [
-                "search",
-                "taxonomy"
+                "search"
             ],
             "elements": "",
             "min": "",
@@ -54,7 +52,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "post"
+                "value": "page"
             }
         ]
     ],
@@ -65,6 +63,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": 1,
-    "description": "Related content selection for individual blog posts",
-    "modified": 1556738065
+    "description": "Related content selection for page templates",
+    "modified": 1556737389
 }

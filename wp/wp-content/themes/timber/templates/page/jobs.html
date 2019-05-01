@@ -1,18 +1,26 @@
 {% extends 'default.html' %}
 
-{% block body_id %}blog{% endblock %}
-{% block body_class %}blog{% endblock %}
-
 {% block hero %}
-    {% include 'partials/hero.html' %}
+    {% include 'partials/hero-jobs.html' %}
 {% endblock %}
+
+{% block body_id %}jobs{% endblock %}
+{% block body_class %}jobs{% endblock %}
 
 {% block body %}
 
     <section class="section">
         <div class="row">
-            <div class="max-meter max-meter--center is-typeset wysiwyg">
-                {% include 'partials/flexible-content-blog.html' with { item: content } %}
+            <div class="max-meter max-meter--center">
+                <div class="is-typeset is-typeset--additionals">
+                    {{ content|wpautop }}
+                </div>
+                {% for item in jobs %}
+                    {% include 'partials/listing-job.html'%}
+                {% endfor %}
+                {% if not posts %}
+                    <span class="alert alert--error">Sorry, no jobs are available at the moment.</span>
+                {% endif %}
             </div>
         </div>
     </section>
@@ -29,15 +37,5 @@
             </div>
         </section>
     {% endif %}
-
-    {# Categories commented out for now
-    <div class="row">
-        <ul>
-        {% for term in Term(categories) %}
-            <li><a href="{{ term.link }}">{{ term.name }}</a></li>
-        {% endfor %}
-        </ul>
-    </div>
-    #}
 
 {% endblock %}

@@ -92,24 +92,14 @@ function routePostsToPage ($pageTemplate, $postType, $postTemplate) {
 }
 
 /**
- * News urls
+ * Jobs urls
  */
-$news_archive = load_archive('articles');
-Routes::map('/news/page/:pg', $news_archive);
-Routes::map('/news/:cat_or_year', $news_archive);
-Routes::map('/news/:cat_or_year/page/:pg', $news_archive);
-Routes::map('/news/:cat_or_year/:month', $news_archive);
-Routes::map('/news/:cat_or_year/:month/page/:pg', $news_archive);
-
-/**
- * Locations urls
- */
-$locations_archive = load_archive('locations');
-Routes::map('/locations/page/:pg', $locations_archive);
-Routes::map('/locations/:cat_or_year', $locations_archive);
-Routes::map('/locations/:cat_or_year/page/:pg', $locations_archive);
-Routes::map('/locations/:cat_or_year/:month', $locations_archive);
-Routes::map('/locations/:cat_or_year/:month/page/:pg', $locations_archive);
+$jobs_archive = load_archive('jobs');
+Routes::map('/jobs/page/:pg', $jobs_archive);
+Routes::map('/jobs/:cat_or_year', $jobs_archive);
+Routes::map('/jobs/:cat_or_year/page/:pg', $jobs_archive);
+Routes::map('/jobs/:cat_or_year/:month', $jobs_archive);
+Routes::map('/jobs/:cat_or_year/:month/page/:pg', $jobs_archive);
 
 /**
  * Blog urls

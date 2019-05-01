@@ -15,7 +15,7 @@
 function listing_mixin($my_args=array()) {
     $defaults = array(
         'post_type'      => 'news',
-        'posts_per_page' => 9,
+        'posts_per_page' => 12,
         'orderby'        => 'date',
         'order'          => 'DESC',
         'category'       => 'category',
