@@ -34,7 +34,7 @@ require_once __DIR__ . '/lib/page_sidebar_menu.php';
 $GLOBALS['home'] = home_url() . '/';
 $GLOBALS['assets'] = '/assets/';
 $GLOBALS['current_user'] = wp_get_current_user();
-$GLOBALS['responsive_sizes'] = array(300, 500, 780, 1060, 1290, 1360, 1480, 1920);
+$GLOBALS['responsive_sizes'] = array(300, 500, 780, 1060, 1200);
 
 /**
  * Add Google Maps API key to ACF

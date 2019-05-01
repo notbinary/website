@@ -1,13 +1,13 @@
 {
     "key": "group_5a16d4cf206fa",
-    "title": "Global - Hero",
+    "title": "Blog - Hero Image",
     "fields": [
         {
             "key": "field_5a16dd81f3bf0",
             "label": "Image",
             "name": "hero_image",
             "type": "image",
-            "instructions": "Main hero image for the page, optimum image size 1600x1065px",
+            "instructions": "Main hero image for blog posts, optimum image size 1200px by 500px",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -25,25 +25,6 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
-        },
-        {
-            "key": "field_5a16dde9f3bf1",
-            "label": "Subhead",
-            "name": "hero_meta",
-            "type": "textarea",
-            "instructions": "Optional: subhead for the hero",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": 4,
-            "new_lines": ""
         }
     ],
     "location": [
@@ -51,17 +32,17 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "page"
+                "value": "post"
             }
         ]
     ],
     "menu_order": 0,
-    "position": "normal",
+    "position": "acf_after_title",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 0,
-    "description": "",
-    "modified": 1556223708
+    "active": 1,
+    "description": "Main hero image for blog posts",
+    "modified": 1556720190
 }

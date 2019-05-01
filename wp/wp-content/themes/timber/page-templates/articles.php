@@ -1,6 +1,6 @@
 <?php
 /*
-    Template name: Articles
+    Template name: Blog
  */
 
 $context = get_context();

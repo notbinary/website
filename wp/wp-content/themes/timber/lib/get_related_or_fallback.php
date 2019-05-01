@@ -2,7 +2,7 @@
 /*
 * Get related or fallback
 */
-function get_related_or_fallback($post, $post_types = array('articles')) {
+function get_related_or_fallback($post, $post_types = array('post','page')) {
 
     $posts_required = 3;
     $taxonomy = 'category';

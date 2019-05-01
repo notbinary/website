@@ -1,7 +1,26 @@
 {
     "key": "group_5a5cc650af394",
-    "title": "Related content for articles",
+    "title": "Blog - Related content",
     "fields": [
+        {
+            "key": "field_5cc9b6cb12272",
+            "label": "Related content title",
+            "name": "related_content_title",
+            "type": "text",
+            "instructions": "Title for the related content section",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Related posts",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
         {
             "key": "field_5a5cc6830c3a7",
             "label": "Related Content",
@@ -16,11 +35,13 @@
                 "id": ""
             },
             "post_type": [
-                "articles"
+                "page",
+                "post"
             ],
             "taxonomy": "",
             "filters": [
-                "search"
+                "search",
+                "taxonomy"
             ],
             "elements": "",
             "min": "",
@@ -33,17 +54,17 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "articles"
+                "value": "post"
             }
         ]
     ],
-    "menu_order": 11,
+    "menu_order": 20,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": 1,
-    "description": "Related content selection for individual articles",
-    "modified": 1551874862
+    "description": "Related content selection for individual blog posts",
+    "modified": 1556723423
 }

@@ -1,13 +1,13 @@
 {
     "key": "group_5c81524d52d39",
-    "title": "Flexible Content - Article with link to story",
+    "title": "Blog - Flexible Content",
     "fields": [
         {
             "key": "field_5c81524d55ecd",
             "label": "Flexible Content",
             "name": "flexible_content",
             "type": "flexible_content",
-            "instructions": "Build the article layout by adding from the available block types, you can see them in the pattern library here: <a href=\"http:\/\/brunelcare.surge.sh\/page-templates\/T12-article\">http:\/\/brunelcare.surge.sh\/page-templates\/T12-article<\/a>",
+            "instructions": "Build the article layout by adding from the available block types from content editor, call out quote, and call out content.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -16,45 +16,16 @@
                 "id": ""
             },
             "layouts": {
-                "5a18339a0e7fd": {
-                    "key": "5a18339a0e7fd",
-                    "name": "subhead",
-                    "label": "Subhead",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_5c81524d5936b",
-                            "label": "Subhead",
-                            "name": "subhead",
-                            "type": "textarea",
-                            "instructions": "Subhead for the block",
-                            "required": 1,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "maxlength": "",
-                            "rows": 4,
-                            "new_lines": ""
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
                 "5a1833ff0e7ff": {
                     "key": "5a1833ff0e7ff",
-                    "name": "rich_text",
-                    "label": "Rich text",
+                    "name": "content_editor",
+                    "label": "Content editor",
                     "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_5c81524d5938f",
-                            "label": "Content",
-                            "name": "content",
+                            "label": "Content editor",
+                            "name": "content_editor",
                             "type": "wysiwyg",
                             "instructions": "Rich text content",
                             "required": 1,
@@ -66,118 +37,9 @@
                             },
                             "default_value": "",
                             "tabs": "all",
-                            "toolbar": "simple",
+                            "toolbar": "full",
                             "media_upload": 1,
-                            "delay": 1
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                "5a54ec4b9b026": {
-                    "key": "5a54ec4b9b026",
-                    "name": "story",
-                    "label": "Story",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_5c81524d593c2",
-                            "label": "Story",
-                            "name": "story",
-                            "type": "relationship",
-                            "instructions": "Add a story to the page",
-                            "required": 1,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "post_type": [
-                                "stories"
-                            ],
-                            "taxonomy": "",
-                            "filters": [
-                                "search"
-                            ],
-                            "elements": "",
-                            "min": "",
-                            "max": 1,
-                            "return_format": "object"
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                "layout_5c7ee5ba9e46a": {
-                    "key": "layout_5c7ee5ba9e46a",
-                    "name": "video_gallery",
-                    "label": "Video gallery",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_5c81524d593e4",
-                            "label": "Video",
-                            "name": "video",
-                            "type": "oembed",
-                            "instructions": "Add a video to the gallery",
-                            "required": 1,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "width": 560,
-                            "height": 315
-                        },
-                        {
-                            "key": "field_5c81524d59419",
-                            "label": "Image 1",
-                            "name": "image_1",
-                            "type": "image",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "id",
-                            "preview_size": "thumbnail",
-                            "library": "all",
-                            "min_width": "",
-                            "min_height": "",
-                            "min_size": "",
-                            "max_width": "",
-                            "max_height": "",
-                            "max_size": "",
-                            "mime_types": ""
-                        },
-                        {
-                            "key": "field_5c81524d5942e",
-                            "label": "Image 2",
-                            "name": "image_2",
-                            "type": "image",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "id",
-                            "preview_size": "thumbnail",
-                            "library": "all",
-                            "min_width": "",
-                            "min_height": "",
-                            "min_size": "",
-                            "max_width": "",
-                            "max_height": "",
-                            "max_size": "",
-                            "mime_types": ""
+                            "delay": 0
                         }
                     ],
                     "min": "",
@@ -185,40 +47,16 @@
                 },
                 "layout_5c814f6c7ab56": {
                     "key": "layout_5c814f6c7ab56",
-                    "name": "quote",
-                    "label": "Quote",
+                    "name": "call_out_quote",
+                    "label": "Call out quote",
                     "display": "block",
                     "sub_fields": [
-                        {
-                            "key": "field_5c81524d59441",
-                            "label": "Quote image",
-                            "name": "quote_image",
-                            "type": "image",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "id",
-                            "preview_size": "thumbnail",
-                            "library": "all",
-                            "min_width": "",
-                            "min_height": "",
-                            "min_size": "",
-                            "max_width": "",
-                            "max_height": "",
-                            "max_size": "",
-                            "mime_types": ""
-                        },
                         {
                             "key": "field_5c81524d59455",
                             "label": "Quote content",
                             "name": "quote_content",
                             "type": "wysiwyg",
-                            "instructions": "",
+                            "instructions": "Enter the quote content",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -237,7 +75,7 @@
                             "label": "Quote source",
                             "name": "quote_source",
                             "type": "text",
-                            "instructions": "",
+                            "instructions": "Enter the source for this quote",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -250,6 +88,67 @@
                             "prepend": "",
                             "append": "",
                             "maxlength": ""
+                        },
+                        {
+                            "key": "field_5c81524d59441",
+                            "label": "Quote link",
+                            "name": "quote_link",
+                            "type": "url",
+                            "instructions": "Enter the URL for this link",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5cc9b24a8267d": {
+                    "key": "layout_5cc9b24a8267d",
+                    "name": "call_out_content",
+                    "label": "Call out content",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5cc9b24a8267e",
+                            "label": "Call out content",
+                            "name": "call_out_content",
+                            "type": "wysiwyg",
+                            "instructions": "Enter the call out content",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "link",
+                            "media_upload": 0,
+                            "delay": 0
+                        },
+                        {
+                            "key": "field_5cc9b24a82680",
+                            "label": "Call out link",
+                            "name": "call_out_link",
+                            "type": "url",
+                            "instructions": "Enter the URL for this link",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": ""
                         }
                     ],
                     "min": "",
@@ -266,7 +165,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "help"
+                "value": "post"
             }
         ]
     ],
@@ -276,7 +175,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 0,
-    "description": "Flexible content field for News, Help",
-    "modified": 1551983441
+    "active": 1,
+    "description": "Flexible content field for blog posts",
+    "modified": 1556722411
 }
