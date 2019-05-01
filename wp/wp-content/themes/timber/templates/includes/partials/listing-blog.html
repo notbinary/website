@@ -1,0 +1,12 @@
+<div class="l-listing listing">
+                    <aside class="l-listing__aside">
+                        <div class="listing__media">
+                            <img src="{{TimberImage(item.hero_image)|resize(360,240)}}" alt="Image for {{ item.title }}">
+                        </div>
+                    </aside>
+                    <div class="l-listing__main">
+                        <h3 class="listing__title"><a href="{{ item.link }}">{{ item.title }}</a></h3>
+                        <span class="listing__meta">{{ item.date|date("d M y") }}</span>
+                        <p class="listing__excerpt">{{ item|content_excerpt }}</p>
+                    </div>
+                </div>

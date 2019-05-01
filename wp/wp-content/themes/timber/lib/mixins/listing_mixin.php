@@ -65,7 +65,7 @@ function listing_mixin($my_args=array()) {
                 );
             }
         }
-// echo '<pre>'; print_r($args); echo '</pre>';
+
         query_posts($args);
         if ($my_args['archive']) {
             $context['archive'] = $wpdb->get_results("

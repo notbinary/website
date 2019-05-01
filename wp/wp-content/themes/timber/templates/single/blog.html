@@ -31,4 +31,14 @@
         </section>
     {% endif %}
 
+    {# Categories commented out for now
+    <div class="row">
+        <ul>
+        {% for term in Term(categories) %}
+            <li><a href="{{ term.link }}">{{ term.name }}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+    #}
+
 {% endblock %}

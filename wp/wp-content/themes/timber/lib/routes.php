@@ -111,3 +111,13 @@ Routes::map('/locations/:cat_or_year/page/:pg', $locations_archive);
 Routes::map('/locations/:cat_or_year/:month', $locations_archive);
 Routes::map('/locations/:cat_or_year/:month/page/:pg', $locations_archive);
 
+/**
+ * Blog urls
+ */
+$blog_archive = load_archive('blog');
+Routes::map('/blog/page/:pg', $blog_archive);
+Routes::map('/blog/:cat_or_year', $blog_archive);
+Routes::map('/blog/:cat_or_year/page/:pg', $blog_archive);
+Routes::map('/blog/:cat_or_year/:month', $blog_archive);
+Routes::map('/blog/:cat_or_year/:month/page/:pg', $blog_archive);
+

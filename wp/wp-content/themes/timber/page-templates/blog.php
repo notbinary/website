@@ -1,24 +1,13 @@
 <?php
 /**
- * The template for displaying Archive pages.
- *
- * Used to display archive-type pages if nothing more specific matches a query.
- * For example, puts together date-based pages if no date.php file exists.
- *
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
- *
- * Methods for TimberHelper can be found in the /lib sub-directory
- *
- * @package  WordPress
- * @subpackage  Timber
- * @since   Timber 0.2
+ * Template Name: Blog
  */
 
-$templates = array('archive.html');
+$templates = array('page/blog.html');
 
 $context = Timber::context();
 
-$context['title'] = 'Archive';
+$context['title'] = 'Blog';
 if ( is_day() ) {
 	$context['title'] = 'Archive: ' . get_the_date( 'D M Y' );
 } else if ( is_month() ) {
@@ -29,12 +18,21 @@ if ( is_day() ) {
 	$context['title'] = single_tag_title( '', false );
 } else if ( is_category() ) {
 	$context['title'] = single_cat_title( '', false );
+	$context['description'] = category_description();
 	// array_unshift( $templates, 'archive-' . get_query_var( 'cat' ) . '.html' );
 } else if ( is_post_type_archive() ) {
 	$context['title'] = post_type_archive_title( '', false );
 	// array_unshift( $templates, 'archive-' . get_post_type() . '.html' );
 }
 
-$context['posts'] = new Timber\PostQuery();
+$blog_posts_mixin = listing_mixin(array(
+    'post_type'      => 'post',
+    'posts_per_page' => 10,
+    'orderby'        => 'date',
+    'order'          => 'DESC',
+));
+$context = $blog_posts_mixin($context);
+
+$context['categories'] = get_categories();
 
 Timber::render( $templates, $context );

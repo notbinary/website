@@ -1,43 +1,30 @@
 {% if pagination and pagination.pages|length %}
-    <div class="row">
-        <ul class="paging">
-            {% if pagination.prev %}
-                <li class="paging__item paging__prev">
-                    <a class="paging__link" href="{{ pagination.prev.link }}">Prev</a>
-                </li>
-            {% endif %}
-            {# comment out
-            {% for page in pagination.pages %}
-                <li class="paging__item">
-                    {% if page.link %}
-                        <a href="{{page.link}}" class="paging__link">{{ page.title }}</a>
-                    {% else %}
-                        <span class="paging__link paging__item--current">{{ page.title }}</span>
-                    {% endif %}
-                </li>
-            {% endfor %}
-            #}
-            {% for page in pagination.pages %}
-                {% if page.title >= pagination.page - 3 and page.title <= pagination.page + 3 %}
-                    {% if page.current %}
-                        <li class="paging__item">
-                            <span class="paging__link paging__link--current">{{ page.title }}</span>
-                        </li>
-                    {% else %}
-                        <li class="paging__item">
-                            <a class="paging__link" href="{{ page.link }}">{{ page.title }}</a>
-                        </li>
-                    {% endif %}
+    <ul class="pagination">
+        {% if pagination.prev %}
+            <li class="pagination__item pagination__item--prev">
+                <a class="pagination__item-prev-link" href="{{ pagination.prev.link }}">Prev</a>
+            </li>
+        {% endif %}
+        {% for page in pagination.pages %}
+            {% if page.title >= pagination.page - 3 and page.title <= pagination.page + 3 %}
+                {% if page.current %}
+                    <li class="pagination__item">
+                        <span class="pagination__item-link pagination__item-link--active">{{ page.title }}</span>
+                    </li>
+                {% else %}
+                    <li class="pagination__item">
+                        <a class="pagination__item-link" href="{{ page.link }}">{{ page.title }}</a>
+                    </li>
                 {% endif %}
-            {% endfor %}
-            {% if pagination.next %}
-                <li class="paging__item">
-                    <span class="paging__link">&hellip;</span>
-                </li>
-                <li class="paging__item paging__next">
-                    <a class="paging__link" href="{{ pagination.next.link }}">Next</a>
-                </li>
             {% endif %}
-        </ul>
-    </div>
+        {% endfor %}
+        {% if pagination.next %}
+            <li class="pagination__item">
+                <span class="pagination__item-link">&hellip;</span>
+            </li>
+            <li class="pagination__item pagination__item--next">
+                <a class="pagination__item-link" href="{{ pagination.next.link }}">Next</a>
+            </li>
+        {% endif %}
+    </ul>
 {% endif %}
