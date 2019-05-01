@@ -15,7 +15,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "Related posts",
+            "default_value": "More about us",
             "placeholder": "",
             "prepend": "",
             "append": "",
@@ -64,5 +64,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Related content selection for page templates",
-    "modified": 1556737389
+    "modified": 1556740781
 }
