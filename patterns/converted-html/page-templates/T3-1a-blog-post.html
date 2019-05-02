@@ -179,6 +179,58 @@
 
     <section class="section">
         <div class="row">
+            <div class="max-meter max-meter--center">
+                <div class="is-typeset">
+                    <h3 class="comments__title">Comments</h3>
+                </div>
+                <div class="comment" id="blog-comment-1">
+                    <div class="comment__meta">
+                        <img src="https://secure.gravatar.com/avatar/d7a973c7dab26985da5f961be7b74480?s=36&amp;d=assets%2Fimg%2Favatar.png&amp;r=G" alt="Image of A WordPress Commenter">
+                        <p class="comment__author">A WordPress Commenter</p>
+                        <p class="date">Posted on 25th April, 2019:</p>
+                    </div>
+                    <div class="comment__content is-typeset">
+                        <p>Hi, this is a comment.<br>To get started with moderating, editing, and deleting comments, please visit the Comments screen in the dashboard.<br>Commenter avatars come from <a href="https://gravatar.com">Gravatar</a>.</p>
+                    </div>
+                </div>
+                <div class="comment" id="blog-comment-4">
+                    <div class="comment__meta">
+                        <img src="https://secure.gravatar.com/avatar/13695bf0ea29c8e86edf2dde29febe5e?s=36&amp;d=assets%2Fimg%2Favatar.png&amp;r=G" alt="Image of Ben Coleman">
+                        <p class="comment__author">
+                            <a href="https://bteam.co">Ben Coleman</a>
+                        </p>
+                        <p class="date">Posted on 1st May, 2019:</p>
+                    </div>
+                    <div class="comment__content is-typeset">
+                        <p>This is another comment from me, Ben.</p>
+                    </div>
+                </div>
+                <div class="comment-form">
+                    <form class="form" method="post" action="https://l.not-binary/wp/wp-comments-post.php">
+                        <h3 class="type-m heading">Add a comment</h3>
+                        <input type="hidden" name="email" value="">
+                        <input type="hidden" name="author" value="Ben Coleman">
+                        <input type="hidden" name="url" value="https://l.not-binary/author/bencoleman/">
+                        <div class="form-field form-field--spaced">
+                            <label class="form-label" for="comment">Comment</label>
+                            <textarea class="form-item" placeholder="Leave a comment..." name="comment" cols="60" rows="3" id="comment"></textarea>
+                        </div>
+                        <input name="comment_post_ID" value="1" type="hidden">
+                        <input name="comment_parent" value="0" type="hidden">
+                        <div class="form-field form-field--spaced">
+                            <button type="submit" name="Submit" class="button">Send</button>
+                        </div>
+                        <div class="form-field form-field--spaced is-typeset">
+                            <p>Your comment will be revised by the site if needed.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="row">
             <h2 class="section__title">Related content title</h2>
             <div class="l-3up">
     <a href="#" class="card">

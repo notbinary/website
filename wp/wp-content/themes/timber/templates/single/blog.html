@@ -17,6 +17,28 @@
         </div>
     </section>
 
+    <section class="section">
+        <div class="row">
+            <div class="max-meter max-meter--center">
+                {% if post.comments %}
+                    <div class="is-typeset">
+                        <h3 class="comments__title">Comments</h3>
+                    </div>
+                    {% for cmt in post.comments %}
+                        {% include "partials/comment.html" with { comment:cmt } %}
+                    {% endfor %}
+                {% endif %}
+                {% if post.comment_status == "closed" %}
+                    <div class="is-typeset">
+                        <p>Comments for this post are closed</p>
+                    </div>
+                {% else %}
+                    {% include "partials/comment-form.html" %}
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
     {% if related_content %}
         <section class="section">
             <div class="row">
