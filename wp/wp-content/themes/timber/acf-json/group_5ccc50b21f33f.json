@@ -1,0 +1,43 @@
+{
+    "key": "group_5ccc50b21f33f",
+    "title": "What we do - tweet?",
+    "fields": [
+        {
+            "key": "field_5ccc51290a2b7",
+            "label": "Tweet",
+            "name": "tweet",
+            "type": "wysiwyg",
+            "instructions": "Paste a link to a tweet here e.g. https:\/\/twitter.com\/psd\/status\/1070968066681593858",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "link",
+            "media_upload": 0,
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-templates\/what-we-do.php"
+            }
+        ]
+    ],
+    "menu_order": 30,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1556894183
+}

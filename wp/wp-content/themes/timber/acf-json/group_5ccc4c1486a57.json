@@ -1,0 +1,108 @@
+{
+    "key": "group_5ccc4c1486a57",
+    "title": "What we do - Services",
+    "fields": [
+        {
+            "key": "field_5ccc4c264522c",
+            "label": "Services",
+            "name": "services",
+            "type": "repeater",
+            "instructions": "Add services",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add service",
+            "sub_fields": [
+                {
+                    "key": "field_5ccc4c384522d",
+                    "label": "Service title",
+                    "name": "service_title",
+                    "type": "text",
+                    "instructions": "Add the name of the service, e.g. \"Software engineering\"",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5ccc4c604522e",
+                    "label": "Service description",
+                    "name": "service_description",
+                    "type": "textarea",
+                    "instructions": "Add a paragraph about the service",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": ""
+                },
+                {
+                    "key": "field_5ccc4c734522f",
+                    "label": "Service case study",
+                    "name": "service_case_study",
+                    "type": "relationship",
+                    "instructions": "Select a case study to link to that demonstrates this service",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "case-studies"
+                    ],
+                    "taxonomy": "",
+                    "filters": [
+                        "search"
+                    ],
+                    "elements": "",
+                    "min": "",
+                    "max": 1,
+                    "return_format": "object"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-templates\/what-we-do.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "Adds a link to a tweet to the What we do page at the bottom",
+    "modified": 1556894337
+}

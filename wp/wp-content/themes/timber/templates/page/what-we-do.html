@@ -18,9 +18,42 @@
 {% endblock %}
 
 {% block after_body %}
-    {% if related_content %}
-        <section class="section">
-            <div class="row">
+    {% if services %}
+    <section class="section">
+        <div class="row">
+            {% for service in services %}
+                {% include 'partials/listing-service.html' %}
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+
+    <section class="section">
+        {% if callout_content or tweet %}
+        <div class="row space-section-top">
+            <div class="l-2up">
+                {% if callout_content %}
+                <div class="l-2up__col">
+                    <div class="callout">
+                        <div class="callout__copy">
+                            {{ callout_content|wpautop }}
+                        </div>
+                        {% if callout_link %}
+                            <a class="callout__link" href="{{ callout_link }}">{{ callout_link }}</a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+                {% if tweet %}
+                    <div class="l-2up__col">
+                        {{ tweet|wpautop }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+        {% if related_content %}
+            <div class="row space-section-top">
                 <h2 class="section__title">{{ related_content_title }}</h2>
                 <div class="l-3up">
                 {% for item in related_content %}
@@ -28,6 +61,7 @@
                 {% endfor %}
                 </div>
             </div>
-        </section>
-    {% endif %}
+        {% endif %}
+    </section>
+
 {% endblock %}

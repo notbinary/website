@@ -1,0 +1,59 @@
+{
+    "key": "group_5ccc50afb8f15",
+    "title": "What we do - Callout",
+    "fields": [
+        {
+            "key": "field_5ccc50c6b1421",
+            "label": "Callout content",
+            "name": "callout_content",
+            "type": "wysiwyg",
+            "instructions": "Enter content for the yellow callout box here",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "link",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_5ccc50eab1422",
+            "label": "Callout link",
+            "name": "callout_link",
+            "type": "url",
+            "instructions": "Enter a link to appear in the callout box",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-templates\/what-we-do.php"
+            }
+        ]
+    ],
+    "menu_order": 20,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "Adds a yellow callout box to the What we do page at the bottom",
+    "modified": 1556894364
+}

@@ -1,0 +1,20 @@
+<div class="banner">
+                    <span class="banner__flourish"></span>
+                    <div class="banner__main">
+                        <h2 class="banner__title">{{ service.service_title }}</h2>
+                        <p class="banner__copy">{{ service.service_description }}</p>
+                    </div>
+                    {% if service.service_case_study %}
+                        {% for item in service.service_case_study %}
+                            <aside class="banner__aside">
+                                <div class="banner__logo">
+                                    <img src="{{ TimberImage(item.client_logo)|resize(160,160) }}" alt="Image for {{ item.post_title }}">
+
+                                </div>
+                                <h3 class="banner__subtitle">{{ item.post_title }}</h3>
+                                <p class="banner__copy">{{ item|content_excerpt }}</p>
+                                <a href="{{ function('get_permalink',item.ID) }}" class="button">Read case study</a>
+                            </aside>
+                        {% endfor %}
+                    {% endif %}
+                </div>
