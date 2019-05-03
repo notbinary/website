@@ -1,0 +1,33 @@
+{% extends 'default.html' %}
+
+{% block body_id %}case-study{% endblock %}
+{% block body_class %}case-study{% endblock %}
+
+{% block hero %}
+    {% include 'partials/hero-case-study.html' %}
+{% endblock %}
+
+{% block body %}
+
+    <section class="section">
+        <div class="row">
+            <div class="max-meter max-meter--center is-typeset wysiwyg">
+                {% include 'partials/flexible-content-blog.html' with { item: content } %}
+            </div>
+        </div>
+    </section>
+
+    {% if related_content %}
+        <section class="section">
+            <div class="row">
+                <h2 class="section__title">{{ related_content_title }}</h2>
+                <div class="l-3up">
+                {% for item in related_content %}
+                    {% include 'partials/card.html' %}
+                {% endfor %}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+{% endblock %}

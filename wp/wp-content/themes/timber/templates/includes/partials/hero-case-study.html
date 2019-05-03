@@ -1,0 +1,31 @@
+<div class="hero hero--image">
+    <div class="row">
+        <div class="hero__caption">
+            <h1 class="hero__title">{{ post.title }}</h1>
+        </div>
+        <div class="hero-image">
+            <div class="hero-image__left">
+                {% include 'includes/responsive/srcset.html'
+					with {
+						image: post.hero_image,
+						vw: '(min-width: 1060px) 1200px, (min-width: 780px) 1060px, (min-width: 500px) 780px, 500px',
+						target_width: 1200,
+						target_height: 500,
+						alt: 'Image for ' ~ post.title,
+					}
+				%}
+            </div>
+            <div class="hero-image__right">
+                {% include 'includes/responsive/srcset.html'
+					with {
+						image: post.hero_image,
+						vw: '(min-width: 1060px) 1200px, (min-width: 780px) 1060px, (min-width: 500px) 780px, 500px',
+						target_width: 1200,
+						target_height: 500,
+						alt: 'Image for ' ~ post.title,
+					}
+				%}
+            </div>
+        </div>
+    </div>
+</div>

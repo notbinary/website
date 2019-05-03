@@ -36,7 +36,8 @@
             },
             "post_type": [
                 "page",
-                "post"
+                "post",
+                "case-studies"
             ],
             "taxonomy": "",
             "filters": [
@@ -56,6 +57,13 @@
                 "operator": "==",
                 "value": "post"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "case-studies"
+            }
         ]
     ],
     "menu_order": 20,
@@ -66,5 +74,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Related content selection for individual blog posts",
-    "modified": 1556738065
+    "modified": 1556878693
 }

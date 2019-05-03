@@ -1,6 +1,6 @@
 {
     "key": "group_5c81524d52d39",
-    "title": "Blog - Flexible Content",
+    "title": "Blog \/ Case Study - Flexible Content",
     "fields": [
         {
             "key": "field_5c81524d55ecd",
@@ -167,6 +167,13 @@
                 "operator": "==",
                 "value": "post"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "case-studies"
+            }
         ]
     ],
     "menu_order": 10,
@@ -177,5 +184,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Flexible content field for blog posts",
-    "modified": 1556722411
+    "modified": 1556878137
 }
