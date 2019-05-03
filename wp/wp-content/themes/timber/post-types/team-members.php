@@ -23,11 +23,11 @@ function team_member_init() {
 		'show_in_nav_menus' => true,
 		'supports'          => array('title', 'revisions', 'excerpt'),
 		'has_archive'       => false,
-		'rewrite'           => array('slug' => 'life-at-brunelcare/individual-stories'),
+		'rewrite'           => array('slug' => 'about-us/team'),
 		'query_var'         => true,
 		'menu_icon'         => 'dashicons-id-alt',
 		'show_in_rest'      => true,
-		'rest_base'         => 'life-at-brunelcare/individual-stories',
+		'rest_base'         => 'about-us/team',
 		'rest_controller_class' => 'WP_REST_Posts_Controller',
 	) );
 
