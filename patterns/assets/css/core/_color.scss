@@ -45,7 +45,7 @@ $default-border-color 				: $mist;
 // Forms
 $form-label-color					: $heading-color;
 $form-legend-color					: $heading-color;
-$form-placeholder-color				: #ddd;
+$form-placeholder-color				: darken($mist, 25%);
 $form-checkbox-color				: $heading-color;
 $form-radio-color					: $heading-color;
 

@@ -2,33 +2,86 @@
 // Wordpress specific comment styles
 // ------------------------------------------------------------
 
+.comments__title {
+	@extend %font-heading;
+	@include font-size($gamma);
+	margin-bottom: 1em;
+}
+
+.comment {
+	background-color: #fff;
+	padding: 2em;
+	box-shadow: 0 1px 4px rgba(0,0,0,.03);
+	margin-bottom: 1em;
+}
+
+.comment__meta {
+	overflow: hidden;
+	margin-bottom: 1.5em;
+	img {
+		float: left;
+		margin-right: 10px;
+		margin-top: 2px;
+	}
+	.comment__author {
+		@extend %font-heading;
+		color: $heading-color;
+		@include font-size($zeta);
+	}
+	.date {
+		@include font-size($eta - 2);
+		text-transform: uppercase;
+	}
+}
+
+.comment-form {
+	margin-top: 3em;
+}
+
+.comment-form__response {
+	background-color: #fff;
+	padding: 2em;
+	box-shadow: 0 1px 4px rgba(0,0,0,.03);
+	textarea {
+		border: none;
+		padding: 0;
+		&::-webkit-input-placeholder 		{ color: $form-placeholder-color; }
+		&:-moz-placeholder 					{ color: $form-placeholder-color; }
+		&::-moz-placeholder 				{ color: $form-placeholder-color; }
+		&:-ms-input-placeholder 			{ color: $form-placeholder-color; }
+	}
+	.button {
+		width: auto;
+	}
+}
+
 .comments-section {
-	
+
 }
 
 .comments-section__title {
-	
+
 }
 
 .comments-section__title__post-title {
-		
+
 }
 
 .comments-list {
-	
+
 }
 
 .comment {
 	border-bottom: $default-border-width solid $default-border-color;
 	@extend %pie-clearfix;
 	&.comment--last {
-		
+
 	}
 }
 
 .comment__author-link {
 	&.comment__author-link--post-author {
-		
+
 	}
 }
 
@@ -48,44 +101,44 @@
 }
 
 .comment__post {
-	
+
 }
 
 .comment__post-buttons {
 	a {
-		
+
 	}
 }
 
 .comment__reply-button {
-	
+
 }
 
 .comment__edit-button {
-	
+
 }
 
 .comment__reply-button--cancel {
-	
+
 }
 
 .comment__logged-as {
-	
+
 }
 
 .comment__logged-as__link {
-	
+
 }
 
 .children{
 	.comment-list__item {
-		
+
 		&.comment-list__item--author {
-			
+
 		}
 	}
 }
 
 #commentform {
-	
+
 }
