@@ -1,10 +1,10 @@
 {% extends 'sidebar.html' %}
 
-{% block body_id %}who-we-are{% endblock %}
-{% block body_class %}who-we-are{% endblock %}
+{% block body_id %}sidebar-page{% endblock %}
+{% block body_class %}sidebar-page{% endblock %}
 
 {% block hero %}
-    {% include 'partials/hero.html' %}
+    {% include 'partials/hero-subheading.html' %}
 {% endblock %}
 
 {% block aside %}
@@ -12,5 +12,22 @@
 {% endblock %}
 
 {% block main %}
-    {% include 'partials/flexible-content-sidebar.html' with { item: content } %}
+	<div class="is-typeset is-typeset--additionals wysiwyg">
+		{{ post.content|wpautop }}
+	</div>
+{% endblock %}
+
+{% block after_body %}
+    {% if related_content %}
+        <section class="section">
+            <div class="row">
+                <h2 class="section__title">{{ related_content_title }}</h2>
+                <div class="l-3up">
+                {% for item in related_content %}
+                    {% include 'partials/card.html' %}
+                {% endfor %}
+                </div>
+            </div>
+        </section>
+    {% endif %}
 {% endblock %}

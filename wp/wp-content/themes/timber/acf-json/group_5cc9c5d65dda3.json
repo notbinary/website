@@ -1,6 +1,6 @@
 {
     "key": "group_5cc9c5d65dda3",
-    "title": "Blog \/ Jobs \/ Case Studies \/ Section Heading Page - subheading",
+    "title": "Blog \/ Jobs \/ Case Studies \/ Section Heading \/ Sidebar - subheading",
     "fields": [
         {
             "key": "field_5cc9c5e773095",
@@ -57,6 +57,13 @@
                 "operator": "==",
                 "value": "page-templates\/case-studies.php"
             }
+        ],
+        [
+            {
+                "param": "post_template",
+                "operator": "==",
+                "value": "page-templates\/sidebar.php"
+            }
         ]
     ],
     "menu_order": 0,
@@ -67,5 +74,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1556878925
+    "modified": 1556891064
 }
