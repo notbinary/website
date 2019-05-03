@@ -153,6 +153,32 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_5cccb1dfc2de6": {
+                    "key": "layout_5cccb1dfc2de6",
+                    "name": "video_embed",
+                    "label": "Video embed",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5cccb1e5c2de7",
+                            "label": "Video embed",
+                            "name": "video_embed",
+                            "type": "oembed",
+                            "instructions": "Enter the URL of a video, e.g. https:\/\/player.vimeo.com\/video\/71385845",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "width": "",
+                            "height": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add content block",
@@ -184,5 +210,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Flexible content field for blog posts",
-    "modified": 1556878137
+    "modified": 1556918819
 }

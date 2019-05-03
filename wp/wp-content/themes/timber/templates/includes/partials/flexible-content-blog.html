@@ -5,5 +5,7 @@
         {% include 'partials/flex_call_out_quote.html' with { item: content } %}
     {% elseif content.acf_fc_layout == 'call_out_content' %}
         {% include 'partials/flex_call_out_content.html' with { item: content } %}
+    {% elseif content.acf_fc_layout == 'video_embed' %}
+        {% include 'partials/flex_video_embed.html' with { item: content } %}
     {% endif %}
 {% endfor %}
