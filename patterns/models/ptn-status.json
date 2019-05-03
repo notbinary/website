@@ -52,6 +52,10 @@
 		"stage": "review"
 	},
 	{
+		"name": "T3-2-team-member",
+		"stage": "review"
+	},
+	{
 		"name": "T4-contact",
 		"stage": "review"
 	}

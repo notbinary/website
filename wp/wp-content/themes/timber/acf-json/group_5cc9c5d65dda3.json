@@ -1,6 +1,6 @@
 {
     "key": "group_5cc9c5d65dda3",
-    "title": "Blog \/ Jobs \/ Case Studies \/ Section Heading \/ Sidebar - subheading",
+    "title": "Hero - subheading",
     "fields": [
         {
             "key": "field_5cc9c5e773095",
@@ -64,6 +64,13 @@
                 "operator": "==",
                 "value": "page-templates\/sidebar.php"
             }
+        ],
+        [
+            {
+                "param": "post_template",
+                "operator": "==",
+                "value": "page-templates\/team.php"
+            }
         ]
     ],
     "menu_order": 0,
@@ -74,5 +81,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1556891064
+    "modified": 1556895035
 }

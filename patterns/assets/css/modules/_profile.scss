@@ -12,6 +12,7 @@
     display: block;
     img {
         @extend %max-width;
+        border-radius: 50%;
     }
     &:before, &:after {
         content: "";

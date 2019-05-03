@@ -4,7 +4,7 @@
 {% block body_class %}team{% endblock %}
 
 {% block hero %}
-    {% include 'partials/hero.html' %}
+    {% include 'partials/hero-subheading.html' %}
 {% endblock %}
 
 {% block aside %}
@@ -12,36 +12,31 @@
 {% endblock %}
 
 {% block main %}
-
-    <div class="is-typeset wysiwyg">
-        {{ post.intro|wpautop }}
+    <div class="is-typeset is-typeset--additionals wysiwyg">
+        {{ post.content|wpautop }}
     </div>
-
-    {% for item in Post(team_members) %}
-        <div class="profile">
-            <div class="profile__aside">
-                <div class="profile__media" style="background-image: url({{ TimberImage(item.image) | resize(400, 400) }});"></div>
-            </div>
-            <div class="profile__body">
-                <span class="profile__meta">Appointed {{ item.appointed_date|date("jS F Y") }}</span>
-                <h3 class="profile__title">{{ item.title }} <span>{{ item.role }}</span></h3>
-                <div class="profile__copy">
-                    <p>{{ item.biography }}</p>
-                </div>
-            </div>
-        </div>
-    {% endfor %}
-
 {% endblock %}
 
-{% block postbody %}
-    {% if post.pagelinks %}
+{% block after_body %}
+    <section class="section">
+        <div class="row">
+            <div class="l-4up">
+                {% for person in team_member %}
+                    <div class="l-4up__col">
+                        {% include 'partials/listing-team.html' %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% if related_content %}
         <section class="section">
             <div class="row">
-                <div class="l-2up">
-                    {% for item in pagelinks %}
-                        {% include 'partials/page-links.html' %}
-                    {% endfor %}
+                <h2 class="section__title">{{ related_content_title }}</h2>
+                <div class="l-3up">
+                {% for item in related_content %}
+                    {% include 'partials/card.html' %}
+                {% endfor %}
                 </div>
             </div>
         </section>
