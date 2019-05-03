@@ -154,4 +154,4 @@ sucuri-lastlogins.php
 
 # End of https://www.gitignore.io/api/wordpress,osx,windows,node,linux
 
-html-files-to-import
+# html-files-to-import
