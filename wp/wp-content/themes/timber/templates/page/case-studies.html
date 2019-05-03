@@ -1,0 +1,43 @@
+{% extends 'sidebar.html' %}
+
+{% block body_id %}case-studies-archive{% endblock %}
+{% block body_class %}case-studies-archive{% endblock %}
+
+{% block hero %}
+    {% include 'partials/hero-subheading.html' %}
+{% endblock %}
+
+{% block aside %}
+    {% include 'navigation/aside.html' %}
+{% endblock %}
+
+{% block main %}
+    <div class="is-typeset is-typeset--additionals wysiwyg">
+        {{ post.content|wpautop }}
+    </div>
+{% endblock %}
+
+{% block after_body %}
+    <section class="section">
+        <div class="row">
+            {% for item in case_studies %}
+                {% include 'partials/listing-case-study.html'%}
+            {% endfor %}
+            {% if not case_studies %}
+                <span class="alert alert--error">Sorry, no case studies found.</span>
+            {% endif %}
+        </div>
+    </section>
+    {% if related_content %}
+        <section class="section">
+            <div class="row">
+                <h2 class="section__title">{{ related_content_title }}</h2>
+                <div class="l-3up">
+                {% for item in related_content %}
+                    {% include 'partials/card.html' %}
+                {% endfor %}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}

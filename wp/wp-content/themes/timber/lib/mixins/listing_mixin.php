@@ -3,8 +3,7 @@
 /**
  * Takes an args array (same as get_posts) and returns a
  * function that is a context mixin. The mixin does:
- *  - Add array of posts of supplied post_type as a key of $post_type
- *    to context
+ *  - Add array of posts of supplied post_type as a key of $post_type to context
  *  - Add pagination to the context
  *  - Add post type categories to context
  *  - Filter and order posts based on query you pass in
@@ -14,7 +13,7 @@
  */
 function listing_mixin($my_args=array()) {
     $defaults = array(
-        'post_type'      => 'news',
+        'post_type'      => 'post',
         'posts_per_page' => 12,
         'orderby'        => 'date',
         'order'          => 'DESC',
