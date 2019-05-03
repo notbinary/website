@@ -1,6 +1,6 @@
 {
     "key": "group_5cc9c5d65dda3",
-    "title": "Hero - subheading",
+    "title": "Hero - Subheading",
     "fields": [
         {
             "key": "field_5cc9c5e773095",
@@ -71,6 +71,13 @@
                 "operator": "==",
                 "value": "page-templates\/team.php"
             }
+        ],
+        [
+            {
+                "param": "post_template",
+                "operator": "==",
+                "value": "page-templates\/contact.php"
+            }
         ]
     ],
     "menu_order": 0,
@@ -81,5 +88,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1556895035
+    "modified": 1556913301
 }

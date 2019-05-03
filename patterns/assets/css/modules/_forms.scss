@@ -75,6 +75,11 @@
 	appearance: none;
 }
 
+.form-item[type=file] {
+	padding: 15px;
+	width: 100%;
+}
+
 // Min height to text area
 textarea.form-item {
 	min-height: 200px;
