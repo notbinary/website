@@ -1,4 +1,4 @@
-<div class="comment {{comment.comment_type}}" id="blog-comment-{{comment.ID}}">
+<div class="comment" id="blog-comment-{{comment.ID}}">
 	<div class="comment__meta">
 		<img src="{{comment.avatar(36,'assets/img/avatar.png')}}" alt="Image of {{comment.author.name}}" />
 		<p class="comment__author">
@@ -10,7 +10,7 @@
 		</p>
 		<p class="date">Posted on {{ comment.date }}:</p>
 	</div>
-	<div class="comment__content is-typeset">
+	<div class="comment__content is-typeset is-typeset--no-trailing">
 		{{comment.comment_content|wpautop}}
 	</div>
 

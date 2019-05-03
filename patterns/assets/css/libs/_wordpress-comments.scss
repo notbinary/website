@@ -43,12 +43,15 @@
 	padding: 2em;
 	box-shadow: 0 1px 4px rgba(0,0,0,.03);
 	textarea {
-		border: none;
-		padding: 0;
-		&::-webkit-input-placeholder 		{ color: $form-placeholder-color; }
-		&:-moz-placeholder 					{ color: $form-placeholder-color; }
-		&::-moz-placeholder 				{ color: $form-placeholder-color; }
-		&:-ms-input-placeholder 			{ color: $form-placeholder-color; }
+		// border: none;
+		// padding: 0;
+		// &::-webkit-input-placeholder 		{ color: $form-placeholder-color; }
+		// &:-moz-placeholder 					{ color: $form-placeholder-color; }
+		// &::-moz-placeholder 				{ color: $form-placeholder-color; }
+		// &:-ms-input-placeholder 			{ color: $form-placeholder-color; }
+	}
+	.form-item{
+		background-color: $mist;
 	}
 	.button {
 		width: auto;
