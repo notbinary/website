@@ -5,14 +5,5 @@
                     <p class="banner__copy">{{ item|content_excerpt }}</p>
                     <a href="{{ item.link }}" class="button">Read case study</a>
                 </div>
-{{client_logo}}
-                <aside id="ri{{client_logo.ID}}" class="banner__aside banner__aside--major"></aside>
-                    {% include 'includes/responsive/ri.html'
-                        with {
-                            id: client_logo.ID,
-                            image: client_logo,
-                            orig_width: 400,
-                            orig_height: 400
-                        }
-                    %}
+                <aside class="banner__aside banner__aside--major" style="background-image: url({{ TimberImage(item.client_logo)|resize(400,400) }});"></aside>
             </div>

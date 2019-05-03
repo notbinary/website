@@ -112,7 +112,7 @@ Routes::map('/blog/:cat_or_year/:month', $blog_archive);
 Routes::map('/blog/:cat_or_year/:month/page/:pg', $blog_archive);
 
 /**
- * Blog urls
+ * Caset study urls
  */
 $case_studies_archive = load_archive('case-studies');
 Routes::map('what-we-do/case-studies/page/:pg', $case_studies_archive);
