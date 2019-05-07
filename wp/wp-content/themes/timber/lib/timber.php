@@ -38,6 +38,7 @@ function add_to_context($data) {
     $data['wp_hash'] = substr(md5(get_bloginfo('version')), -6);
     $data['main_menu'] = new TimberMenu('Main navigation');
     $data['footer_menu'] = new TimberMenu('Footer navigation');
+    $data['footer_links'] = new TimberMenu('Footer links');
     $data['global'] = array(
             'footer' => array(
                 'footer_contact_message' => get_field('footer_contact_message', 'option'),

@@ -42,6 +42,13 @@
         {% if global.footer.small_print %}
         <div class="row">
             <span class="footer__meta">&copy; {{ 'now' | date('Y') }} {{ global.footer.small_print }}</span>
+            {% if footer_links %}
+            <ul class="footer__links">
+                {% for item in footer_links.get_items %}
+                    <li><a href="{{ item.link }}">{{ item.title }}</a></li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
         {% endif %}
     </div>

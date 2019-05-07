@@ -67,10 +67,6 @@ if( function_exists('acf_add_options_page') ) {
 
     // add sub pages
     acf_add_options_sub_page(array(
-        'page_title'    => 'Reference URLs',
-        'parent_slug'   => $parent['menu_slug'],
-    ));
-    acf_add_options_sub_page(array(
         'page_title'    => 'Footer',
         'parent_slug'   => $parent['menu_slug'],
     ));
@@ -93,11 +89,11 @@ if( function_exists('acf_add_options_page') ) {
 /*
 *   Remove Menu Items
 */
-function fff_remove_menu_items() {
+// function fff_remove_menu_items() {
     // remove_menu_page('edit.php'); // Posts
     // remove_menu_page('edit-comments.php'); // Comments
-}
-add_action('admin_menu', 'fff_remove_menu_items');
+// }
+// add_action('admin_menu', 'fff_remove_menu_items');
 
 /**
  * Register and create menus if they don't exist
@@ -107,6 +103,7 @@ function fff_wp_menus() {
         array(
             'main-nav'   => 'Main navigation',
             'footer-nav' => 'Footer navigation',
+            'footer-links' => 'Footer links',
         )
     );
     if (!wp_get_nav_menu_object('Main navigation')) {
@@ -119,6 +116,12 @@ function fff_wp_menus() {
         $menu_id = wp_create_nav_menu('Footer navigation');     //create the menu
         $locations = get_theme_mod('nav_menu_locations');       //get the menu locations
         $locations['footer-nav'] = $menu_id;                    //set our new menu to be the main nav
+        set_theme_mod('nav_menu_locations', $locations);        //update
+    }
+    if (!wp_get_nav_menu_object('Footer links')) {
+        $menu_id = wp_create_nav_menu('Footer links');     //create the menu
+        $locations = get_theme_mod('nav_menu_locations');       //get the menu locations
+        $locations['footer-link'] = $menu_id;                    //set our new menu to be the main nav
         set_theme_mod('nav_menu_locations', $locations);        //update
     }
 }
