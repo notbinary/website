@@ -136,6 +136,7 @@ wp/wp-content/upgrade/
 wp/wp-content/uploads/
 wp/wp-content/wp-cache-config.php
 wp/wp-content/plugins/hello.php
+wp/wp-content/ewww/
 
 wp/.htaccess
 wp/license.txt
