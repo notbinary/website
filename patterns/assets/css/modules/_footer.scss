@@ -108,13 +108,6 @@
     }
 }
 
-.footer__meta {
-    color: #fff;
-    @include font-size($eta);
-    margin-top: 3em;
-    display: block;
-}
-
 .footer__logos {
     margin-top: 15px;
     li {
@@ -128,6 +121,28 @@
         background-color: #fff;
         img {
             @extend %max-width;
+        }
+    }
+}
+
+.footer__meta {
+    color: #fff;
+    @include font-size($eta);
+    margin-top: 3em;
+    display: block;
+    float: left;
+}
+
+.footer__links {
+    display: block;
+    float: right;
+    @include font-size($eta);
+    margin-top: 3em;
+    li {
+        float: left;
+        margin-right: $internal-spacing;
+        &:last-child {
+            margin-right: 0;
         }
     }
 }

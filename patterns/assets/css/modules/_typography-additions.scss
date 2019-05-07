@@ -92,10 +92,10 @@
 @import "libs/wordpress-comments";
 
 code, pre {
-    background: #f4f4f4;
-    border: 1px solid #ddd;
-    border-left: 3px solid #f36d33;
-    color: #666;
+    background: $mist;
+    border: 1px solid darken($mist, 5%);
+    // border-left: 3px solid $earth;
+    color: $base-color;
     page-break-inside: avoid;
     font-family: monospace;
     font-size: 15px;
