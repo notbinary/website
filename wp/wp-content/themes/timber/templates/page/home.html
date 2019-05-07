@@ -24,7 +24,7 @@
 				{% endfor %}
             </div>
         </div>
-		{% if callout_content %}
+		{% if callout_content or featured_case_study %}
         <div class="row space-section-top">
             <div class="l-2up">
             	{% if callout_content %}
@@ -37,16 +37,20 @@
                     </div>
                 </div>
                 {% endif %}
-                <div class="l-2up__col">
-                    <aside class="banner__aside">
-                        <div class="banner__logo">
-                            <img src="{{ assets }}/img/case-study-logo.jpg" alt="alt tag">
-                        </div>
-                        <h3 class="banner__subtitle">Make this editable please</h3>
-                        <p class="banner__copy">Make this editable please Make this editable please Make this editable please Make this editable please</p>
-                        <a href="#" class="button">Make this editable please</a>
-                    </aside>
-                </div>
+                {% if featured_case_study %}
+                    {% for case_study in featured_case_study %}
+                    <div class="l-2up__col">
+                        <aside class="banner__aside">
+                            <div class="banner__logo">
+                                <img src="{{ TimberImage(case_study.client_logo|resize(80,80))}}" alt="Logo for {{ case_study.post_title }}">
+                            </div>
+                            <h3 class="banner__subtitle">{{ case_study.post_title }}</h3>
+                            <p class="banner__copy">{{ case_study.post_excerpt }}</p>
+                            <a href="{{ function('get_permalink',case_study.ID) }}" class="button">Read case study</a>
+                        </aside>
+                    </div>
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
         {% endif %}
