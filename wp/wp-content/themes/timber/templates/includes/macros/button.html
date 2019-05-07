@@ -1,0 +1,3 @@
+{% macro button(href, id, variation, short_label, full_label) %}
+<a href="{{ href }}" id="{{ id }}" class="button button--a11y {{ variation }}" title="{{ short_label ? short_label : full_label }}"><span>{{ full_label }}</span></a>
+{% endmacro %}

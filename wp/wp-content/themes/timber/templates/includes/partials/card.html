@@ -1,0 +1,11 @@
+<a href="{{ item.link }}" class="card">
+                        {% if item.post_type == 'post' %}
+                            <div class="card__media" style="background-image: url({{ TimberImage(item.hero_image)|resize(720,480) }});"></div>
+                        {% elseif item.post_type == 'page' %}
+                            <div class="card__media" style="background-image: url({{ item.thumbnail|resize(720,480) }});"></div>
+                        {% endif %}
+                        <div class="card__content">
+                            <h3 class="card__title">{{ item.post_title }}</h3>
+                            <p class="card__copy">{{ item|content_excerpt }}</p>
+                        </div>
+                    </a>

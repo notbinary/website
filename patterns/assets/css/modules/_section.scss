@@ -1,0 +1,12 @@
+// ------------------------------------------------------------
+// Section
+// ------------------------------------------------------------
+
+.section {
+    @extend .padd-section-both;
+    &__title {
+        @include font-size($beta);
+        @extend %font-heading;
+        margin-bottom: 1.5em;
+    }
+}

@@ -1,0 +1,5 @@
+{
+    "require": {
+        "fffunction/twig-static": "^1.0"
+    }
+}

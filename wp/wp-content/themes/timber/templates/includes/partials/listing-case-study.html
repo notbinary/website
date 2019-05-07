@@ -1,0 +1,9 @@
+<div class="banner">
+                <span class="banner__flourish"></span>
+                <div class="banner__main">
+                    <h2 class="banner__title">{{ item.title }}</h2>
+                    <p class="banner__copy">{{ item|content_excerpt }}</p>
+                    <a href="{{ item.link }}" class="button">Read case study</a>
+                </div>
+                <aside class="banner__aside banner__aside--major" style="background-image: url({{ TimberImage(item.client_logo)|resize(400,400) }});"></aside>
+            </div>

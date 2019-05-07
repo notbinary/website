@@ -1,0 +1,87 @@
+{
+    "key": "group_5cc9f0ab3c128",
+    "title": "Jobs - How to apply",
+    "fields": [
+        {
+            "key": "field_5cc9f0b1cb0b4",
+            "label": "How to apply title",
+            "name": "how_to_apply_title",
+            "type": "text",
+            "instructions": "Add a title for the How to apply box that appears at the bottom of every job single page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5cc9f0bbcb0b5",
+            "label": "How to apply content",
+            "name": "how_to_apply_content",
+            "type": "wysiwyg",
+            "instructions": "Add how to apply content, possibly with an email address \/ link to application form.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "link",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_5cc9f526fe9ae",
+            "label": "How to apply link email",
+            "name": "how_to_apply_link_email",
+            "type": "email",
+            "instructions": "Enter the email address for applications. If you don't enter one, this line wont appear.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "jobs"
+            }
+        ],
+        [
+            {
+                "param": "post_template",
+                "operator": "==",
+                "value": "page-templates\/jobs.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "Content for the \"how to apply\" box on any single job. Set at the Job page first, then overriden by each single job",
+    "modified": 1556739529
+}

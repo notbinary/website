@@ -18,7 +18,7 @@
 
 {% block body %}
 <div class="ui-row">
-	
+
 	<!-- Duplicate -->
 	<div class="ui-section">
 		<div class="ui-section__header">
@@ -44,7 +44,7 @@
 		</div>
 	</div>
 	<!-- end Duplicate -->
-	
+
 	<!-- Duplicate -->
 	<div class="ui-section">
 		<div class="ui-section__header">
@@ -57,7 +57,7 @@
 		</div>
 	</div>
 	<!-- end Duplicate -->
-	
+
 	<!-- Duplicate -->
 	<div class="ui-section">
 		<div class="ui-section__header">
@@ -70,7 +70,7 @@
 		</div>
 	</div>
 	<!-- end Duplicate -->
-	
+
 	<!-- Duplicate -->
 	<div class="ui-section">
 		<div class="ui-section__header">
@@ -83,6 +83,19 @@
 		</div>
 	</div>
 	<!-- end Duplicate -->
-	
+
+	<!-- Duplicate -->
+	<div class="ui-section">
+		<div class="ui-section__header">
+			<h2>File input</h2>
+		</div>
+		<div class="ui-section__component">
+			{% for item in form.file %}
+				{% include 'forms/partials/file-type.html' %}
+			{% endfor %}
+		</div>
+	</div>
+	<!-- end Duplicate -->
+
 </div>
 {% endblock %}

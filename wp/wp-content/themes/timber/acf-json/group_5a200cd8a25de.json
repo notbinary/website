@@ -1,0 +1,100 @@
+{
+    "key": "group_5a200cd8a25de",
+    "title": "Common - 404",
+    "fields": [
+        {
+            "key": "field_5a200ce487535",
+            "label": "Title",
+            "name": "error_404_title",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Error 404",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5a200d1187536",
+            "label": "Description",
+            "name": "error_404_description",
+            "type": "textarea",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "What you were looking for cannot be found.",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 2,
+            "new_lines": ""
+        },
+        {
+            "key": "field_5a200d3c87537",
+            "label": "Button label",
+            "name": "error_404_button_label",
+            "type": "text",
+            "instructions": "Button label for the optional page link for those encountering a 404 error",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5a200d7e87538",
+            "label": "Page link",
+            "name": "error_404_page_link",
+            "type": "page_link",
+            "instructions": "Optional: link to a page for those encountering a 404 error",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [],
+            "taxonomy": [],
+            "allow_null": 0,
+            "allow_archives": 1,
+            "multiple": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-404"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "Global options for 404 page",
+    "modified": 1552647548
+}

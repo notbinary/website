@@ -1,30 +1,62 @@
 [
-	{ 
-		"name": "e1-error", 
-		"stage": "review" 
+	{
+		"name": "e1-error",
+		"stage": "review"
 	},
-	{ 
-		"name": "e2-500", 
-		"stage": "approved" 
+	{
+		"name": "e2-500",
+		"stage": "approved"
 	},
-	{ 
-		"name": "template-default", 
-		"stage": "Template" 
+	{
+		"name": "T0-general-page",
+		"stage": "review"
 	},
-	{ 
-		"name": "template-sidebar", 
-		"stage": "Template" 
+	{
+		"name": "T1-home",
+		"stage": "review"
 	},
-	{ 
-		"name": "template-standard", 
-		"stage": "Template" 
+	{
+		"name": "T2-what-we-do",
+		"stage": "review"
 	},
-	{ 
-		"name": "template-article-listing", 
-		"stage": "Template" 
+	{
+		"name": "T2a-about",
+		"stage": "review"
 	},
-	{ 
-		"name": "template-event-listing", 
-		"stage": "Template" 
+	{
+		"name": "T2-2-team",
+		"stage": "review"
+	},
+	{
+		"name": "T3-0-case-studies",
+		"stage": "review"
+	},
+	{
+		"name": "T3-0a-job-listing",
+		"stage": "review"
+	},
+	{
+		"name": "T3-0b-blog-listing",
+		"stage": "review"
+	},
+	{
+		"name": "T3-1-case-study",
+		"stage": "review"
+	},
+	{
+		"name": "T3-1a-blog-post",
+		"stage": "review"
+	},
+	{
+		"name": "T3-1b-job-single",
+		"stage": "review"
+	},
+	{
+		"name": "T3-2-team-member",
+		"stage": "review"
+	},
+	{
+		"name": "T4-contact",
+		"stage": "review"
 	}
 ]

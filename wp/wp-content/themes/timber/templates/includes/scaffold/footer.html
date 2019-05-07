@@ -1,0 +1,48 @@
+<footer role="contentinfo" class="footer">
+    <div class="footer__strip">
+        <div class="row">
+            {% if footer_menu %}
+            <ul class="footer__navigation">
+                {% for item in footer_menu.get_items %}
+                    <li><a href="{{ item.link }}">{{ item.title }}</a></li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <ul class="footer__social">
+            	{% if global.twitter_link != '' %}
+            		<li class="footer__social--twitter"><a href="{{ global.twitter_link }}">Twitter</a></li>
+            	{% endif %}
+            	{% if global.medium_link != '' %}
+            		<li class="footer__social--medium"><a href="{{ global.medium_link }}">Medium</a></li>
+            	{% endif %}
+            	{% if global.linkedin_link != '' %}
+            		<li class="footer__social--linkedin"><a href="{{ global.linkedin_link }}">LinkedIn</a></li>
+            	{% endif %}
+            </ul>
+        </div>
+    </div>
+    <div class="footer__main">
+        <div class="row">
+            <div class="l-2up">
+                <div class="l-2up__col">
+                    <div class="footer__copy">
+                        <span class="footer__marque"></span>
+                        {{ group_content|wpautop }}
+                    </div>
+                </div>
+                <div class="l-2up__col">
+                    <ul class="footer__logos">
+                        {% for item in group_logos %}
+                            <li style="background-image: url({{ TimberImage(item.group_logo.url) | resize(500,0) }});"></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% if global.footer.small_print %}
+        <div class="row">
+            <span class="footer__meta">&copy; {{ 'now' | date('Y') }} {{ global.footer.small_print }}</span>
+        </div>
+        {% endif %}
+    </div>
+</footer>

@@ -1,0 +1,214 @@
+{
+    "key": "group_5c81524d52d39",
+    "title": "Blog \/ Case Study - Flexible Content",
+    "fields": [
+        {
+            "key": "field_5c81524d55ecd",
+            "label": "Flexible Content",
+            "name": "flexible_content",
+            "type": "flexible_content",
+            "instructions": "Build the article layout by adding from the available block types from content editor, call out quote, and call out content.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layouts": {
+                "5a1833ff0e7ff": {
+                    "key": "5a1833ff0e7ff",
+                    "name": "content_editor",
+                    "label": "Content editor",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5c81524d5938f",
+                            "label": "Content editor",
+                            "name": "content_editor",
+                            "type": "wysiwyg",
+                            "instructions": "Rich text content",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5c814f6c7ab56": {
+                    "key": "layout_5c814f6c7ab56",
+                    "name": "call_out_quote",
+                    "label": "Call out quote",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5c81524d59455",
+                            "label": "Quote content",
+                            "name": "quote_content",
+                            "type": "wysiwyg",
+                            "instructions": "Enter the quote content",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "link",
+                            "media_upload": 0,
+                            "delay": 0
+                        },
+                        {
+                            "key": "field_5c81524d59469",
+                            "label": "Quote source",
+                            "name": "quote_source",
+                            "type": "text",
+                            "instructions": "Enter the source for this quote",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5c81524d59441",
+                            "label": "Quote link",
+                            "name": "quote_link",
+                            "type": "url",
+                            "instructions": "Enter the URL for this link",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5cc9b24a8267d": {
+                    "key": "layout_5cc9b24a8267d",
+                    "name": "call_out_content",
+                    "label": "Call out content",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5cc9b24a8267e",
+                            "label": "Call out content",
+                            "name": "call_out_content",
+                            "type": "wysiwyg",
+                            "instructions": "Enter the call out content",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "link",
+                            "media_upload": 0,
+                            "delay": 0
+                        },
+                        {
+                            "key": "field_5cc9b24a82680",
+                            "label": "Call out link",
+                            "name": "call_out_link",
+                            "type": "url",
+                            "instructions": "Enter the URL for this link",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5cccb1dfc2de6": {
+                    "key": "layout_5cccb1dfc2de6",
+                    "name": "video_embed",
+                    "label": "Video embed",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5cccb1e5c2de7",
+                            "label": "Video embed",
+                            "name": "video_embed",
+                            "type": "oembed",
+                            "instructions": "Enter the URL of a video, e.g. https:\/\/player.vimeo.com\/video\/71385845",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "width": "",
+                            "height": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            },
+            "button_label": "Add content block",
+            "min": "",
+            "max": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "case-studies"
+            }
+        ]
+    ],
+    "menu_order": 10,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "Flexible content field for blog posts",
+    "modified": 1556918819
+}

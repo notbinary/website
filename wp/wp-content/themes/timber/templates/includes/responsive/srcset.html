@@ -1,0 +1,7 @@
+{% if image %}
+<img class="{{ class }}"
+    sizes="{{ vw | default('100vw') }}"
+    srcset="{{ fn('srcset_image', image, target_width, target_height, style, crop) }}"
+    src="{{ TimberImage(image) | resize(target_width, target_height, style, crop) }}"
+    alt="{{ alt | default(image.alt) }}" />
+{% endif %}

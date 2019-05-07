@@ -1,0 +1,9 @@
+<div class="profile">
+    <div class="profile__image">
+        <a href="{{ person.link }}">
+            <img src="{{TimberImage(person.team_member_image)|resize(360,360)}}" alt="Image of {{ person.title }}">
+        </a>
+    </div>
+    <h3 class="profile__title"><a href="{{ person.link }}">{{ person.title }}</a></h3>
+    <p class="profile__bio">{{ person.team_member_summary }}</p>
+</div>

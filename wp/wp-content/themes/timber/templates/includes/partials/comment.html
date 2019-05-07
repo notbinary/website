@@ -1,0 +1,31 @@
+<div class="comment" id="blog-comment-{{comment.ID}}">
+	<div class="comment__meta">
+		<img src="{{comment.avatar(36,'assets/img/avatar.png')}}" alt="Image of {{comment.author.name}}" />
+		<p class="comment__author">
+			{% if comment.author.user_url %}
+				<a href="{{ comment.author.user_url }}">{{comment.author.name}}</a>
+			{% else %}
+				{{comment.author.name}}
+			{% endif %}
+		</p>
+		<p class="date">Posted on {{ comment.date }}:</p>
+	</div>
+	<div class="comment__content is-typeset is-typeset--no-trailing">
+		{{comment.comment_content|wpautop}}
+	</div>
+
+	{# Let's not get into comment replies just yet
+	<section class="comment__children">
+		{% if post.comments %}
+			<h4> replies </h4>
+			<div class="comment__replies">
+				{% for cmt in comment.children %}
+					{% include "partials/comment.html" with {comment:cmt} %}
+				{% endfor %}
+			</div>
+		{% endif %}
+		{% include "partials/comment-form.html" %}
+	</section>
+	#}
+
+</div>

@@ -1,0 +1,55 @@
+{% extends 'default.html' %}
+
+{% block body_id %}home{% endblock %}
+
+{% block hero %}
+	{% include 'partials/hero-home.html' %}
+{% endblock %}
+
+{% block body %}
+
+	<section class="section">
+        <div class="row">
+            <div class="max-meter max-meter--center is-typeset is-typeset--additionals">
+                {{ post.content|wpautop }}
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="row">
+            <div class="l-2up">
+            	{% for item in post.meta('page_links') %}
+					{% include ('partials/card.html') %}
+				{% endfor %}
+            </div>
+        </div>
+		{% if callout_content %}
+        <div class="row space-section-top">
+            <div class="l-2up">
+            	{% if callout_content %}
+                <div class="l-2up__col">
+                    <div class="callout">
+                        <div class="callout__copy">
+                        	{{ callout_content }}
+                        </div>
+                        <a class="callout__link" href="{{ callout_link }}">{{ callout_link }}</a>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="l-2up__col">
+                    <aside class="banner__aside">
+                        <div class="banner__logo">
+                            <img src="{{ assets }}/img/case-study-logo.jpg" alt="alt tag">
+                        </div>
+                        <h3 class="banner__subtitle">Make this editable please</h3>
+                        <p class="banner__copy">Make this editable please Make this editable please Make this editable please Make this editable please</p>
+                        <a href="#" class="button">Make this editable please</a>
+                    </aside>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </section>
+
+{% endblock %}

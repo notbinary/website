@@ -1,6 +1,6 @@
 {
     "input": [
-	    { 
+	    {
 		    "field_spacing": false,
 		    "field_error": false,
 		    "item_id": "text",
@@ -10,7 +10,7 @@
 		    "item_placeholder": "Text placeholder",
 		    "item_extras": ""
 		},
-		{ 
+		{
 		    "field_spacing": true,
 		    "field_error": false,
 		    "item_id": "email",
@@ -20,7 +20,7 @@
 		    "item_placeholder": "Email placeholder",
 		    "item_extras": ""
 		},
-		{ 
+		{
 		    "field_spacing": true,
 		    "field_error": false,
 		    "item_id": "url",
@@ -30,7 +30,7 @@
 		    "item_placeholder": "URL placeholder",
 		    "item_extras": "autocapitalize='off' autocorrect='off'"
 		},
-		{ 
+		{
 		    "field_spacing": true,
 		    "field_error": false,
 		    "item_id": "password",
@@ -40,7 +40,7 @@
 		    "item_placeholder": "Password placeholder",
 		    "item_extras": "autocapitalize='off' autocorrect='off'"
 		},
-		{ 
+		{
 		    "field_spacing": true,
 		    "field_error": false,
 		    "item_id": "tel",
@@ -50,7 +50,7 @@
 		    "item_placeholder": "Telephone placeholder",
 		     "item_extras": ""
 		},
-		{ 
+		{
 		    "field_spacing": true,
 		    "field_error": false,
 		    "item_id": "number",
@@ -60,7 +60,7 @@
 		    "item_placeholder": "Number placeholder",
 		    "item_extras": "pattern='[0-9]*'"
 		},
-		{ 
+		{
 		    "field_spacing": true,
 		    "field_error": true,
 		    "item_id": "text-error",
@@ -70,7 +70,7 @@
 		    "item_placeholder": "",
 		    "item_extras": ""
 		},
-		{ 
+		{
 		    "field_spacing": true,
 		    "field_error": false,
 		    "item_id": "label-hidden",
@@ -82,7 +82,7 @@
 		}
     ],
     "textarea": [
-	    { 
+	    {
 		    "field_spacing": true,
 		    "field_error": false,
 		    "item_id": "textarea",
@@ -91,7 +91,7 @@
 		}
 	],
     "select": [
-	    { 
+	    {
 		    "field_spacing": false,
 		    "field_error": false,
 		    "item_id": "select",
@@ -106,7 +106,7 @@
 		}
 	],
 	"radio": [
-	    { 
+	    {
 		    "field_spacing": false,
 		    "field_error": false,
 		    "item_id": "radio1",
@@ -121,7 +121,7 @@
 		}
 	],
 	"checkbox": [
-	    { 
+	    {
 		    "field_spacing": false,
 		    "field_error": false,
 		    "item_id": "checkbox1",
@@ -133,6 +133,15 @@
                 { "id": "paypal3", "label": "PayPal" },
                 { "id": "american-express3", "label": "American Express" }
 		    ]
+		}
+	],
+	"file": [
+	    {
+		    "field_spacing": false,
+		    "field_error": false,
+		    "item_id": "file1",
+		    "item_label": "File upload",
+		    "item_label_type": ""
 		}
 	]
 }

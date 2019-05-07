@@ -1,0 +1,21 @@
+{% if categories %}
+    <div class="filter">
+        <div class="row">
+            <form action="{{ post.link }}" method="post">
+                {{ fn('wp_nonce_field', 'category_filter') }}
+                <div class="filter-bar">
+                    <label class="form-label form-label--hidden filter-bar__label" for="categories">Filter by category</label>
+                    <div class="filter-bar__dd form-field__select-dropdown">
+                        <select name="category" id="categories">
+                            <option value="all" id="All">All categories</option>
+                            {% for item in categories %}
+                                <option value="{{ item.slug }}" id="Education" {{ item.slug == category.slug ? 'selected' }}>{{ item.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button role="submit" class="button filter-bar__button">Filter</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endif %}

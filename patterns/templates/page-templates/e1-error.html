@@ -2,15 +2,26 @@
 {% set id = "error" %}
 {% set section = "error" %}
 
+{% set title = "There's been an error" %}
+{% set subtitle = "What you were looking for cannot be found" %}
+
 {# --------------------------------------- #}
 {# Main body content #}
 {# --------------------------------------- #}
 
 {% block body %}
+{% include 'partials/hero.html' %}
 <div class="l-error">
 	<div class="row">
-		<h1 class="type-xl type-xl--trailer heading">There's been an error</h1>
-		<p class="para">What you were looking for cannot be found.</p>
+		<div class="is-typeset as-wysiwyg max-meter">
+			<p>Sorry about that. Please use the navigation above to explore the website or contact us if you still can’t find what you’re looking for.</p>
+			<h4>Some things that might be helpful</h4>
+			<ul>
+				<li>Report this link as broken by emailing <a href="mailto:">support@notbinary.co.uk</a></li>
+				<li><a href="/" rel="home">Our homepage</a></li>
+				<li><a href="#">Contact us</a></li>
+			</ul>
+		</div>
 	</div>
 </div>
 {% endblock %}

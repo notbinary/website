@@ -1,0 +1,68 @@
+{
+    "key": "group_5cc9ed280e548",
+    "title": "Page - Related content",
+    "fields": [
+        {
+            "key": "field_5cc9ed2811e20",
+            "label": "Related content title",
+            "name": "related_content_title",
+            "type": "text",
+            "instructions": "Title for the related content section",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "More about us",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5cc9ed2811e39",
+            "label": "Related Content",
+            "name": "related_content",
+            "type": "relationship",
+            "instructions": "Select up to three other pages to link to from this page. Used to link to About \/ What we do \/ Culture pages",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": "",
+            "max": 3,
+            "return_format": "id"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 20,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "Related content selection for page templates",
+    "modified": 1556740781
+}

@@ -1,0 +1,78 @@
+{
+    "key": "group_5a5cc650af394",
+    "title": "Blog - Related content",
+    "fields": [
+        {
+            "key": "field_5cc9b6cb12272",
+            "label": "Related content title",
+            "name": "related_content_title",
+            "type": "text",
+            "instructions": "Title for the related content section",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Related posts",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5a5cc6830c3a7",
+            "label": "Related Content",
+            "name": "related_content",
+            "type": "relationship",
+            "instructions": "Select up to three other articles to link to from this article.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page",
+                "post",
+                "case-studies"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "taxonomy"
+            ],
+            "elements": "",
+            "min": "",
+            "max": 3,
+            "return_format": "id"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "case-studies"
+            }
+        ]
+    ],
+    "menu_order": 20,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "Related content selection for individual blog posts",
+    "modified": 1556878693
+}

@@ -4,15 +4,16 @@
 // colors, fills (aka background) and rules (aka borders)
 // ------------------------------------------------------------
 
-@each $name, $color in 
-		('warning', $warning),
-		('error', $error),
-		('success', $success),
+@each $name, $color in
+		('mist', $mist),
+		('sand', $sand),
+		('earth', $earth),
 	{
 	.color-#{$name} {
 		color: $color;
 	}
 	.fill-#{$name} {
+		position: relative;
 		background-color: $color;
 	}
 // ------------------------------------------------------------

@@ -1,0 +1,44 @@
+{% extends 'sidebar.html' %}
+
+{% block body_id %}team{% endblock %}
+{% block body_class %}team{% endblock %}
+
+{% block hero %}
+    {% include 'partials/hero-subheading.html' %}
+{% endblock %}
+
+{% block aside %}
+    {% include 'navigation/aside.html' %}
+{% endblock %}
+
+{% block main %}
+    <div class="is-typeset is-typeset--additionals wysiwyg">
+        {{ post.content|wpautop }}
+    </div>
+{% endblock %}
+
+{% block after_body %}
+    <section class="section">
+        <div class="row">
+            <div class="l-4up">
+                {% for person in team_member %}
+                    <div class="l-4up__col">
+                        {% include 'partials/listing-team.html' %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% if related_content %}
+        <section class="section">
+            <div class="row">
+                <h2 class="section__title">{{ related_content_title }}</h2>
+                <div class="l-3up">
+                {% for item in related_content %}
+                    {% include 'partials/card.html' %}
+                {% endfor %}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}

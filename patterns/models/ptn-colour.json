@@ -1,5 +1,5 @@
 [
-	{ "name": "warning" },
-	{ "name": "success" },
-	{ "name": "error" }
+	{ "name": "mist" },
+	{ "name": "sand" },
+	{ "name": "earth" }
 ]

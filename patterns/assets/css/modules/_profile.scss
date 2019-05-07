@@ -1,0 +1,46 @@
+// ------------------------------------------------------------
+// Profile
+// ------------------------------------------------------------
+
+.profile {
+    margin-bottom: 2em;
+}
+
+.profile__image {
+    position: relative;
+    margin-bottom: 2em;
+    display: block;
+    img {
+        @extend %max-width;
+        border-radius: 50%;
+    }
+    &:before, &:after {
+        content: "";
+        position: absolute;
+        width: 30%;
+        height: 2px;
+        background-color: #fff;
+        transform: rotate(50deg);
+    }
+    &:before {
+        top: 40%;
+        left: -20px;
+    }
+    &:after {
+        top: 60%;
+        right: -20px;
+    }
+}
+
+.profile__title {
+    @extend %font-heading;
+    text-align: center;
+    @include font-size($delta);
+    line-height: 1.4;
+}
+
+.profile__bio {
+    @include font-size($para - 2);
+    margin-top: 0.5em;
+    text-align: center;
+}

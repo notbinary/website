@@ -1,0 +1,29 @@
+{% extends 'default.html' %}
+
+{% block body_id %}error{% endblock %}
+
+{% block hero %}
+    <div class="hero hero--simple">
+        <div class="row">
+            <div class="hero__caption">
+                <p class="hero__heading">Error 404</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <section class="section">
+        <div class="l-error">
+            <div class="row">
+                <h2 class="type-xl type-xl--trailer heading">{{ global.404.title }}</h2>
+                <div class="is-typeset">
+                    <p>{{ global.404.description }}</p>
+                    {% if global.404.page %}
+                        <p><a class="button" href="{{ global.404.page }}">{{ global.404.button_label }}</a></p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,3 +1,22 @@
 // -----------------------------------------------------------
 // Add brand items such as logos here
 // -----------------------------------------------------------
+
+.branding {
+    position: relative;
+    z-index: 3;
+    background-image: url('../img/logo-colour.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 250px;
+    height: 60px;
+    display: block;
+    text-indent: -9999em;
+    float: left;
+    margin-top: 2em;
+    @include respond-to($menu-respond) {
+        width: 304px;
+        height: 73px;
+        margin-top: 3.5em;
+    }
+}
