@@ -19,8 +19,22 @@
     <section class="section">
         <div class="row">
             <div class="l-2up">
-            	{% for item in post.meta('page_links') %}
-					{% include ('partials/card.html') %}
+            	{% for item in page_links %}
+                    <a href="{{ function('get_permalink',item.page_link.ID) }}" class="card">
+                        {% if item.page_thumbnail_override %}
+                            <div class="card__media" style="background-image: url({{ TimberImage(item.page_thumbnail_override|resize(720,480)) }});"></div>
+                            {% else %}
+                            <div class="card__media" style="background-image: url({{ function('get_the_post_thumbnail_url', item.page_link.ID)|resize(720,480) }});"></div>
+                        {% endif %}
+                        <div class="card__content">
+                            <h3 class="card__title">{{ item.page_link.post_title }}</h3>
+                            {% if item.page_excerpt_override %}
+                                <p class="card__copy">{{ item.page_excerpt_override }}</p>
+                            {% else %}
+                                <p class="card__copy">{{ item.page_link|content_excerpt }}</p>
+                            {% endif %}
+                        </div>
+                    </a>
 				{% endfor %}
             </div>
         </div>
