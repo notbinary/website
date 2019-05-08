@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>Simplicity wins</title><style>
+      * {
+        font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      }
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 50px;
+        margin-bottom: 17px;
+        color: #333;
+      }
+      h2 {
+        font-size: 24px;
+        line-height: 1.6;
+        margin: 30px 0 0 0;
+        margin-bottom: 18px;
+        margin-top: 33px;
+        color: #333;
+      }
+      h3 {
+        font-size: 30px;
+        margin: 10px 0 20px 0;
+        color: #333;
+      }
+      header {
+        width: 640px;
+        margin: auto;
+      }
+      section {
+        width: 640px;
+        margin: auto;
+      }
+      section p {
+        margin-bottom: 27px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      section img {
+        max-width: 640px;
+      }
+      footer {
+        padding: 0 20px;
+        margin: 50px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .aspectRatioPlaceholder {
+        max-width: auto !important;
+        max-height: auto !important;
+      }
+      .aspectRatioPlaceholder-fill {
+        padding-bottom: 0 !important;
+      }
+      header,
+      section[data-field=subtitle],
+      section[data-field=description] {
+        display: none;
+      }
+      </style></head><body><article class="h-entry">
+<header>
+<h1 class="p-name">Simplicity wins</h1>
+</header>
+<section data-field="subtitle" class="p-summary">
+Take yourself lightly, take simplicity seriously
+</section>
+<section data-field="body" class="e-content">
+<section name="55fc" class="section section--body section--first section--last"><div class="section-divider"><hr class="section-divider"></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 name="cfdb" id="cfdb" class="graf graf--h3 graf--leading graf--title">Simplicity wins</h3><h4 name="727b" id="727b" class="graf graf--h4 graf-after--h3 graf--subtitle">Take yourself lightly, take simplicity seriously</h4><figure name="f3d5" id="f3d5" class="graf graf--figure graf-after--h4"><div class="aspectRatioPlaceholder is-locked" style="max-width: 700px; max-height: 1050px;"><div class="aspectRatioPlaceholder-fill" style="padding-bottom: 150%;"></div><img class="graf-image" data-image-id="0*x9W8MKH4SfVLR0_d." data-width="3455" data-height="5182" src="https://cdn-images-1.medium.com/max/800/0*x9W8MKH4SfVLR0_d."></div><figcaption class="imageCaption">Photo by <a href="https://unsplash.com/@daiga_ellaby?utm_source=medium&amp;utm_medium=referral" data-href="https://unsplash.com/@daiga_ellaby?utm_source=medium&amp;utm_medium=referral" class="markup--anchor markup--figure-anchor" rel="photo-creator noopener" target="_blank">Daiga Ellaby</a></figcaption></figure><p name="ea4e" id="ea4e" class="graf graf--p graf-after--figure">Whether we’re designing technology, a project, a team or an organisation, the discipline of simplicity is crucial to success. I’ve seen plenty of Self Harm in IT (nice acronym) and at least as much in organisation design.</p><p name="8343" id="8343" class="graf graf--p graf-after--p">Simplicity is <em class="markup--em markup--p-em">hard</em>. It takes honesty. It requires letting go of ego. It means getting genuinely involved with questions, with people and with the kind of detail that can’t be seen from a high-level.</p><p name="11f5" id="11f5" class="graf graf--p graf-after--p">If you do it right, when you zoom out you’ll have something that, even at a high-level, will still contain those make-or-break thoughtful details.</p><h4 name="d965" id="d965" class="graf graf--h4 graf-after--p">A simple Docker image</h4><p name="a03d" id="a03d" class="graf graf--p graf-after--h4"><a href="http://wordaligned.org/articles/ddd-wales-2018" data-href="http://wordaligned.org/articles/ddd-wales-2018" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">I gave a talk at DDD Wales</a> in March 2017 about How to build a minimal Docker microservice with Golang. Using the “scratch” image, a multi-stage build and a non-privileged user, it’s able to make an https call to a simulated downstream service. The talk is based on <a href="https://github.com/davidcarboni/go-scratch-nonprivileged-multistage" data-href="https://github.com/davidcarboni/go-scratch-nonprivileged-multistage" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">a Github repository I put together that contains only four files</a>. The result is <a href="https://hub.docker.com/r/davidcarboni/go-scratch-nonprivileged-multistage/" data-href="https://hub.docker.com/r/davidcarboni/go-scratch-nonprivileged-multistage/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">a 7MB container image containing only three files</a>.</p><p name="db40" id="db40" class="graf graf--p graf-after--p">A typical Docker image would be 700MB in size and contain thousands of files. Working out ways to simplify that, without losing the essential properties of a microservice, took some thought. Those four source files took time design and iterate. A 100-fold reduction in footprint and a 1000-fold reduction in file count aren’t trivial, but they make a point.</p><blockquote name="df10" id="df10" class="graf graf--pullquote graf-after--p">I built it because I had something to say</blockquote><p name="fc1c" id="fc1c" class="graf graf--p graf-after--pullquote">I believe good design is the embodiment of intention. It’s never abstract and always expresses an opinion. A purpose, a context, a message, a story or a mission. I built that image to talk about simplicity.</p><h4 name="e502" id="e502" class="graf graf--h4 graf-after--p">Why simplicity?</h4><p name="1930" id="1930" class="graf graf--p graf-after--h4">If you’d like to see the reasons I think it’s important to design simple, practical technology, <a href="https://docs.google.com/presentation/d/e/2PACX-1vRgB0xMmgQOA2UVfBd6jAOOsMUFTPYG27kJ8-zd08RmrtjDpVwfjKs9PNelU4yrHfSCs4HuLuHjZyqq/pub?start=false&amp;loop=false&amp;delayms=3000&amp;slide=id.g356913e2f7_0_207" data-href="https://docs.google.com/presentation/d/e/2PACX-1vRgB0xMmgQOA2UVfBd6jAOOsMUFTPYG27kJ8-zd08RmrtjDpVwfjKs9PNelU4yrHfSCs4HuLuHjZyqq/pub?start=false&amp;loop=false&amp;delayms=3000&amp;slide=id.g356913e2f7_0_207" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">here’s the section in the presentation where I talk about why simplicity matters</a>. If you’ve suffered from <a href="https://medium.com/@davidcarboni/you-say-complex-i-say-complicated-3bf53ffe5f5d" data-href="https://medium.com/@davidcarboni/you-say-complex-i-say-complicated-3bf53ffe5f5d" class="markup--anchor markup--p-anchor" target="_blank">complicatedness</a>, it’ll make you smile. If you really want to cut to the bone, <a href="https://docs.google.com/presentation/d/e/2PACX-1vRgB0xMmgQOA2UVfBd6jAOOsMUFTPYG27kJ8-zd08RmrtjDpVwfjKs9PNelU4yrHfSCs4HuLuHjZyqq/pub?start=false&amp;loop=false&amp;delayms=3000&amp;slide=id.g356913e2f7_0_261" data-href="https://docs.google.com/presentation/d/e/2PACX-1vRgB0xMmgQOA2UVfBd6jAOOsMUFTPYG27kJ8-zd08RmrtjDpVwfjKs9PNelU4yrHfSCs4HuLuHjZyqq/pub?start=false&amp;loop=false&amp;delayms=3000&amp;slide=id.g356913e2f7_0_261" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">here is my number one reason</a>.</p><p name="b082" id="b082" class="graf graf--p graf-after--p">But simplicity goes beyond the practical what, infusing the deeper why of how your organisation functions. Try taking a <a href="https://www.forbes.com/sites/derosetichy/2013/04/15/what-happens-when-a-hippo-runs-your-company/" data-href="https://www.forbes.com/sites/derosetichy/2013/04/15/what-happens-when-a-hippo-runs-your-company/" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">HIPPO</a> out of the room. That one change makes it possible for a team to focus on the real question and get to a much better answer. Have you ever been in a healthy discussion, where everyone felt comfortable arguing openly about <em class="markup--em markup--p-em">what</em> was right, not <em class="markup--em markup--p-em">who</em> was right? Ever experienced the opposite?</p><p name="b474" id="b474" class="graf graf--p graf-after--p">Simplicity is about high performing teams, winning at customer and user experience and sustainability and talent attraction and security risk. All of that, directly or indirectly, goes to the bottom line. Simplicity enables work to work.</p><p name="b5d4" id="b5d4" class="graf graf--p graf-after--p"><a href="https://www.gov.uk/guidance/government-design-principles#do-less" data-href="https://www.gov.uk/guidance/government-design-principles#do-less" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Doing less</a> and <a href="https://www.gov.uk/guidance/government-design-principles#do-the-hard-work-to-make-it-simple" data-href="https://www.gov.uk/guidance/government-design-principles#do-the-hard-work-to-make-it-simple" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">doing the hard work to make it simple</a> are enduring principles that apply across disciplines, throughout an organisation. Elegantly expressed by <a href="https://en.wikiquote.org/wiki/Blaise_Pascal" data-href="https://en.wikiquote.org/wiki/Blaise_Pascal" class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">Blaise Pascal</a>:</p><blockquote name="dd75" id="dd75" class="graf graf--pullquote graf--startsWithDoubleQuote graf-after--p">“I would have written a shorter letter, but I did not have the time”</blockquote><p name="a02e" id="a02e" class="graf graf--p graf-after--pullquote">The hardest discipline is to simplify ourselves. <strong class="markup--strong markup--p-strong">That’s transformation</strong>.</p><blockquote name="efbe" id="efbe" class="graf graf--blockquote graf-after--p graf--trailing">The <a href="https://carb.onl/ddd" data-href="https://carb.onl/ddd" class="markup--anchor markup--blockquote-anchor" rel="noopener" target="_blank">full slides for the talk</a> are open. The <a href="https://github.com/davidcarboni/go-scratch-nonprivileged-multistage" data-href="https://github.com/davidcarboni/go-scratch-nonprivileged-multistage" class="markup--anchor markup--blockquote-anchor" rel="noopener" target="_blank">Github repository for the container image</a> is public, as is <a href="https://github.com/davidcarboni/ddd" data-href="https://github.com/davidcarboni/ddd" class="markup--anchor markup--blockquote-anchor" rel="noopener" target="_blank">the repository for the live coding demo</a>. Thank you to <a href="https://twitter.com/dddcymru" data-href="https://twitter.com/dddcymru" class="markup--anchor markup--blockquote-anchor" rel="noopener" target="_blank">DDD Wales</a> and credit to <a href="https://twitter.com/11vlr" data-href="https://twitter.com/11vlr" class="markup--anchor markup--blockquote-anchor" rel="noopener" target="_blank">Viv Richards</a> and the team for not only putting on the event, but then hosting the <a href="https://www.meetup.com/Swansea-Software-Development-Meetup/" data-href="https://www.meetup.com/Swansea-Software-Development-Meetup/" class="markup--anchor markup--blockquote-anchor" rel="noopener" target="_blank">Swansea Software Development Meetup</a> only two days later.</blockquote></div></div></section>
+</section>
+<footer><p>By <a href="https://medium.com/@davidcarboni" class="p-author h-card">David Carboni</a> on <a href="https://medium.com/p/4fc54efae1f0"><time class="dt-published" datetime="2018-04-12T07:31:02.153Z">April 12, 2018</time></a>.</p><p><a href="https://medium.com/@davidcarboni/simplicity-wins-4fc54efae1f0" class="p-canonical">Canonical link</a></p><p>Exported from <a href="https://medium.com">Medium</a> on May 3, 2019.</p></footer></article></body></html>
