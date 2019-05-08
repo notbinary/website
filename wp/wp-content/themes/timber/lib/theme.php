@@ -131,12 +131,13 @@ add_action('init', 'fff_wp_menus');
  * Amend oembed with extra props.
  */
 function amend_embed_html($code){
+
     if (strpos($code, 'youtu.be') !== false || strpos($code, 'youtube.com') !== false) {
         $code = str_replace('?feature=oembed', '?rel=0&autohide=1&showinfo=0&cc_load_policy=1', $code);
     }
     elseif (strpos($code, 'vimeo.com') !== false) {
-        $query_start = strpos($code,'?') === false ? '?' : '&';
-        $code = $code . $query_start . 'title=0&byline=0&portrait=0';
+        $query_start = strpos($code,'?');
+        $code = substr_replace($code,'title=0&byline=0&portrait=0&',$query_start+1,0);
     }
     return $code;
 }
