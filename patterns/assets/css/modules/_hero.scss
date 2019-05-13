@@ -57,7 +57,7 @@
 }
 
 .hero__caption {
-    .hero & {
+    .hero--member & {
         @include respond-to($b-vp + 100px) {
             transform: translateY(8em);
         }
