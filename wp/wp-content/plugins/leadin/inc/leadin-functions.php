@@ -109,6 +109,22 @@ function leadin_get_user_role() {
 }
 
 /**
+ * Return the signup url based on the site options
+ */
+function leadin_get_signup_url() {
+  $acquisition_option = get_option( 'hubspot_acquisition_attribution', '' );
+  $affiliate_code = get_option( 'hubspot_affiliate_code' );
+  $signup_url = LEADIN_BASE_URL . "/signup/wordpress?$acquisition_option";
+
+  if ($affiliate_code) {
+    $destination_url = rawurlencode($signup_url);
+    return "https://mbsy.co/$affiliate_code?url=$destination_url";
+  }
+
+  return "$signup_url&utm_source=wordpress-plugin&utm_medium=marketplaces";
+}
+
+/**
  * Returns the right iframe src
  * The src will be `/hubspot-plugin/{portalId}/{path}`,
  * where path is the content after `leadin_` in ?page=leadin_path
@@ -124,7 +140,7 @@ function leadin_get_iframe_src() {
   }
 
   if ( empty( $portal_id ) ) {
-    return LEADIN_BASE_URL."/signup-v2/wordpress";
+    return leadin_get_signup_url();
   }
 
   $pathname = preg_replace( $regex, "", $page );

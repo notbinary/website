@@ -20,7 +20,7 @@ function action_required_notice(){
   $current_screen = get_current_screen();
   if ( $current_screen->parent_base !== 'leadin' ) {
     $leadin_icon = LEADIN_PATH . '/images/sprocket.svg';
-    echo '<div class="notice notice-warning is-dismissible"><p><img src="' . $leadin_icon . '" height="16" style="margin-bottom: -3px" /> The HubSpot plugin isn’t connected right now. To use HubSpot tools on your WordPress site, <a href="admin.php?page=leadin">connect the plugin now</a>.</p></div>';
+    echo '<div class="notice notice-warning is-dismissible"><p><img src="' . $leadin_icon . '" height="16" style="margin-bottom: -3px" /> ' . __('The HubSpot plugin isn’t connected right now. To use HubSpot tools on your WordPress site, <a href="admin.php?page=leadin">connect the plugin now</a>.', 'leadin') . '</p></div>';
   }
 }
 
@@ -129,12 +129,12 @@ class WPLeadInAdmin {
       add_action('admin_notices', 'action_required_notice');
     }
 
-    add_menu_page( 'HubSpot', 'HubSpot'.$notificationIcon, $capability, 'leadin', array( $this, 'leadin_build_app' ), 'dashicons-sprocket', '25.100713' );
+    add_menu_page( __('HubSpot', 'leadin'), __('HubSpot', 'leadin').$notificationIcon, $capability, 'leadin', array( $this, 'leadin_build_app' ), 'dashicons-sprocket', '25.100713' );
 
     $portal_id = get_option('leadin_portalId');
     if ( !empty( $portal_id ) ) {
-      add_submenu_page('leadin', 'Forms', 'Forms', 'activate_plugins', 'leadin_forms', array($this, 'leadin_build_app'));
-      add_submenu_page('leadin', 'Settings', 'Settings', 'activate_plugins', 'leadin_settings', array($this, 'leadin_build_app'));
+      add_submenu_page('leadin', __('Forms', 'leadin'), __('Forms', 'leadin'), 'activate_plugins', 'leadin_forms', array($this, 'leadin_build_app'));
+      add_submenu_page('leadin', __('Settings', 'leadin'), __('Settings', 'leadin'), 'activate_plugins', 'leadin_settings', array($this, 'leadin_build_app'));
       remove_submenu_page('leadin','leadin');
     }
   }
@@ -156,7 +156,7 @@ class WPLeadInAdmin {
       $page = "leadin";
     }
     $url           = get_admin_url( get_current_blog_id(), "admin.php?page=$page" );
-    $settings_link = '<a href="' . $url . '">Settings</a>';
+    $settings_link = '<a href="' . $url . '">' . __( 'Settings', 'leadin' ) . '</a>';
     array_unshift( $links, $settings_link );
     return $links;
   }
@@ -172,9 +172,18 @@ class WPLeadInAdmin {
     $error_message = "";
 
     if ( version_compare( phpversion(), LEADIN_REQUIRED_PHP_VERSION, '<' ) ) {
-      $error_message = "HubSpot All-In-One Marketing ".LEADIN_PLUGIN_VERSION." requires PHP ".LEADIN_REQUIRED_PHP_VERSION." or higher. Please upgrade WordPress first.";
+      $error_message = sprintf(
+        __( 'HubSpot All-In-One Marketing %1$s requires PHP %2$s or higher. Please upgrade WordPress first.', 'leadin' ),
+        LEADIN_PLUGIN_VERSION,
+        LEADIN_REQUIRED_PHP_VERSION
+      );
+
     } else if ( version_compare( $wp_version, LEADIN_REQUIRED_WP_VERSION, '<' ) ) {
-      $error_message = "HubSpot All-In-One Marketing ".LEADIN_PLUGIN_VERSION." requires PHP ".LEADIN_REQUIRED_WP_VERSION." or higher. Please upgrade WordPress first.";
+      $error_message = sprintf(
+        __( 'HubSpot All-In-One Marketing %1$s requires PHP %2$s or higher. Please upgrade WordPress first.', 'leadin' ),
+        LEADIN_PLUGIN_VERSION,
+        LEADIN_REQUIRED_WP_VERSION
+      );
     }
 
     if ($error_message) {
@@ -236,9 +245,15 @@ class WPLeadInAdmin {
       'wpUserEmail'       		=> $wpUser->user_email,
     );
 
+    $leadin_i18n = array(
+      'chatflows' => __( 'Chatflows', 'leadin' ),
+    );
+
+    wp_register_script( 'leadin-raven-js', LEADIN_PATH.'/scripts/raven.min.js' );
     wp_register_style( 'leadin-bridge-css', LEADIN_PATH.'/style/leadin-bridge.css' );
-    wp_register_script( 'leadin-js', LEADIN_PATH.'/scripts/leadin.js', array( 'underscore' ), false, true );
+    wp_register_script( 'leadin-js', LEADIN_PATH.'/scripts/leadin.js', array( 'underscore', 'leadin-raven-js' ), false, true );
     wp_localize_script( 'leadin-js', 'leadin_config', $leadin_config );
+    wp_localize_script( 'leadin-js', 'leadin_i18n', $leadin_i18n );
     wp_enqueue_script( 'leadin-js' );
   }
 
