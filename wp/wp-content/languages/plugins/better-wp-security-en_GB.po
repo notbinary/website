@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - iThemes Security (formerly Better WP Security) - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2019-03-16 10:29:00+0000\n"
+"PO-Revision-Date: 2019-05-14 22:00:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -70,6 +70,36 @@ msgstr "Identified loopback IP."
 #: core/modules/security-check/scanner.php:281
 msgid "Invalid IP returned: %s"
 msgstr "Invalid IP returned: %s"
+
+#: core/modules/global/logs.php:15 core/modules/global/logs.php:26
+msgid "Core"
+msgstr "Core"
+
+#: core/modules/global/logs.php:45
+msgid "Empty file encountered when attempting to update %s config file."
+msgstr "Empty file encountered when attempting to update %s config file."
+
+#: core/modules/security-check/scanner.php:251
+msgid "Identified server IPs to determine loopback requests."
+msgstr "Identified server IPs to determine loopback requests."
+
+#: core/modules/file-change/logs.php:60
+msgid "Rescheduling: No Lock"
+msgstr "Rescheduling: No Lock"
+
+#: core/modules/global/validator.php:62
+msgid "Server IPs"
+msgstr "Server IPs"
+
+#: core/modules/security-check/scanner.php:270
+msgid "Skipping loopback test: %s"
+msgstr "Skipping loopback test: %s"
+
+#: core/lib/class-itsec-lib-login-interstitial.php:453
+#: core/lib/class-itsec-lib-login-interstitial.php:459
+#: core/lib/class-itsec-lib-login-interstitial.php:477
+msgid "Unsupported Interstitial. Please login again."
+msgstr "Unsupported Interstitial. Please login again."
 
 #: core/modules/global/validator.php:68
 msgid "Manual"
