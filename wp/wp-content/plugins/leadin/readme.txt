@@ -4,9 +4,9 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: forms, popup, live chat, contact form, crm, newsletter, marketing, lead generation, hubspot, mailchimp, constant contact
 Requires at least: 4.0
-Tested up to: 5.1
+Tested up to: 5.2
 Requires PHP: 5.6
-Stable tag: 7.4.0
+Stable tag: 7.4.1
 
 HubSpot All-In-One Marketing, is a free all-in-one marketing plugin that allows you to easily use HubSpot forms, popups, and live chat on your WordPress site. If you’re already a HubSpot user, the plugin lets you connect your HubSpot account to your website without any code.
 
@@ -164,8 +164,13 @@ Please <a href="https://community.hubspot.com?utm_source=wordpress-plugin-listin
 
 == Changelog ==
 
-- Current version: 7.4.0
-- Current version release: 2019-04-30
+- Current version: 7.4.1
+- Current version release: 2019-05-07
+
+= 7.4.1 (2019.05.07) =
+- Implement faster navigation
+- Fix signup url
+- Use i18n on PHP
 
 = 7.4.0 (2019.04.30) =
 - Improve performances

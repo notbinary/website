@@ -77,11 +77,11 @@
 .footer__social {
     margin-top: 2em;
     li {
-        background-size: contain;
-        background-repeat: no-repeat;
         display: inline-block;
         margin-right: 1em;
         a {
+            background-size: contain;
+            background-repeat: no-repeat;
             display: block;
             text-indent: -9999em;
         }
@@ -99,6 +99,11 @@
     }
     .footer__social--linkedin a {
         background-image: url('../svg/source/icon-linkedin.svg');
+        height: 40px;
+        width: 40px;
+    }
+    .footer__social--github a {
+        background-image: url('../svg/source/icon-github.svg');
         height: 40px;
         width: 40px;
     }

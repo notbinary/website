@@ -2,25 +2,105 @@
   'use strict';
   // HubSpot Env
   var leadinConfig = window.leadin_config || {};
+  var i18n = window.leadin_i18n || {};
   var hubspotBaseUrl = leadinConfig.hubspotBaseUrl;
   var portalId = leadinConfig.portalId;
+
+  /**
+   * Raven
+   */
+  function configureRaven() {
+    if (leadinConfig.env !== 'prod') {
+      return;
+    }
+
+    Raven.config(
+      'https://e9b8f382cdd130c0d415cd977d2be56f@exceptions.hubspot.com/1'
+    ).install();
+
+    Raven.setUserContext({
+      hub: leadinConfig.portalId,
+      wp: leadinConfig.wpVersion,
+      php: leadinConfig.phpVersion,
+      v: leadinConfig.leadinPluginVersion,
+      plugins: Object.keys(leadinConfig.plugins)
+        .map(function(name, index) {
+          return name + '#' + leadinConfig.plugins[name].Version;
+        })
+        .join(','),
+    });
+  }
+
+  /**
+   * Event Bus
+   */
+  function EventBus() {
+    var bus = $({});
+
+    return {
+      trigger: function() {
+        bus.trigger.apply(bus, arguments);
+      },
+      on: function(event, callback) {
+        bus.on(event, Raven.wrap(callback));
+      },
+    };
+  }
 
   /**
    * DOM
    */
   var domElements = {
     iframe: document.getElementById('leadin-iframe'),
+    allMenuButtons: $(
+      '.toplevel_page_leadin > a, .toplevel_page_leadin > ul > li > a'
+    ),
+    subMenuButtons: $('.toplevel_page_leadin > ul > li'),
   };
 
   /**
-   * Chatflows
+   * Sidebar navigation
+   *
+   * Prevent page reloads when navigating from inside the plugin
    */
-  function initChatFlows() {
+  function initNavigation() {
+    function setSelectedMenuItem() {
+      domElements.subMenuButtons.removeClass('current');
+      const pageParam = window.location.search.match(/\?page=leadin_?\w*/)[0]; // filter page query param
+      const selectedElement = $('a[href="admin.php' + pageParam + '"]');
+      selectedElement.parent().addClass('current');
+    }
+
+    function handleNavigation() {
+      const appRoute = window.location.search.match(/page=leadin_?(\w*)/)[1];
+      HubspotPluginAPI.changeRoute(appRoute);
+      setSelectedMenuItem();
+    }
+
+    // Browser back and forward events navigation
+    window.addEventListener('popstate', handleNavigation);
+
+    // Menu Navigation
+    domElements.allMenuButtons.click(function(event) {
+      event.preventDefault();
+      window.history.pushState(null, null, $(this).attr('href'));
+      handleNavigation();
+    });
+  }
+
+  /**
+   * Chatflows Menu Button
+   */
+  function initChatflows() {
     var leadinMenu = document.getElementById('toplevel_page_leadin');
     var firstSubMenu = leadinMenu && leadinMenu.querySelector('.wp-first-item');
     var chatflowsUrl = hubspotBaseUrl + '/chatflows/' + portalId;
     var chatflowsHtml =
-      '<li><a href="' + chatflowsUrl + '" target="_blank">Chatflows</a></li>';
+      '<li><a href="' +
+      chatflowsUrl +
+      '" target="_blank">' +
+      i18n.chatflows +
+      '</a></li>';
     if (firstSubMenu) {
       firstSubMenu.insertAdjacentHTML('afterend', chatflowsHtml);
     }
@@ -30,7 +110,7 @@
    * Interframe
    */
   var Interframe = (function() {
-    var eventBus = $({});
+    var eventBus = new EventBus();
 
     function handleMessage(message) {
       eventBus.trigger('message', message);
@@ -80,8 +160,13 @@
       Interframe.postMessage({ leadin_config: leadinConfig });
     }
 
+    function changeRoute(route) {
+      Interframe.postMessage({ leadin_change_route: route });
+    }
+
     var api = {
       setConfig: setConfig,
+      changeRoute: changeRoute,
     };
 
     return api;
@@ -93,18 +178,29 @@
    * All incoming messages are handled here
    */
   var MessagesHandlers = (function() {
-    var eventBus = $({});
+    var eventBus = new EventBus();
 
     eventBus.on('leadin_parent_ajax', function(event, payload, reply) {
       var ajaxPayload = Object.assign(
         {
-          complete: function(jqXHR, textStatus) {
+          complete: Raven.wrap(function(jqXHR, textStatus) {
             var response = Object.assign({ textStatus: textStatus }, jqXHR);
             reply(response);
-          },
-          error: function() {
+          }),
+          error: Raven.wrap(function(jqXHR) {
+            var message;
+
+            try {
+              message = JSON.parse(jqXHR.responseText).error;
+            } catch (e) {
+              message = jqXHR.responseText;
+            }
+
+            Raven.captureMessage(
+              'AJAX request failed with code ' + jqXHR.status + ': ' + message
+            );
             // TODO: sentry
-          },
+          }),
         },
         payload
       );
@@ -152,8 +248,15 @@
   function main() {
     MessagesHandlers.start();
     Interframe.init();
-    initChatFlows();
+
+    // Enable App Navigation only when viewing the plugin
+    if (window.location.search.indexOf('page=leadin') !== -1) {
+      initNavigation();
+    }
+
+    initChatflows();
   }
 
-  main();
+  configureRaven();
+  Raven.context(main);
 })(jQuery);
