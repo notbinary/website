@@ -26,6 +26,9 @@
 					}
 				%}
             </div>
+            {% if post.image_credit %}
+            	<p class="hero-image__credit">{{ post.image_credit }}</p>
+            {% endif %}
         </div>
     </div>
 </div>

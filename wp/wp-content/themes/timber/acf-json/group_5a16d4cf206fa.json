@@ -25,6 +25,25 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
+        },
+        {
+            "key": "field_5cdc660100cb0",
+            "label": "Image Credit",
+            "name": "image_credit",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "link",
+            "media_upload": 0,
+            "delay": 0
         }
     ],
     "location": [
@@ -51,5 +70,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Main hero image for blog posts",
-    "modified": 1556878000
+    "modified": 1557947928
 }
