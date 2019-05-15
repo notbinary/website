@@ -47,6 +47,7 @@ function add_to_context($data) {
             'twitter_link' => get_field('twitter_link', 'option'),
             'medium_link' => get_field('medium_link', 'option'),
             'linkedin_link' => get_field('linkedin_link', 'option'),
+            'github_link' => get_field('github_link', 'option'),
             '404' => array(
                 'title' => get_field('error_404_title', 'option'),
                 'description' => get_field('error_404_description', 'option'),

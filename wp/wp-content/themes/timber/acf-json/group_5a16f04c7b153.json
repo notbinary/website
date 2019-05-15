@@ -49,6 +49,22 @@
             },
             "default_value": "",
             "placeholder": ""
+        },
+        {
+            "key": "field_5cdc6305f2546",
+            "label": "GitHub Link",
+            "name": "github_link",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
         }
     ],
     "location": [
@@ -68,5 +84,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Global options for social accounts",
-    "modified": 1556297001
+    "modified": 1557947153
 }
