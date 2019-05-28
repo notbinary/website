@@ -207,8 +207,10 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "the_content"
+    ],
     "active": 1,
     "description": "Flexible content field for blog posts",
-    "modified": 1556918819
+    "modified": 1559062940
 }

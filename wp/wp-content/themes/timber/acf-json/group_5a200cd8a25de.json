@@ -25,7 +25,7 @@
             "key": "field_5a200d1187536",
             "label": "Description",
             "name": "error_404_description",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 1,
             "conditional_logic": 0,
@@ -34,37 +34,18 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "What you were looking for cannot be found.",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": 2,
-            "new_lines": ""
-        },
-        {
-            "key": "field_5a200d3c87537",
-            "label": "Button label",
-            "name": "error_404_button_label",
-            "type": "text",
-            "instructions": "Button label for the optional page link for those encountering a 404 error",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
             "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "tabs": "all",
+            "toolbar": "link",
+            "media_upload": 1,
+            "delay": 0
         },
         {
-            "key": "field_5a200d7e87538",
-            "label": "Page link",
-            "name": "error_404_page_link",
-            "type": "page_link",
-            "instructions": "Optional: link to a page for those encountering a 404 error",
+            "key": "field_5ced6330c3ccc",
+            "label": "Helpful links list",
+            "name": "error_404_helpful_links_list",
+            "type": "repeater",
+            "instructions": "Add a list of links that will help",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -72,11 +53,67 @@
                 "class": "",
                 "id": ""
             },
-            "post_type": [],
-            "taxonomy": [],
-            "allow_null": 0,
-            "allow_archives": 1,
-            "multiple": 0
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_5ced6348c3ccd",
+                    "label": "Link label",
+                    "name": "link_label",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5ced6350c3cce",
+                    "label": "Link URL",
+                    "name": "link_url",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
+                }
+            ]
+        },
+        {
+            "key": "field_5a200d3c87537",
+            "label": "Helpful links title",
+            "name": "error_404_helpful_links_title",
+            "type": "text",
+            "instructions": "If you add a list of helpful links, you can edit the title here.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Some things that might be helpful",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -96,5 +133,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Global options for 404 page",
-    "modified": 1552647548
+    "modified": 1559061608
 }

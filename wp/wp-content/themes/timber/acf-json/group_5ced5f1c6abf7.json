@@ -1,0 +1,49 @@
+{
+    "key": "group_5ced5f1c6abf7",
+    "title": "Team members",
+    "fields": [
+        {
+            "key": "field_5ced5f2c5da6f",
+            "label": "Team members",
+            "name": "team_members",
+            "type": "relationship",
+            "instructions": "Select which team members you want to show, and the order that they appear on the team page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "team-member"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_template",
+                "operator": "==",
+                "value": "page-templates\/team.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "Selects which team members to show on the team page",
+    "modified": 1559060460
+}

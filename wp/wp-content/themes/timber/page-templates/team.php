@@ -12,12 +12,14 @@ $context['subheading'] = get_field('subheading');
 $context['title'] = $post->post_title;
 $context['related_content'] = get_related_or_fallback($context['post']);
 
-$team_mixin = listing_mixin(array(
-    'post_type'      => 'team-member',
-    'posts_per_page' => 0,
-    'orderby'        => 'menu_order',
-    'order'          => 'DESC',
-));
-$context = $team_mixin($context);
+// $team_mixin = listing_mixin(array(
+//     'post_type'      => 'team-member',
+//     'posts_per_page' => -1,
+//     'orderby'        => 'menu_order',
+//     'order'          => 'DESC',
+// ));
+// $context = $team_mixin($context);
+
+$context['team_members'] = get_field('team_members');
 
 Timber::render('page/team.html', $context);
