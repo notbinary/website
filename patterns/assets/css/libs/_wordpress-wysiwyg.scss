@@ -116,8 +116,14 @@
 		}
 		a {
 			color: $heading-color;
-			text-decoration: underline;
 			@include font-size($zeta);
+		}
+	}
+	&.is-typeset aside blockquote a {
+		border-bottom: 2px solid $earth;
+		@include link-active-styles {
+			color: #000;
+			border-color: #000;
 		}
 	}
 }

@@ -40,21 +40,20 @@ function add_to_context($data) {
     $data['footer_menu'] = new TimberMenu('Footer navigation');
     $data['footer_links'] = new TimberMenu('Footer links');
     $data['global'] = array(
-            'footer' => array(
-                'footer_contact_message' => get_field('footer_contact_message', 'option'),
-                'small_print' => get_field('small_print', 'option'),
-            ),
-            'twitter_link' => get_field('twitter_link', 'option'),
-            'medium_link' => get_field('medium_link', 'option'),
-            'linkedin_link' => get_field('linkedin_link', 'option'),
-            'github_link' => get_field('github_link', 'option'),
-            '404' => array(
-                'title' => get_field('error_404_title', 'option'),
-                'description' => get_field('error_404_description', 'option'),
-                'page' => get_field('error_404_page_link', 'option'),
-                'button_label' => get_field('error_404_button_label', 'option'),
-            ),
-
+        'footer' => array(
+            'footer_contact_message' => get_field('footer_contact_message', 'option'),
+            'small_print' => get_field('small_print', 'option'),
+        ),
+        'twitter_link' => get_field('twitter_link', 'option'),
+        'medium_link' => get_field('medium_link', 'option'),
+        'linkedin_link' => get_field('linkedin_link', 'option'),
+        'github_link' => get_field('github_link', 'option'),
+        '404' => array(
+            'title' => get_field('error_404_title', 'option'),
+            'description' => get_field('error_404_description', 'option'),
+            'links_list' => get_field('error_404_helpful_links_list', 'option'),
+            'links_list_title' => get_field('error_404_helpful_links_title', 'option'),
+        ),
     );
     $data['contact_page'] = get_page_by_template('page-templates/contact.php');
 

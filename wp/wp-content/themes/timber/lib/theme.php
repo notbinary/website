@@ -9,8 +9,7 @@ require_once __DIR__ . '/tinymce.php';
  */
 function unregister_default_taxonomies(){
     global $wp_taxonomies;
-    // $taxonomies = array('category', 'post_tag');
-    $taxonomies = array('post_tag');
+    $taxonomies = array('category', 'post_tag');
     foreach($taxonomies as $taxonomy) {
         if (taxonomy_exists($taxonomy)) {
             unset($wp_taxonomies[$taxonomy]);

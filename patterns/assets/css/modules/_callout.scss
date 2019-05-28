@@ -17,5 +17,10 @@
 .callout__link {
     color: $heading-color;
     @include font-size($zeta);
-    text-decoration: underline;
+	border-bottom: 2px solid $earth;
+	@include link-active-styles {
+		border-color: #000;
+		color: #000;
+	}
+
 }

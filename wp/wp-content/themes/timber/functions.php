@@ -39,10 +39,10 @@ $GLOBALS['responsive_sizes'] = array(300, 500, 780, 1060, 1200);
 /**
  * Add Google Maps API key to ACF
  */
-function acf_google_maps_key() {
-    acf_update_setting('google_api_key', 'AIzaSyAZAIjZtkBlsF0ZqvrlkvyLfVn6Bju6bJ4');
-}
-add_action('acf/init', 'acf_google_maps_key');
+// function acf_google_maps_key() {
+//     acf_update_setting('google_api_key', 'AIzaSyAZAIjZtkBlsF0ZqvrlkvyLfVn6Bju6bJ4');
+// }
+// add_action('acf/init', 'acf_google_maps_key');
 
 /**
  * Set a custom WP Admin menu order
