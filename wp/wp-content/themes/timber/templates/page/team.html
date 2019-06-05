@@ -20,7 +20,9 @@
 {% block after_body %}
     <section class="section">
         <div class="row">
-            <h2 class="section__title">{{ team_members_title }}</h2>
+            {% if team_members_title %}
+                <h2 class="section__title">{{ team_members_title }}</h2>
+            {% endif %}
             <div class="l-4up">
                 {% for person in Post(team_members) %}
                     <div class="l-4up__col">
@@ -33,7 +35,9 @@
     {% if additional_people %}
         <section class="section fill-mist">
             <div class="row">
-                <h2 class="section__title">{{ additional_people_title }}</h2>
+                {% if additional_people_title %}
+                    <h2 class="section__title">{{ additional_people_title }}</h2>
+                {% endif %}
                 <div class="l-4up">
                     {% for person in Post(additional_people) %}
                         <div class="l-4up__col">
