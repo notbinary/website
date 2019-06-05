@@ -41,16 +41,6 @@
 		{% if callout_content or featured_case_study %}
         <div class="row space-section-top">
             <div class="l-2up">
-            	{% if callout_content %}
-                <div class="l-2up__col">
-                    <div class="callout">
-                        <div class="callout__copy">
-                        	{{ callout_content }}
-                        </div>
-                        <a class="callout__link" href="{{ callout_link }}">{{ callout_link }}</a>
-                    </div>
-                </div>
-                {% endif %}
                 {% if featured_case_study %}
                     {% for case_study in featured_case_study %}
                     <div class="l-2up__col">
@@ -64,6 +54,16 @@
                         </aside>
                     </div>
                     {% endfor %}
+                {% endif %}
+                {% if callout_content %}
+                <div class="l-2up__col">
+                    <div class="callout">
+                        <div class="callout__copy">
+                            {{ callout_content }}
+                        </div>
+                        <a class="callout__link" href="{{ callout_link }}">{{ callout_link }}</a>
+                    </div>
+                </div>
                 {% endif %}
             </div>
         </div>

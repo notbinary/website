@@ -20,6 +20,10 @@ $context['related_content'] = get_related_or_fallback($context['post']);
 // ));
 // $context = $team_mixin($context);
 
+$context['team_members_title'] 	= get_field('team_members_title');
 $context['team_members'] = get_field('team_members');
+$context['additional_people_title'] = get_field('additional_people_title');
+$context['additional_people'] = get_field('additional_people');
+
 
 Timber::render('page/team.html', $context);
