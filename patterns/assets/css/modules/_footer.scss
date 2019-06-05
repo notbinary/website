@@ -116,17 +116,21 @@
 .footer__logos {
     margin-top: 15px;
     li {
+        display: inline-block;
+        padding: 5px;
+        width: 32%;
+        background-color: #fff;
+        margin: 0 1% 4px 0;
+        &:nth-child(3n){
+            margin-right: 0;
+        }
+    }
+    span {
         background-size: contain;
-        background-position: 95% 95%;
+        background-position: 50% 50%;
         background-repeat: no-repeat;
         min-height: 65px;
-        display: inline-block;
-        padding: 10px;
-        width: 33%;
-        background-color: #fff;
-        img {
-            @extend %max-width;
-        }
+        display: block;
     }
 }
 
