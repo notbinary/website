@@ -50,6 +50,7 @@ function add_to_context($data) {
         'github_link' => get_field('github_link', 'option'),
         '404' => array(
             'title' => get_field('error_404_title', 'option'),
+            'sub_title' => get_field('error_404_sub_title', 'option'),
             'description' => get_field('error_404_description', 'option'),
             'links_list' => get_field('error_404_helpful_links_list', 'option'),
             'links_list_title' => get_field('error_404_helpful_links_title', 'option'),

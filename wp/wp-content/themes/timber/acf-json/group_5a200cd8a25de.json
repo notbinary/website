@@ -22,6 +22,25 @@
             "maxlength": ""
         },
         {
+            "key": "field_5cf81d66886be",
+            "label": "Sub title",
+            "name": "error_404_sub_title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5a200d1187536",
             "label": "Description",
             "name": "error_404_description",
@@ -36,7 +55,7 @@
             },
             "default_value": "",
             "tabs": "all",
-            "toolbar": "link",
+            "toolbar": "simple",
             "media_upload": 1,
             "delay": 0
         },
@@ -133,5 +152,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Global options for 404 page",
-    "modified": 1559061608
+    "modified": 1559764440
 }
