@@ -3,11 +3,74 @@
     "title": "Team members",
     "fields": [
         {
+            "key": "field_5cf81611faf0f",
+            "label": "Team members title",
+            "name": "team_members_title",
+            "type": "text",
+            "instructions": "Enter a title to precede the team list",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5ced5f2c5da6f",
             "label": "Team members",
             "name": "team_members",
             "type": "relationship",
             "instructions": "Select which team members you want to show, and the order that they appear on the team page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "team-member"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object"
+        },
+        {
+            "key": "field_5cf8161bae902",
+            "label": "Additional people title",
+            "name": "additional_people_title",
+            "type": "text",
+            "instructions": "Enter a title to precede the additional group of people",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5cf815ec1e324",
+            "label": "Additional people",
+            "name": "additional_people",
+            "type": "relationship",
+            "instructions": "Select which additional people you want to show, and the order that they appear on the team page",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -45,5 +108,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Selects which team members to show on the team page",
-    "modified": 1559060460
+    "modified": 1559762508
 }

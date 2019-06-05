@@ -61,6 +61,19 @@
 {% block after_body %}
     <section class="section">
         <div class="row">
+            <h2 class="section__title">Core team</h2>
+            <div class="l-4up">
+                {% for item in team.team_list %}
+                    <div class="l-4up__col">
+                        {% include 'partials/profile.html' %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section class="section fill-mist">
+        <div class="row">
+            <h2 class="section__title">Associates and partners</h2>
             <div class="l-4up">
                 {% for item in team.team_list %}
                     <div class="l-4up__col">
