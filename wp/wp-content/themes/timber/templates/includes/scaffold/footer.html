@@ -36,7 +36,7 @@
                 <div class="l-2up__col">
                     <ul class="footer__logos">
                         {% for item in group_logos %}
-                        <li><span style="background-image: url({{ TimberImage(item.group_logo.url) | resize(500,0) }});"></span></li>
+                        <li><a href="{{ item.group_link }}"><span style="background-image: url({{ TimberImage(item.group_logo.url) | resize(500,0) }});"></span></a></li>
                         {% endfor %}
                     </ul>
                 </div>
