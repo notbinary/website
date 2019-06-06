@@ -82,6 +82,22 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": ""
+                },
+                {
+                    "key": "field_5cf9759873b89",
+                    "label": "Group link",
+                    "name": "group_link",
+                    "type": "url",
+                    "instructions": "Enter the URL for the group entity",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
                 }
             ]
         }
@@ -102,6 +118,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": 1,
-    "description": "Small print for the footer",
-    "modified": 1556296397
+    "description": "Small print and group details for the footer",
+    "modified": 1559852461
 }
