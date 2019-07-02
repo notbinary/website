@@ -70,4 +70,20 @@
         {% endif %}
     </section>
 
+    {% if logos %}
+    <section class="section space-section-bottom">
+        <div class="row">
+            <div class="logo-container">
+                <div class="logo-wall">
+                    {% for logo in logos %}
+                    <div class="logo-wall__item">
+                        <img src="{{ TimberImage(logo.logo)|resize(180) }}" alt="Image for {{ TimberImage(logo.logo).caption }}">
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
 {% endblock %}
