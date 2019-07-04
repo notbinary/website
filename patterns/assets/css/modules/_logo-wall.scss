@@ -12,23 +12,29 @@
 }
 
 .logo-wall__item {
-    width: 33.33%;
+    width: 50%;
     float: left;
     border-right: 1px solid $default-border-color;
     border-bottom: 1px solid $default-border-color;
-    padding: 20px;
+    background-size: 50%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    min-height: 100px;
+    padding: 60px;
+    display: block;
+    transition: all, ease-in-out, 0.3s;
+    filter: grayscale(100%);
+    // padding: 20px;
     @include respond-to($c-vp) {
         width: 20%;
     }
-    img {
-        @extend %max-width;
-        transition: all, ease-in-out, 0.3s;
-        filter: grayscale(100%);
-    }
+    // img {
+    //     @extend %max-width;
+    //     transition: all, ease-in-out, 0.3s;
+    //     filter: grayscale(100%);
+    // }
 }
 
-.logo-wall__item a:hover {
-    img {
-        filter: grayscale(0%);
-    }
+a.logo-wall__item:hover {
+    filter: grayscale(0%);
 }
