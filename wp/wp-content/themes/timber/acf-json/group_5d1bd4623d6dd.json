@@ -26,8 +26,8 @@
                     "label": "Logo",
                     "name": "logo",
                     "type": "image",
-                    "instructions": "",
-                    "required": 0,
+                    "instructions": "Add a logo image around 200px wide",
+                    "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -44,6 +44,22 @@
                     "max_height": "",
                     "max_size": "",
                     "mime_types": ""
+                },
+                {
+                    "key": "field_5d1e177ace61c",
+                    "label": "Link",
+                    "name": "link",
+                    "type": "url",
+                    "instructions": "Add an optional link if you want to link somewhere from this logo",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
                 }
             ]
         }
@@ -65,5 +81,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1562105003
+    "modified": 1562253267
 }
