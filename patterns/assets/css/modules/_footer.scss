@@ -113,6 +113,15 @@
     }
 }
 
+.footer__logo {
+    margin-top: 2em;
+    margin-left: 70px;
+    max-width: 75px;
+    img {
+        @extend %max-width;
+    }
+}
+
 .footer__logos {
     margin-top: 15px;
     li {
