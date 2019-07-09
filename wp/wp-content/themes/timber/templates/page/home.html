@@ -70,4 +70,23 @@
         {% endif %}
     </section>
 
+    {% if logos %}
+    <section class="section space-section-bottom">
+        <div class="row">
+            <h2 class="section__title">{{ logos_title }}</h2>
+            <div class="logo-container">
+                <div class="logo-wall">
+                    {% for logo in logos %}
+                        {% if logo.link %}
+                            <a href="{{ logo.link }}" class="logo-wall__item" style="background-image: url({{ TimberImage(logo.logo)|resize(240) }})"></a>
+                        {% else %}
+                            <div class="logo-wall__item" style="background-image: url({{ TimberImage(logo.logo)|resize(240) }})"></div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
 {% endblock %}

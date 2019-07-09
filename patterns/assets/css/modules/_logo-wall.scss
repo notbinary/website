@@ -1,0 +1,40 @@
+// ------------------------------------------------------------
+// Logos
+// ------------------------------------------------------------
+
+.logo-container {
+    overflow: hidden;
+}
+
+.logo-wall {
+    @extend %pie-clearfix;
+    margin: 0 -2px -1px 0;
+}
+
+.logo-wall__item {
+    width: 50%;
+    float: left;
+    border-right: 1px solid $default-border-color;
+    border-bottom: 1px solid $default-border-color;
+    background-size: 50%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    min-height: 100px;
+    padding: 60px;
+    display: block;
+    transition: all, ease-in-out, 0.3s;
+    filter: grayscale(100%);
+    // padding: 20px;
+    @include respond-to($c-vp) {
+        width: 20%;
+    }
+    // img {
+    //     @extend %max-width;
+    //     transition: all, ease-in-out, 0.3s;
+    //     filter: grayscale(100%);
+    // }
+}
+
+a.logo-wall__item:hover {
+    filter: grayscale(0%);
+}
