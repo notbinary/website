@@ -2,19 +2,19 @@
 Contributors: HubSpotDev, leadin
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
-Tags: forms, popup, live chat, contact form, crm, newsletter, marketing, lead generation, hubspot, mailchimp, constant contact
+Tags: hubspot, crm, forms, popup, live chat, email, contact form, newsletter, marketing, lead generation, mailchimp, constant contact
 Requires at least: 4.0
 Tested up to: 5.2
 Requires PHP: 5.6
-Stable tag: 7.4.1
+Stable tag: 7.6.0
 
-HubSpot All-In-One Marketing, is a free all-in-one marketing plugin that allows you to easily use HubSpot forms, popups, and live chat on your WordPress site. If you’re already a HubSpot user, the plugin lets you connect your HubSpot account to your website without any code.
+HubSpot All-In-One Marketing, is a free all-in-one marketing plugin that allows you to easily use HubSpot forms, popups, and live chat on your WordPress site and create and send email campaigns. If you’re already a HubSpot user, the plugin lets you connect your HubSpot account to your website without any code.
 
 == Description ==
 
-*HubSpot All-In-One Marketing is the ultimate free marketing plugin for WordPress if you want to grow your email list, generate leads, and manage all your contacts inside HubSpot’s free CRM.*
+*HubSpot All-In-One Marketing is the ultimate free plugin for WordPress if you want to grow your email list, manage your contacts, and send marketing emails all through HubSpot’s free CRM.*
 
-The free plugin includes lead capture tools like forms, popups, live chat, and an integrated free contact database (CRM). All these features work immediately with no developer help needed.
+The free plugin includes lead capture tools like forms, popups, live chat, and an integrated free contact database (CRM). Once you grow your email list you can also send email campaigns and manage your digital ads through HubSpot. All these features work immediately with no developer help needed.
 
 HubSpot All-In-One Marketing automatically captures form submissions from your site and adds them to the fully integrated WordPress CRM, even if they come from a different tool.
 
@@ -35,16 +35,19 @@ If you’re already using a WordPress form tool on your site, HubSpot will autom
 
 *Live Chat & Chatbots: Let your site visitors talk to you*
 
-HubSpot allows you to embed a <a href="https://www.hubspot.com/products/crm/live-chat?utm_source=wordpress-plugin-listing&utm_campaign=wordpress&utm_medium=marketplaces" target="_blank">free live chat</a> module to your website your website and let site visitors chat with you. Using the plugin, you can set up the following WordPress live chat modules:
+HubSpot allows you to embed a <a href="https://www.hubspot.com/products/crm/live-chat?utm_source=wordpress-plugin-listing&utm_campaign=wordpress&utm_medium=marketplaces" target="_blank">free live chat</a> module to your website and let site visitors chat with you. Using the plugin, you can set up the following WordPress live chat modules:
 
-Support live chat: Answer questions your customers might have about your business through live chat
-Sales live chat: Help answer questions your potential customers might have through live chat
-Automated chatbot: Set up an automated chatbot to respond to your website visitors when you aren’t online to respond to live chat messages
+- Support live chat: Answer questions your customers might have about your business through live chat
+- Sales live chat: Help answer questions your potential customers might have through live chat
+- Automated chatbot: Set up an automated chatbot to respond to your website visitors when you aren’t online to respond to live chat messages
+
+*Email Marketing*
+
+Send marketing emails to your contacts. Select an email design from our template library and use our drag and drop email editor to craft and send the perfect email. Then analyze your email performance to see how each contact interacted with your email.
 
 *Simple Email Automation*
 
-Send an automated email when someone fills out a form, submits a popup form, or sends a message on live chat. Automate emails are helpful for engaging with your subscribers and customers at the time that matters most: when they’re engaging with you. All emails you send including open and click rates, will be automatically logged in the integrated WordPress CRM so you can see exactly who opens and clicks your emails.
-
+Send an automated email when someone fills out a form, submits a popup form, or sends a message on live chat. Automated emails are helpful for engaging with your subscribers and customers at the time that matters most: when they’re engaging with you. All emails you send including open and click rates, will be automatically logged in the integrated WordPress CRM so you can see exactly who opens and clicks your emails.
 
 *Fully Integrated Customer Relationship Management*
 
@@ -60,11 +63,14 @@ Built-in analytics makes it clear which pages and traffic sources drive the most
 - Dashboard: A central hub for your marketing analytics. Learn which forms, popups, and live chat modules get the most submissions and pages and traffic sources drive the most conversions.
 - <a href="https://www.hubspot.com/products/marketing/lead-flows?utm_source=wordpress-plugin-listing&utm_campaign=wordpress&utm_medium=marketplaces" target="_blank">Popups</a>: Add a user-friendly popup form to your WordPress website with ease using HubSpot’s form builder.
 - <a href="https://www.hubspot.com/products/crm/live-chat?utm_source=wordpress-plugin-listing&utm_campaign=wordpress&utm_medium=marketplaces" target="_blank">Live Chat</a>: Add a live chat widget to your WordPress site so visitors can chat with you.
+- <a href="https://www.hubspot.com/products/marketing/email?utm_source=wordpress-plugin-listing&utm_campaign=wordpress&utm_medium=marketplaces" target="_blank">Email Marketing</a>: Use the drag and drop editor to design and send email campaigns.
 - Simple Email Automation: Send an automated email whenever someone fills out a form or popup or sends a message on live chat.
 - <a href="https://www.hubspot.com/products/crm?utm_source=wordpress-plugin-listing&utm_campaign=wordpress&utm_medium=marketplaces" target="_blank">WordPress CRM</a>: A single simple database for contact management.
 - Integrations: Easily connect to MailChimp, Shopify, Magento and more.
 
 *What do people have to say about HubSpot All-In-One Marketing - Forms, Popups, Live Chat?*
+
+> "I have been in sales and marketing for over 12 years and literally have NEVER liked one of the contact management tools that I have used... and then HubSpot came along and waved their magic sales wand and made a contact management tool that is actually sales-minded, works great, and integrates seamlessly with WordPress." - Caylin White, Head Marketing Buff, WP Buffs
 
 > “HubSpot educates marketers beyond just the anonymous analytics they get from Google Analytics. Instead, it digs down to individual users.” – Michael Shoup, Founder / CEO, 12South Marketing
 
@@ -110,11 +116,11 @@ Having trouble? Check out our <a href="https://knowledge.hubspot.com/articles/kc
 
 = What does the plugin do? =
 
-HubSpot All-In-One Marketing allows you to use HubSpot forms, popups, and live chat on your WordPress website. This all-in-one marketing plugin gives you all the tools you need to grow your email list.
+HubSpot All-In-One Marketing allows you to use HubSpot forms, popups, and live chat on your WordPress website. This all-in-one marketing plugin gives you all the tools you need to grow your email list and send email campaigns.
 
 = What is HubSpot? =
 
-<a href="https://hubspot.com?utm_source=wordpress-plugin-listing&utm_campaign=wordpress&utm_medium=marketplaces" target="_blank">HubSpot</a>a> provides a suite of marketing, sales, customer service, and CRM products to help you grow your business including.
+<a href="https://hubspot.com?utm_source=wordpress-plugin-listing&utm_campaign=wordpress&utm_medium=marketplaces" target="_blank">HubSpot</a> provides a suite of marketing, sales, customer service, and CRM products to help you grow your business. These tools include CRM, forms, live chat, and free email marketing.
 
 = Who should use HubSpot All-In-One Marketing? =
 
@@ -149,6 +155,9 @@ The popup form won’t conflict each other and will wait for their respective tr
 
 <a href="https://knowledge.hubspot.com/getting-started-with-the-hubspot-crm-free/lead-flows-and-collected-forms-faq?utm_source=wordpress-plugin-listing&utm_campaign=wordpress&utm_medium=marketplaces" target="_blank">Check out this help article</a> for more details.
 
+**What is available in the free email marketing tool?**
+HubSpot’s free email marketing tool offers 2000 email sends per calendar month, with HubSpot branding.
+
 = My question is not listed. =
 
 Please <a href="https://community.hubspot.com?utm_source=wordpress-plugin-listing&utm_campaign=wordpress&utm_medium=marketplaces" target="_blank">visit the HubSpot Community</a> for more detailed documentation and support. Thank you!
@@ -164,18 +173,23 @@ Please <a href="https://community.hubspot.com?utm_source=wordpress-plugin-listin
 
 == Changelog ==
 
-- Current version: 7.4.1
-- Current version release: 2019-05-07
+- Current version: 7.6.0
+- Current version release: 2019-07-19
 
-= 7.4.1 (2019.05.07) =
-- Implement faster navigation
-- Fix signup url
-- Use i18n on PHP
-
-= 7.4.0 (2019.04.30) =
-- Improve performances
-- Remove dependencies from HubSpot's CDN
-- Update license
+= 7.6.0 (2019.07.19) =
+- Remove echo from enqueue_scripts hooks
+- Update url on forms dashboard
+- Add nonce checks on connect/disconnect APIs
+- Sanitize portal id on connect APIs
+- Remove queries to DB
+- Update plugin permissions
+- Update `leadin_route` query parameter
+- Remove HTML from translations
+- Remove notice for outdated plugin
+- Remove unused options
+- Escape variables
+- Avoid phpcs errors on file_get_contents
+- Fix mispelled WordPress
 
 = 7.0.0 (2018.10.03) =
 - Add deeper integration with HubSpot. Starts a new release of a new forms integration within WordPress. Released progressively for some users.

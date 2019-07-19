@@ -1,3 +1,61 @@
+= 7.6.0 (2019.07.19) =
+- Remove echo from enqueue_scripts hooks
+- Update url on forms dashboard
+- Add nonce checks on connect/disconnect APIs
+- Sanitize portal id on connect APIs
+- Remove queries to DB
+- Update plugin permissions
+- Update `leadin_route` query parameter
+- Remove HTML from translations
+- Remove notice for outdated plugin
+- Remove unused options
+- Escape variables
+- Avoid phpcs errors on file_get_contents
+- Fix mispelled WordPress
+
+= 7.5.5 (2019.07.16) =
+- Fix comment escaping
+- Remove unused cookie (fix error message on activation)
+- Lock iframe to plugin version
+- Add unit tests for JS
+- Update readme.txt
+- Sanitize inputs
+- Sync route with plugin
+
+= 7.5.4 (2019.06.26) =
+- Hotfix
+
+= 7.5.3 (2019.06.26) =
+- Rename "chatflow" to "live chat"
+- Update readme.txt
+- Update banners
+- Fix themes colors
+- Refactor code style
+
+= 7.5.2 (2019.06.14) =
+- Add webpack and use ES6
+- Show "complete your signup" banner for WPEngine themes
+- Auto-generate assets and update styles for WPEngine themes
+- Handle messages timeout errors
+- Fix navigation in single page app
+- Enable non-HubSpot forms by default
+- Add forms tab in settings
+- Add form builder to WordPress
+
+= 7.5.1 (2019.05.29) =
+- Fix version flags
+- Add unit tests
+- Add languages
+
+= 7.5.0 (2019.05.22) =
+- Add banner to inform users if the version is outdated
+- Add notification that informs user if something is not working on our
+servers
+- Reload window when connection happens on a different tab
+- Reduce loading time for non authenticated users
+- Improve performances when navigating between pages
+- Add tests
+
 = 7.4.1 (2019.05.07) =
 - Implement faster navigation
 - Fix signup url
