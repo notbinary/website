@@ -9,6 +9,10 @@ use ACP\Helper\Select;
 class Author extends Model\Post implements PaginatedOptions {
 
 	public function get_edit_value( $id ) {
+		if ( current_user_can( 'author' ) ) {
+			return null;
+		}
+
 		$user = get_userdata( ac_helper()->post->get_raw_field( 'post_author', $id ) );
 
 		if ( ! $user ) {

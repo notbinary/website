@@ -62,7 +62,9 @@ class Taxonomy extends ACP\Sorting\Strategy {
 	 * return boolean
 	 */
 	private function is_main_query() {
-		if ( ! $this->get_query_var( 'orderby' ) || $this->get_query_var( 'echo' ) || 'all' !== $this->get_query_var( 'fields' ) ) {
+		$term_query = new ACP\TermQueryInformation();
+		
+		if ( ! $this->get_query_var( 'orderby' ) || ! $term_query->is_main_query( $this->term_query ) ) {
 			return false;
 		}
 

@@ -76,6 +76,22 @@ abstract class Model extends ACP\Model {
 	}
 
 	/**
+	 * @return bool
+	 */
+	public function is_bulk_edit_active() {
+		$settings = $this->get_view_settings();
+
+		// Bulk editable by default. Bulk editing is active if its not set or not false.
+		$is_bulk_editable = ! isset( $settings[ self::VIEW_BULK_EDITABLE ] ) || false !== $settings[ self::VIEW_BULK_EDITABLE ];
+
+		if ( $is_bulk_editable ) {
+			$is_bulk_editable = (bool) apply_filters( 'acp/editing/bulk-edit-active', $is_bulk_editable, $this->column );
+		}
+
+		return $is_bulk_editable;
+	}
+
+	/**
 	 * DB value used for storing the edited data
 	 *
 	 * @param int $id
@@ -96,11 +112,12 @@ abstract class Model extends ACP\Model {
 
 		/**
 		 * Filter the raw value, used for editability, for a column
-		 * @since 4.0
 		 *
 		 * @param mixed     $value  Column value used for editability
 		 * @param int       $id     Post ID to get the column editability for
 		 * @param AC\Column $column Column object
+		 *
+		 * @since 4.0
 		 */
 		$value = apply_filters( 'acp/editing/value', $value, $id, $this->column );
 		$value = apply_filters( 'acp/editing/value/' . $this->column->get_type(), $value, $id, $this->column );
@@ -109,12 +126,11 @@ abstract class Model extends ACP\Model {
 	}
 
 	/**
-	 * @since 4.0
-	 *
 	 * @param int          $id
 	 * @param string|array $value
 	 *
 	 * @return bool
+	 * @since 4.0
 	 */
 	abstract protected function save( $id, $value );
 
@@ -129,11 +145,12 @@ abstract class Model extends ACP\Model {
 
 		/**
 		 * Filter for changing the value before storing it to the DB
-		 * @since 4.0
 		 *
 		 * @param mixed     $value Value send from inline edit ajax callback
 		 * @param AC\Column $column
 		 * @param int       $id    ID
+		 *
+		 * @since 4.0
 		 */
 		$value = apply_filters( 'acp/editing/save_value', $value, $this->column, $id );
 
@@ -142,11 +159,12 @@ abstract class Model extends ACP\Model {
 		if ( ! $this->error ) {
 			/**
 			 * Fires after a inline-edit successfully saved a value
-			 * @since 4.0
 			 *
 			 * @param AC\Column $column Column instance
 			 * @param int       $id     Item ID
 			 * @param string    $value  User submitted input
+			 *
+			 * @since 4.0
 			 */
 			do_action( 'acp/editing/saved', $this->column, $id, $value );
 		}
@@ -158,7 +176,8 @@ abstract class Model extends ACP\Model {
 	 * Register column field settings
 	 */
 	public function register_settings() {
-		$this->column->add_setting( new Editing\Settings( $this->column ) );
+		$this->column->add_setting( new Editing\Settings( $this->column ) )
+		             ->add_setting( new Editing\Settings\BulkEditing( $this->column ) );
 	}
 
 }

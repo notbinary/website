@@ -58,7 +58,7 @@ abstract class Column extends Controller {
 
 		$model = $column->editing();
 
-		if ( ! $model || ! $model->is_active() ) {
+		if ( ! $model ) {
 			return false;
 		}
 

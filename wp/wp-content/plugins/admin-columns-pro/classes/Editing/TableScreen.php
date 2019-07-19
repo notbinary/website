@@ -67,7 +67,7 @@ class TableScreen implements AC\Registrable {
 
 	public function edit_button() {
 		?>
-		<label class="ac-table-button -toggle">
+		<label class="ac-table-button -toggle -iedit">
 			<span class="ac-toggle">
 				<input type="checkbox" value="1" id="acp-enable-editing" <?php checked( $this->editing_active ); ?>>
 				<span class="ac-toggle__switch">

@@ -1,14 +1,12 @@
 <?php
 
-namespace ACP\License;
+namespace ACP;
 
+use ACP\API\Request;
+use ACP\API\Response;
 use WP_Error;
 
-/**
- * Admin Columns Pro website connection API
- * @since 3.0
- */
-class API {
+class API implements RequestDispatcher {
 
 	/**
 	 * @var string
@@ -24,6 +22,9 @@ class API {
 	 * @var bool
 	 */
 	protected $use_proxy = true;
+
+	/** @var array */
+	private $meta = array();
 
 	/**
 	 * @return string
@@ -80,6 +81,17 @@ class API {
 	}
 
 	/**
+	 * @param array $meta
+	 *
+	 * @return $this
+	 */
+	public function set_request_meta( array $meta ) {
+		$this->meta = $meta;
+
+		return $this;
+	}
+
+	/**
 	 * Get the URL to call
 	 * @return string
 	 */
@@ -92,22 +104,13 @@ class API {
 	}
 
 	/**
-	 * API Ajax
-	 * @since 1.1
-	 *
 	 * @param Request $request
 	 *
-	 * @return Response API Response
+	 * @return Response
 	 */
-	public function request( Request $request ) {
+	public function dispatch( Request $request ) {
 		$body = array_merge( $request->get_body(), array(
-			'wc-api' => 'software-licence-api',
-			'meta'   => array(),
-		) );
-
-		$body['meta'] = array_merge( $body['meta'], array(
-			'php_version' => PHP_VERSION,
-			'acp_version' => ACP()->get_version(),
+			'meta' => $this->meta,
 		) );
 
 		$request->set_body( $body );
@@ -115,26 +118,24 @@ class API {
 		$data = wp_remote_post( $this->get_request_url(), $request->get_args() );
 
 		$response = new Response();
-		$response = $response->with_body( wp_remote_retrieve_body( $data ) );
+
+		if ( is_wp_error( $data ) ) {
+			return $response->with_error( $data );
+		}
+
+		$body = wp_remote_retrieve_body( $data );
 
 		// retry with proxy disabled
-		if ( ! $response->get_body() && $this->use_proxy ) {
+		if ( ! $body && $this->use_proxy ) {
 			$this->use_proxy = false;
 
-			return $this->request( $request );
+			return $this->dispatch( $request );
 		}
 
-		switch ( $request->get_format() ) {
-			case 'json':
-				$response = $response->with_body( json_decode( $response->get_body() ) );
+		$response = $response->with_body( (object) json_decode( $body, true ) );
 
-				if ( $response->get( 'error' ) ) {
-					$response = $response->with_error( new WP_Error( $response->get( 'code' ), $response->get( 'message' ) ) );
-				}
-		}
-
-		if ( ! $response->get_body() ) {
-			return $response->with_error( new WP_Error( 'empty_response', __( 'Empty response from API.', 'codepress-admin-columns' ) ) );
+		if ( $response->get( 'error' ) ) {
+			$response = $response->with_error( new WP_Error( $response->get( 'code' ), $response->get( 'message' ) ) );
 		}
 
 		return $response;

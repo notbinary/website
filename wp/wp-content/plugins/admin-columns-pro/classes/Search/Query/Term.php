@@ -3,6 +3,7 @@
 namespace ACP\Search\Query;
 
 use ACP\Search\Query;
+use ACP\TermQueryInformation;
 use WP_Term_Query;
 
 class Term extends Query {
@@ -40,7 +41,9 @@ class Term extends Query {
 	 * @return bool
 	 */
 	private function is_main_query( WP_Term_Query $query ) {
-		return ! isset( $query->query_vars['echo'] ) && 'all' === $query->query_vars['fields'];
+		$term_query = new TermQueryInformation();
+
+		return $term_query->is_main_query( $query );
 	}
 
 }

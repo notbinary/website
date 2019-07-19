@@ -1,13 +1,13 @@
 <?php
 
-namespace ACP\License;
+namespace ACP\API;
 
 use WP_Error;
 
 class Response {
 
 	/**
-	 * @var mixed
+	 * @var object
 	 */
 	private $body;
 
@@ -24,10 +24,18 @@ class Response {
 		return $this->error;
 	}
 
+	/**
+	 * @return bool
+	 */
 	public function has_error() {
 		return $this->error instanceof WP_Error;
 	}
 
+	/**
+	 * @param object $body
+	 *
+	 * @return Response
+	 */
 	public function with_body( $body ) {
 		$self = clone $this;
 		$self->body = $body;
@@ -45,7 +53,7 @@ class Response {
 	/**
 	 * Access properties from the body
 	 *
-	 * @param $key
+	 * @param string $key
 	 *
 	 * @return mixed
 	 */

@@ -41,9 +41,11 @@ class Segment extends Controller {
 			throw Exception\Request::from_invalid_parameters();
 		}
 
+		$layout_id = $this->list_screen->get_layout_id();
+
 		$this->rules = $rules;
 		$this->segments = new Segments(
-			new Preferences\User( 'search_segments_' . $this->list_screen->get_layout_id() )
+			new Preferences\User( sprintf( 'search_segments_%s', $layout_id ? $layout_id : $this->list_screen->get_key() ) )
 		);
 	}
 

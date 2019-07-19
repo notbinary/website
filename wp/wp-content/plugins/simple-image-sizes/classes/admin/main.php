@@ -1,6 +1,7 @@
 <?php
+namespace Rahe\Simple_Image_Sizes\Admin;
 
-Class SIS_Admin_Main {
+class Main {
 
 	public function __construct() {
 		add_action( 'admin_init', [ __CLASS__, 'register_assets' ] );
@@ -12,12 +13,14 @@ Class SIS_Admin_Main {
 	public static function register_assets() {
 		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG === true ? '' : '.min';
 		// Add javascript.
-		wp_register_script( 'sis_js', SIS_URL . 'assets/js/dist/app' . $suffix . '.js', [
+		wp_register_script(
+			'sis_js', SIS_URL . 'assets/js/dist/app' . $suffix . '.js', [
 			'jquery',
 			'jquery-ui-button',
 			'jquery-ui-progressbar',
 			'underscore',
-		], SIS_VERSION );
+		], SIS_VERSION
+		);
 
 		// Add javascript translations.
 		wp_localize_script( 'sis_js', 'sis', self::localize_vars() );
@@ -65,6 +68,10 @@ Class SIS_Admin_Main {
 			'finishedAt'         => __( ' finished at :', 'simple-image-sizes' ),
 			'phpError'           => __( 'Error during the php treatment, be sure to not have php errors in your page', 'simple-image-sizes' ),
 			'notSaved'           => __( 'All the sizes you have modified are not saved, continue anyway ?', 'simple-image-sizes' ),
+
+			/*
+			 * translators: %s is the number of seconds for the image generation.
+			 */
 			'soloRegenerated'    => __( 'This image has been regenerated in %s seconds', 'simple-image-sizes' ),
 			'crop_positions'     => self::get_available_crop(),
 			'regen_one'          => wp_create_nonce( 'regen' ),
@@ -97,11 +104,15 @@ Class SIS_Admin_Main {
 
 		// Regen the attachment.
 		if ( false !== $fullsizepath && file_exists( $fullsizepath ) ) {
-			if ( false == wp_update_attachment_metadata( $att_id, self::wp_generate_attachment_metadata_custom( $att_id, $fullsizepath, $thumbnails ) ) ) {
+			if ( false === wp_update_attachment_metadata( $att_id, self::wp_generate_attachment_metadata_custom( $att_id, $fullsizepath, $thumbnails ) ) ) {
 				return [
 					'src'     => wp_get_attachment_thumb_url( $att_id ),
 					'time'    => timer_stop( false, 4 ),
 					'message' => sprintf(
+
+						/*
+						 * Translators: First element is link to the attachment admin edit, second the title of the attachment
+						 */
 						__( 'This file already exists in this size and have not been regenerated :<br/><a target="_blank" href="%1$s" >%2$s</a>', 'simple-image-sizes' ),
 						get_edit_post_link( $att_id ),
 						get_the_title( $att_id )
@@ -113,6 +124,10 @@ Class SIS_Admin_Main {
 				'src'   => wp_get_attachment_thumb_url( $att_id ),
 				'time'  => timer_stop( false, 4 ),
 				'error' => sprintf(
+
+					/*
+					* Translators: First element is link to the attachment admin edit, second the title of the attachment
+					*/
 					__( 'This file does not exists and have not been regenerated :<br/><a target="_blank" href="%1$s" >%2$s</a>', 'simple-image-sizes' ),
 					get_edit_post_link( $att_id ),
 					get_the_title( $att_id )
@@ -227,8 +242,8 @@ Class SIS_Admin_Main {
 	 *
 	 * @since 2.1.0
 	 *
-	 * @param int        $attachment_id : Attachment Id to process.
-	 * @param string     $file          : Filepath of the Attached image.
+	 * @param int $attachment_id : Attachment Id to process.
+	 * @param string $file : Filepath of the Attached image.
 	 *
 	 * @param null|array $thumbnails : thumbnails to regenerate, if null all
 	 *

@@ -1,29 +1,27 @@
 <?php
-namespace ACP;
+namespace ACP\Updates;
 
-use ACP\License\API;
-use ACP\License\Request;
+use ACP\API\Request;
+use ACP\License;
+use ACP\RequestDispatcher;
 
-class LicenseUpdate {
+class UpdateSubscriptionDetails {
 
 	/** @var License */
 	private $license;
 
-	/** @var API */
+	/**
+	 * @var RequestDispatcher
+	 */
 	private $api;
 
-	public function __construct( License $license, API $api ) {
+	public function __construct( License $license, RequestDispatcher $api ) {
 		$this->license = $license;
 		$this->api = $api;
 	}
 
 	public function update() {
-		$request = new Request( array(
-			'request'     => 'licensedetails',
-			'license_key' => $this->license->get_key(),
-		) );
-
-		$response = $this->api->request( $request );
+		$response = $this->api->dispatch( new Request\SubscriptionDetails( $this->license->get_key() ) );
 
 		if ( $response->get( 'expiry_date' ) ) {
 			$this->license->set_expiry_date( $response->get( 'expiry_date' ) );
@@ -31,6 +29,10 @@ class LicenseUpdate {
 
 		if ( $response->get( 'renewal_discount' ) ) {
 			$this->license->set_renewal_discount( $response->get( 'renewal_discount' ) );
+		}
+
+		if ( $response->get( 'renewal_method' ) ) {
+			$this->license->set_renewal_method( $response->get( 'renewal_method' ) );
 		}
 
 		if ( $response->get( 'status' ) ) {

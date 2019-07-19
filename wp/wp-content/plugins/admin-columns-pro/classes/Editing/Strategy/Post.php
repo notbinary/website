@@ -20,7 +20,7 @@ class Post implements Strategy {
 	}
 
 	/**
-	 * @param $post
+	 * @param WP_Post|int $post
 	 *
 	 * @return bool
 	 */

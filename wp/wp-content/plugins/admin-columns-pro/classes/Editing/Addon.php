@@ -73,8 +73,7 @@ class Addon implements AC\Registrable {
 				$location->with_suffix( 'assets/editing/js/table.js' ),
 				$list_screen,
 				$editable_columns,
-				$editability_state,
-				$this->is_bulk_editing_active( $list_screen )
+				$editability_state
 			),
 		);
 
@@ -109,7 +108,7 @@ class Addon implements AC\Registrable {
 
 			$model = $column->editing();
 
-			if ( ! $model || ! $model->is_active() ) {
+			if ( ! $model ) {
 				continue;
 			}
 
@@ -117,15 +116,6 @@ class Addon implements AC\Registrable {
 		}
 
 		return $editable_columns;
-	}
-
-	/**
-	 * @param AC\ListScreen $list_screen
-	 *
-	 * @return bool
-	 */
-	public function is_bulk_editing_active( AC\ListScreen $list_screen ) {
-		return apply_filters( 'acp/editing/bulk/active', true, $list_screen );
 	}
 
 	/**

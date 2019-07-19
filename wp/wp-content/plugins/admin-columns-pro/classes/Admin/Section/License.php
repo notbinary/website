@@ -1,22 +1,26 @@
 <?php
-namespace ACP\License;
+namespace ACP\Admin\Section;
 
 use AC;
 use AC\Message;
-use ACP\License;
-use ACP\LicenseUpdate;
+use ACP;
+use ACP\API;
+use ACP\API\Request;
 use WP_Error;
 
-class Settings extends AC\Admin\Section\Custom
-	implements AC\Registrable {
+class License extends AC\Admin\Section\Custom {
 
 	/**
 	 * @var API
 	 */
 	protected $api;
 
-	public function __construct( API $api ) {
+	/** @var ACP\License */
+	private $license;
+
+	public function __construct( API $api, ACP\License $license ) {
 		$this->api = $api;
+		$this->license = $license;
 
 		parent::__construct( 'updates', __( 'Updates', 'codepress-admin-columns' ), __( 'Enter your license code to receive automatic updates.', 'codepress-admin-columns' ) );
 	}
@@ -34,8 +38,8 @@ class Settings extends AC\Admin\Section\Custom
 
 	/**
 	 * Check if the license for this plugin is managed per site or network
-	 * @since 3.6
 	 * @return boolean
+	 * @since 3.6
 	 */
 	private function is_network_managed_license() {
 		return is_multisite() && is_plugin_active_for_network( ACP()->get_basename() );
@@ -53,16 +57,9 @@ class Settings extends AC\Admin\Section\Custom
 			return new WP_Error( 'empty-license', __( 'Empty license.', 'codepress-admin-columns' ) );
 		}
 
-		$license = new License();
-		$license->delete();
+		$this->license->delete();
 
-		$request = new Request( array(
-			'request'     => 'activation',
-			'licence_key' => $license_key,
-			'site_url'    => site_url(),
-		) );
-
-		$response = $this->api->request( $request );
+		$response = $this->api->dispatch( new Request\Activation( $license_key ) );
 
 		if ( $response->has_error() ) {
 			return $response->get_error();
@@ -72,19 +69,25 @@ class Settings extends AC\Admin\Section\Custom
 			return new WP_Error( 'error', __( 'Wrong response from API.', 'codepress-admin-columns' ) );
 		}
 
+		$this->license->set_key( $license_key )
+		              ->set_status( 'active' );
+
 		if ( $response->get( 'expiry_date' ) ) {
-			$license->set_expiry_date( $response->get( 'expiry_date' ) );
+			$this->license->set_expiry_date( $response->get( 'expiry_date' ) );
 		}
 
 		if ( $response->get( 'renewal_discount' ) ) {
-			$license->set_renewal_discount( $response->get( 'renewal_discount' ) );
+			$this->license->set_renewal_discount( $response->get( 'renewal_discount' ) );
 		}
 
-		$license->set_key( $license_key )
-		        ->set_status( 'active' )
-		        ->save();
+		if ( $response->get( 'renewal_method' ) ) {
+			$this->license->set_renewal_method( $response->get( 'renewal_method' ) );
+		}
 
-		do_action( 'acp/license/activated', $response );
+		$this->license->save();
+
+		// check for plugin updates with the activated license key.
+		$this->clear_plugins_api_cache();
 
 		return $response->get( 'message' );
 	}
@@ -93,17 +96,9 @@ class Settings extends AC\Admin\Section\Custom
 	 * @return string|WP_Error Success message
 	 */
 	private function deactivate_license() {
-		$license = new License();
+		$response = $this->api->dispatch( new Request\Deactivation( $this->license->get_key() ) );
 
-		$request = new Request( array(
-			'request'     => 'deactivation',
-			'licence_key' => $license->get_key(),
-			'site_url'    => site_url(),
-		) );
-
-		$response = $this->api->request( $request );
-
-		$license->delete();
+		$this->license->delete();
 
 		if ( $response->has_error() ) {
 			return new WP_Error( 'error', __( 'Wrong response from API.', 'codepress-admin-columns' ) . ' ' . $response->get_error()->get_error_message() );
@@ -114,6 +109,22 @@ class Settings extends AC\Admin\Section\Custom
 		}
 
 		return $response->get( 'message' );
+	}
+
+	private function clear_plugins_api_cache() {
+		$api = new API\Cached( $this->api, null, true );
+		$api->dispatch( new API\Request\ProductsUpdate( $this->license->get_key() ) );
+
+		// force update check
+		delete_site_transient( 'update_plugins' );
+	}
+
+	private function update_license() {
+		// update subscription info
+		$subscription_updater = new ACP\Updates\UpdateSubscriptionDetails( $this->license, $this->api );
+		$subscription_updater->update();
+
+		$this->clear_plugins_api_cache();
 	}
 
 	/**
@@ -130,10 +141,6 @@ class Settings extends AC\Admin\Section\Custom
 		$notice->register();
 	}
 
-	/**
-	 * Handle requests for license activation and deactivation
-	 * @since 1.0
-	 */
 	public function handle_request() {
 		if ( ! current_user_can( AC\Capabilities::MANAGE ) ) {
 			return;
@@ -155,8 +162,8 @@ class Settings extends AC\Admin\Section\Custom
 
 				break;
 			case 'update' :
-				$updater = new LicenseUpdate( new License(), $this->api );
-				$updater->update();
+				$this->update_license();
+				$this->request_notice( __( 'License information has been updated.', 'codepress-admin-columns' ) );
 
 				break;
 		}
@@ -189,45 +196,42 @@ class Settings extends AC\Admin\Section\Custom
 			<?php
 		} else {
 
-			$license = new License();
-
 			?>
 
 			<form id="licence_activation" action="" method="post">
 				<?php wp_nonce_field( 'acp-license', '_acnonce' ); ?>
 
-				<?php if ( $license->get_key() ) : ?>
+				<?php if ( $this->license->get_key() ) : ?>
 
-					<?php if ( $license->needs_update() ) : ?>
-						<input type="hidden" name="action" value="update">
+					<?php if ( $this->license->needs_update() ) : ?>
 						<p>
 							<span class="dashicons dashicons-no-alt"></span>
 							<?php _e( 'Automatic updates are disabled.', 'codepress-admin-columns' ); ?>
-						</p>
-						<p>
-							<input type="submit" class="button" value="<?php _e( 'Enable automatic updates', 'codepress-admin-columns' ); ?>">
+							<button type="submit" class="button" name="action" value="deactivate"><?php _e( 'Deactivate license', 'codepress-admin-columns' ); ?></button>
+							<button type="submit" class="button" name="action" value="update"><?php _e( 'Check license', 'codepress-admin-columns' ); ?></button>
 						</p>
 
 					<?php else : ?>
-						<input type="hidden" name="action" value="deactivate">
 
-						<?php if ( $license->is_expired() ) : ?>
+						<?php if ( $this->license->is_expired() ) : ?>
 							<p>
 								<span class="dashicons dashicons-no-alt"></span>
-								<?php printf( __( 'License has expired on %s', 'codepress-admin-columns' ), '<strong>' . date_i18n( get_option( 'date_format' ), $license->get_expiry_date() ) . '</strong>' ); ?>
-								<input type="submit" class="button" value="<?php _e( 'Deactivate license', 'codepress-admin-columns' ); ?>">
+								<?php printf( __( 'License has expired on %s', 'codepress-admin-columns' ), '<strong>' . date_i18n( get_option( 'date_format' ), $this->license->get_expiry_date() ) . '</strong>' ); ?>
+								<button type="submit" class="button" name="action" value="deactivate"><?php _e( 'Deactivate license', 'codepress-admin-columns' ); ?></button>
+								<button type="submit" class="button" name="action" value="update"><?php _e( 'Check license', 'codepress-admin-columns' ); ?></button>
 							</p>
 						<?php else : ?>
 							<p>
 								<span class="dashicons dashicons-yes"></span>
 								<?php _e( 'Automatic updates are enabled.', 'codepress-admin-columns' ); ?>
-								<input type="submit" class="button" value="<?php _e( 'Deactivate license', 'codepress-admin-columns' ); ?>">
+								<button type="submit" class="button" name="action" value="deactivate"><?php _e( 'Deactivate license', 'codepress-admin-columns' ); ?></button>
+								<button type="submit" class="button" name="action" value="update"><?php _e( 'Check license', 'codepress-admin-columns' ); ?></button>
 							</p>
 							<p class="description">
-								<?php if ( $license->has_expiry_date() ): ?>
+								<?php if ( $this->license->has_expiry_date() ): ?>
 									<?php _e( 'You have a lifetime license and your license will never expire.', 'codepress-admin-columns' ); ?>
 								<?php else: ?>
-									<?php printf( __( 'License is valid until %s', 'codepress-admin-columns' ), '<strong>' . date_i18n( get_option( 'date_format' ), $license->get_expiry_date() ) . '</strong>' ); ?>
+									<?php printf( __( 'License is valid until %s', 'codepress-admin-columns' ), '<strong>' . date_i18n( get_option( 'date_format' ), $this->license->get_expiry_date() ) . '</strong>' ); ?>
 								<?php endif; ?>
 							</p>
 						<?php endif; ?>
@@ -235,15 +239,13 @@ class Settings extends AC\Admin\Section\Custom
 					<?php endif; ?>
 
 				<?php else : ?>
-					<input type="hidden" name="action" value="activate">
-					<input type="password" value="<?php echo esc_attr( $license->get_key() ); ?>" name="license" size="30" placeholder="<?php echo esc_attr( __( 'Enter your license code', 'codepress-admin-columns' ) ); ?>">
-					<input type="submit" class="button" value="<?php _e( 'Update license', 'codepress-admin-columns' ); ?>">
+					<input type="password" value="<?php echo esc_attr( $this->license->get_key() ); ?>" name="license" size="30" placeholder="<?php echo esc_attr( __( 'Enter your license code', 'codepress-admin-columns' ) ); ?>">
+					<button type="submit" class="button" name="action" value="activate"><?php _e( 'Update license', 'codepress-admin-columns' ); ?></button>
 					<p class="description">
 						<?php printf( __( 'You can find your license key on your %s.', 'codepress-admin-columns' ), '<a href="' . ac_get_site_utm_url( 'my-account', 'license-activation' ) . '" target="_blank">' . __( 'account page', 'codepress-admin-columns' ) . '</a>' ); ?>
 					</p>
 				<?php endif; ?>
 			</form>
-
 			<?php
 		}
 	}

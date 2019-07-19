@@ -26,7 +26,7 @@ class CustomField extends Model {
 			);
 	}
 
-	private function is_editing_enabled() {
+	protected function is_editing_enabled() {
 		$option = new CustomFieldEditing();
 
 		return $option->is_enabled();

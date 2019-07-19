@@ -12,8 +12,8 @@ class ChildPages extends Model {
 	public function get_value( $id ) {
 		$titles = array();
 
-		foreach ( $this->get_column()->get_raw_value( $id ) as $id ) {
-			$titles[] = get_post_field( 'post_title', $id );
+		foreach ( $this->get_column()->get_raw_value( $id ) as $post_id ) {
+			$titles[] = get_post_field( 'post_title', $post_id );
 		}
 
 		return implode( ',', $titles );

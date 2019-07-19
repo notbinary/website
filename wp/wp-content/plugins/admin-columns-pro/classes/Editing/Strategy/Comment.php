@@ -8,11 +8,10 @@ use WP_Comment;
 class Comment implements Strategy {
 
 	/**
-	 * @since 4.0
-	 *
 	 * @param $comment
 	 *
 	 * @return bool
+	 * @since 4.0
 	 */
 	public function user_has_write_permission( $comment ) {
 		if ( ! $comment instanceof WP_Comment ) {

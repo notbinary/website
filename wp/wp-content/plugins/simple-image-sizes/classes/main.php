@@ -1,6 +1,7 @@
 <?php
+namespace Rahe\Simple_Image_Sizes;
 
-Class SIS_Client {
+class Main {
 
 	public function __construct() {
 		// Make new image sizes.

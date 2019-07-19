@@ -28,24 +28,18 @@ final class Table extends Script {
 	private $editable_columns;
 
 	/**
-	 * @var bool
-	 */
-	private $bulk_editing_enabled;
-
-	/**
 	 * @param string           $handle
 	 * @param Location         $location
 	 * @param ListScreen       $list_screen
 	 * @param array            $editable_columns
 	 * @param Preferences\Site $editing_state
 	 */
-	public function __construct( $handle, Location $location, ListScreen $list_screen, array $editable_columns, Preferences\Site $editing_state, $bulk_editing_enabled ) {
+	public function __construct( $handle, Location $location, ListScreen $list_screen, array $editable_columns, Preferences\Site $editing_state ) {
 		parent::__construct( $handle, $location, array( 'jquery' ) );
 
 		$this->list_screen = $list_screen;
 		$this->editing_active = $editing_state->get( $list_screen->get_key() );
 		$this->editable_columns = $editable_columns;
-		$this->bulk_editing_enabled = $bulk_editing_enabled;
 	}
 
 	public function register() {
@@ -68,7 +62,6 @@ final class Table extends Script {
 			'bulk_edit'   => array(
 				'updated_rows_per_iteration' => $this->get_updated_rows_per_iteration(),
 				'total_items'                => $total_items,
-				'active'                     => $this->bulk_editing_enabled,
 				'show_confirmation'          => apply_filters( 'acp/editing/bulk/show_confirmation', true ),
 			),
 			'i18n'        => array(
@@ -132,6 +125,7 @@ final class Table extends Script {
 			}
 
 			$data = $column->editing()->get_view_settings();
+
 			$data = apply_filters( 'acp/editing/view_settings', $data, $column );
 			$data = apply_filters( 'acp/editing/view_settings/' . $column->get_type(), $data, $column );
 
@@ -143,9 +137,17 @@ final class Table extends Script {
 				$data['options'] = $this->format_js( $data['options'] );
 			}
 
+			$is_bulk_editable = $column->editing()->is_bulk_edit_active();
+
+			if ( $is_bulk_editable ) {
+				$is_bulk_editable = (bool) apply_filters( 'acp/editing/bulk/active', $is_bulk_editable, $this->list_screen );
+			}
+
 			$editable_data[ $column->get_name() ] = array(
-				'type'     => $column->get_type(),
-				'editable' => $data,
+				'type'        => $column->get_type(),
+				'editable'    => $data,
+				'inline_edit' => $column->editing()->is_active(),
+				'bulk_edit'   => $is_bulk_editable,
 			);
 		}
 

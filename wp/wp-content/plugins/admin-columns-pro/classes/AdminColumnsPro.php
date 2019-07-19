@@ -5,9 +5,8 @@ namespace ACP;
 use AC;
 use ACP\Admin;
 use ACP\LayoutScreen;
-use ACP\License\API;
-use ACP\License\Manager;
 use ACP\ThirdParty;
+use ACP\Updates\AddonInstaller;
 
 /**
  * The Admin Columns Pro plugin class
@@ -25,14 +24,17 @@ final class AdminColumnsPro extends AC\Plugin {
 	 */
 	private $api;
 
+	/** @var License */
+	private $license;
+
 	/**
 	 * @since 3.8
 	 */
 	private static $instance = null;
 
 	/**
-	 * @since 3.8
 	 * @return AdminColumnsPro
+	 * @since 3.8
 	 */
 	public static function instance() {
 		if ( null === self::$instance ) {
@@ -46,12 +48,18 @@ final class AdminColumnsPro extends AC\Plugin {
 		$this->api = new API();
 		$this->api
 			->set_url( ac_get_site_url() )
-			->set_proxy( 'https://api.admincolumns.com' );
+			->set_proxy( 'https://api.admincolumns.com' )
+			->set_request_meta( array(
+				'php_version' => PHP_VERSION,
+				'acp_version' => $this->get_version(),
+			) );
+
+		$this->license = new License( $this->is_network_active() );
 
 		$this->localize();
 
 		$factory = new AdminFactory();
-		$factory->create( is_network_admin(), AC()->admin(), $this->api );
+		$factory->create( is_network_admin(), AC()->admin(), $this->api, $this->license );
 
 		add_action( 'init', array( $this, 'notice_checks' ) );
 
@@ -83,7 +91,9 @@ final class AdminColumnsPro extends AC\Plugin {
 			new ListScreens(),
 			new NativeTaxonomies(),
 			new IconPicker(),
-			new Manager( $this->api ),
+			new TermQueryInformation(),
+			new Updates( $this->api, $this->license ),
+			new AddonInstaller( $this->api, $this->license->get_key() ),
 		);
 
 		foreach ( $modules as $module ) {
@@ -97,15 +107,12 @@ final class AdminColumnsPro extends AC\Plugin {
 	 * Localize
 	 */
 	public function localize() {
-		$domain = 'codepress-admin-columns';
-		$path = pathinfo( $this->get_dir() );
-
-		load_plugin_textdomain( $domain, false, $path['basename'] . '/languages/' );
-		load_plugin_textdomain( $domain, false, $path['basename'] . '/admin-columns/languages/' );
+		load_plugin_textdomain( 'codepress-admin-columns', false, dirname( $this->get_basename() ) . '/languages/' );
+		load_plugin_textdomain( 'codepress-admin-columns', false, dirname( $this->get_basename() ) . '/admin-columns/languages/' );
 	}
 
 	/**
-	 * @return License\API
+	 * @return API
 	 */
 	public function get_api() {
 		return $this->api;
@@ -116,9 +123,9 @@ final class AdminColumnsPro extends AC\Plugin {
 	 */
 	public function notice_checks() {
 		$checks = array(
-			new Check\Activation( new License ),
-			new Check\Expired( new License ),
-			new Check\Renewal( new License ),
+			new Check\Activation( $this->license ),
+			new Check\Expired( $this->license ),
+			new Check\Renewal( $this->license ),
 		);
 
 		if ( $this->is_beta() ) {
@@ -145,11 +152,10 @@ final class AdminColumnsPro extends AC\Plugin {
 	}
 
 	/**
-	 * @since 4.0
-	 *
 	 * @param AC\ListScreen $list_screen
 	 *
 	 * @return Layouts
+	 * @since 4.0
 	 */
 	public function layouts( AC\ListScreen $list_screen ) {
 		return new Layouts( $list_screen );
@@ -163,13 +169,12 @@ final class AdminColumnsPro extends AC\Plugin {
 	}
 
 	/**
-	 * @since 1.0
-	 * @see   filter:plugin_action_links
-	 *
 	 * @param array  $links
 	 * @param string $file
 	 *
 	 * @return array
+	 * @see   filter:plugin_action_links
+	 * @since 1.0
 	 */
 	public function add_settings_link( $links, $file ) {
 		if ( $file === $this->get_basename() ) {
@@ -197,7 +202,7 @@ final class AdminColumnsPro extends AC\Plugin {
 	 * @return void
 	 */
 	public function table_scripts() {
-		wp_enqueue_style( 'acp-table', ACP()->get_url() . "assets/core/css/table.css", array(), AC()->get_version() );
+		wp_enqueue_style( 'acp-table', $this->get_url() . "assets/core/css/table.css", array(), $this->get_version() );
 	}
 
 	/**

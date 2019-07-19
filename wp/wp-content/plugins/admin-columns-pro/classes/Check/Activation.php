@@ -13,14 +13,9 @@ use ACP\License;
 class Activation
 	implements Registrable {
 
-	/**
-	 * @var License
-	 */
-	protected $license;
+	/** @var License */
+	private $license;
 
-	/**
-	 * @param License $license
-	 */
 	public function __construct( License $license ) {
 		$this->license = $license;
 	}
@@ -40,10 +35,11 @@ class Activation
 	 * @throws \Exception
 	 */
 	public function register_notice( Screen $screen ) {
-		if ( ! $screen->has_screen()
-		     || ! current_user_can( Capabilities::MANAGE )
-		     || $this->license->is_active()
-		) {
+		if ( ! $screen->has_screen() || ! current_user_can( Capabilities::MANAGE ) ) {
+			return;
+		}
+
+		if ( $this->license->is_active() ) {
 			return;
 		}
 

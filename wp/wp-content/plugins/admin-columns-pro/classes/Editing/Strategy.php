@@ -9,7 +9,7 @@ interface Strategy {
 	/**
 	 * @since 4.0
 	 *
-	 * @param $object_id
+	 * @param int|object $object_id
 	 *
 	 * @return bool True when user can edit object.
 	 */

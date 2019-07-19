@@ -37,7 +37,7 @@ abstract class EditableRows extends Request {
 			$number = $this->get_editable_rows_per_iteration();
 		}
 
-		$page = $this->request->filter( 'page', 1, FILTER_SANITIZE_NUMBER_INT );
+		$page = $this->request->filter( 'ac_page', 1, FILTER_SANITIZE_NUMBER_INT );
 
 		return ( $page - 1 ) * $number;
 	}
@@ -46,7 +46,7 @@ abstract class EditableRows extends Request {
 	 * @return int
 	 */
 	protected function get_editable_rows_per_iteration() {
-		return (int) apply_filters( 'acp/editing/bulk/editable_rows_per_iteration', 1000 );
+		return (int) apply_filters( 'acp/editing/bulk/editable_rows_per_iteration', 2000 );
 	}
 
 	/**
@@ -55,6 +55,7 @@ abstract class EditableRows extends Request {
 	protected function success( array $rows ) {
 		$response = new Response\Json;
 		$response->set_parameter( 'editable_rows', $rows )
+		         ->set_parameter( 'rows_per_iteration', $this->get_editable_rows_per_iteration() )
 		         ->success();
 	}
 

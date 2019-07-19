@@ -8,9 +8,9 @@ use WP_Site;
 class Site implements Strategy {
 
 	/**
-	 * @param  $site
+	 * @param WP_Site|int $site
 	 *
-	 * @return bool|int
+	 * @return bool
 	 */
 	public function user_has_write_permission( $site ) {
 		if ( ! current_user_can( 'manage_sites' ) ) {

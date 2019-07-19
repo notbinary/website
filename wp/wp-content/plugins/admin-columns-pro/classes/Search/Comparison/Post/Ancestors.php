@@ -29,7 +29,7 @@ class Ancestors extends Comparison {
 			? Operators::EQ
 			: Operators::NEQ;
 
-		$value = new Value(
+		$new_value = new Value(
 			0,
 			Value::INT
 		);
@@ -37,7 +37,7 @@ class Ancestors extends Comparison {
 		$where = ComparisonFactory::create(
 			$wpdb->posts . '.post_parent',
 			$operator,
-			$value
+			$new_value
 		)->prepare();
 
 		$bindings = new Bindings();

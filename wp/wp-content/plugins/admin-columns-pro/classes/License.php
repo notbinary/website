@@ -29,10 +29,25 @@ final class License {
 	 */
 	private $renewal_discount;
 
-	public function __construct() {
+	/** @var bool */
+	private $is_network_active;
+
+	/**
+	 * @var string
+	 */
+	private $renewal_method;
+
+	public function __construct( $is_network_active = false ) {
+		$this->is_network_active = (bool) $is_network_active;
+
+		$this->populate();
+	}
+
+	private function populate() {
 		$this->set_key( defined( 'ACP_LICENCE' ) && ACP_LICENCE ? ACP_LICENCE : $this->get_option( self::OPTION_KEY ) )
 		     ->set_status( $this->get_option( self::OPTION_KEY . '_sts' ) )
 		     ->set_expiry_date( $this->get_option( self::OPTION_KEY . '_expiry_date' ) )
+		     ->set_renewal_method( $this->get_option( self::OPTION_KEY . '_renewal_method' ) )
 		     ->set_renewal_discount( $this->get_option( self::OPTION_KEY . '_renewal_discount' ) );
 	}
 
@@ -43,15 +58,19 @@ final class License {
 		foreach ( $this->mapping() as $var => $db_key ) {
 			$this->update_option( self::OPTION_KEY . $db_key, $this->{$var} );
 		}
+
+		$this->populate();
 	}
 
 	/**
-	 * Removes object from DB
+	 * Delete license setting from DB
 	 */
 	public function delete() {
 		foreach ( $this->mapping() as $db_key ) {
 			$this->delete_option( self::OPTION_KEY . $db_key );
 		}
+
+		$this->populate();
 	}
 
 	/**
@@ -64,6 +83,7 @@ final class License {
 			'status'           => '_sts',
 			'expiry_date'      => '_expiry_date',
 			'renewal_discount' => '_renewal_discount',
+			'renewal_method'   => '_renewal_method',
 		);
 	}
 
@@ -99,6 +119,10 @@ final class License {
 		return $this->expiry_date;
 	}
 
+	protected function get_renewal_method() {
+		return $this->renewal_method;
+	}
+
 	/**
 	 * @param string $format days|seconds
 	 *
@@ -132,6 +156,24 @@ final class License {
 		$this->expiry_date = $date;
 
 		return $this;
+	}
+
+	/**
+	 * @param $renewal_method
+	 *
+	 * @return $this
+	 */
+	public function set_renewal_method( $renewal_method ) {
+		$this->renewal_method = $renewal_method;
+
+		return $this;
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function is_auto_renew() {
+		return 'auto' === $this->get_renewal_method();
 	}
 
 	/**
@@ -210,7 +252,7 @@ final class License {
 	 * @return bool
 	 */
 	private function is_network_managed_license() {
-		return is_multisite() && ACP()->is_network_active();
+		return is_multisite() && $this->is_network_active;
 	}
 
 	/**

@@ -3,7 +3,7 @@
 Plugin Name: Simple Image Sizes
 Plugin URI: https://github.com/Rahe/simple-image-sizes
 Description: Add options in media setting page for images sizes
-Version: 3.2.0
+Version: 3.2.1
 Author: Rahe
 Author URI: http://nicolas-juen.fr
 Text Domain: simple-image-sizes
@@ -30,33 +30,21 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 define( 'SIS_URL', plugin_dir_url( __FILE__ ) );
 define( 'SIS_DIR', plugin_dir_path( __FILE__ ) );
-define( 'SIS_VERSION', '3.2.0' );
+define( 'SIS_VERSION', '3.2.1' );
 define( 'SIS_OPTION', 'custom_image_sizes' );
 
-// Function for easy load files
-function _sis_load_files( $dir, $files, $prefix = '' ) {
-	foreach ( $files as $file ) {
-		if ( is_file( $dir . $prefix . $file . '.php' ) ) {
-			require_once( $dir . $prefix . $file . '.php' );
-		}
-	}
-}
-
-// Plugin client classes
-_sis_load_files( SIS_DIR . 'classes/', array( 'main' ) );
-
-if ( is_admin() ) {
-	// Admins classes
-	_sis_load_files( SIS_DIR . 'classes/admin/', array( 'main', 'post', 'media' ) );
+if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
+	require __DIR__ . '/vendor/autoload.php';
 }
 
 add_action( 'plugins_loaded', 'init_sis' );
 function init_sis() {
+	new Rahe\Simple_Image_Sizes\Main();
+
 	if ( is_admin() ) {
-		new SIS_Admin_Main();
-		new SIS_Admin_Post();
-		new SIS_Admin_Media();
+		new \Rahe\Simple_Image_Sizes\Admin\Main();
+		new \Rahe\Simple_Image_Sizes\Admin\Post();
+		new \Rahe\Simple_Image_Sizes\Admin\Media();
 	}
 
-	new SIS_Client();
 }

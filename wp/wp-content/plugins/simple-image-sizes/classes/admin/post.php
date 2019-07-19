@@ -1,6 +1,7 @@
 <?php
+namespace Rahe\Simple_Image_Sizes\Admin;
 
-Class SIS_Admin_Post {
+class Post {
 	public function __construct() {
 
 		add_filter( 'image_size_names_choose', [ __CLASS__, 'add_thumbnail_name' ] );
@@ -65,10 +66,10 @@ Class SIS_Admin_Post {
 		$nonce = isset( $_POST['nonce'] ) ? $_POST['nonce'] : '';
 
 		// Get the thumbnails.
-		$id = isset( $_POST['id'] ) ? $_POST['id'] : null;
+		$id = isset( $_POST['id'] ) ? (int) $_POST['id'] : null;
 
 		// Check the nonce.
-		if ( ! wp_verify_nonce( $nonce, 'sis-regenerate-featured-' . $id ) ) {
+		if ( ! wp_verify_nonce( $nonce, 'sis-regenerate-featured-' . $id ) || ! \current_user_can( 'manage_options' ) ) {
 			wp_send_json( [ 'error' => __( 'Trying to cheat ?', 'simple-image-sizes' ) ] );
 		}
 
@@ -79,7 +80,7 @@ Class SIS_Admin_Post {
 		}
 
 		// Get the id.
-		wp_send_json( SIS_Admin_Main::thumbnail_rebuild( $attachment_id ) );
+		wp_send_json( Main::thumbnail_rebuild( $attachment_id ) );
 	}
 
 	/**
@@ -106,12 +107,12 @@ Class SIS_Admin_Post {
 			}
 		}
 
-		if ( 'upload.php' == $hook_suffix || ( 'post.php' == $hook_suffix && isset( $_GET['post'] ) && isset( $_GET['action'] ) && 'edit' == $_GET['action'] ) ) {
+		if ( 'upload.php' === $hook_suffix || ( 'post.php' === $hook_suffix && isset( $_GET['post'] ) && isset( $_GET['action'] ) && 'edit' == $_GET['action'] ) ) {
 			// Add javascript.
 			wp_enqueue_script( 'sis_js' );
 
 			// Add underscore template.
-			add_action( 'admin_footer', [ 'SIS_Admin_Main', 'add_template' ] );
+			add_action( 'admin_footer', [ 'Rahe\Simple_Image_Sizes\Admin\Main', 'add_template' ] );
 		}
 	}
 
@@ -130,13 +131,13 @@ Class SIS_Admin_Post {
 		$thumbnails = isset( $_POST['thumbnails'] ) ? $_POST['thumbnails'] : null;
 
 		// Check the nonce.
-		if ( ! wp_verify_nonce( $nonce, 'regen' ) ) {
+		if ( ! wp_verify_nonce( $nonce, 'regen' ) || ! \current_user_can( 'manage_options' ) ) {
 			wp_send_json( [ 'error' => __( 'Trying to cheat ?', 'simple-image-sizes' ) ] );
 		}
 
 		// Get the id.
 		$id = isset( $_POST['id'] ) ? (int) $_POST['id'] : 0;
-		wp_send_json( SIS_Admin_Main::thumbnail_rebuild( $id, $thumbnails ) );
+		wp_send_json( Main::thumbnail_rebuild( $id, $thumbnails ) );
 	}
 
 	/**
@@ -212,8 +213,8 @@ Class SIS_Admin_Post {
 	 * @since 2.2
 	 * @access public
 	 *
-	 * @param array   $actions : array of actions and content to display.
-	 * @param WP_Post $object : the WordPress object for the actions.
+	 * @param array    $actions : array of actions and content to display.
+	 * @param \WP_Post $object : the WordPress object for the actions.
 	 *
 	 * @return array  $actions
 	 * @author Nicolas Juen
@@ -235,8 +236,8 @@ Class SIS_Admin_Post {
 	 *
 	 * @access public
 	 *
-	 * @param array  $fields : the fields of the media.
-	 * @param object $post : the post object.
+	 * @param array    $fields : the fields of the media.
+	 * @param \WP_Post $post : the post object.
 	 *
 	 * @return array
 	 * @since 2.3.1
@@ -251,7 +252,8 @@ Class SIS_Admin_Post {
 		$fields['sis-regenerate'] = [
 			'label'         => __( 'Regenerate Thumbnails', 'simple-image-sizes' ),
 			'input'         => 'html',
-			'html'          => sprintf( '
+			'html'          => sprintf(
+				'
 			<input type="button" data-id="%s" class="button title sis-regenerate-one" value="%s" />
 			<span class="spinner"></span>
 			<span class="title"><em></em></span>

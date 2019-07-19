@@ -233,7 +233,7 @@ class PostCount extends Settings\Column
 			$sql .= " WHERE " . implode( " AND ", $conditional );
 		}
 
-		$value = $wpdb->get_var( $sql );
+		$new_value = $wpdb->get_var( $sql );
 
 		if ( $this->get_post_type() ) {
 			$url = add_query_arg( array( 'post_type' => $this->get_post_type() ), get_admin_url( $blog_id, 'edit.php' ) );
@@ -242,10 +242,10 @@ class PostCount extends Settings\Column
 				$url = add_query_arg( array( 'post_status' => $post_status ), $url );
 			}
 
-			$value = ac_helper()->html->link( $url, $value );
+			$new_value = ac_helper()->html->link( $url, $new_value );
 		}
 
-		return $value;
+		return $new_value;
 	}
 
 }

@@ -19,7 +19,7 @@ class ID extends Model {
 		$value = $this->get_filter_value();
 
 		if ( $value['min'] ) {
-			$where .= $where . $wpdb->prepare( "AND {$wpdb->posts}.ID >= %s", $value['min'] );
+			$where .= $wpdb->prepare( "AND {$wpdb->posts}.ID >= %s", $value['min'] );
 		}
 
 		if ( $value['max'] ) {

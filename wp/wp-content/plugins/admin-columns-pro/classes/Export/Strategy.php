@@ -31,9 +31,10 @@ abstract class Strategy {
 
 	/**
 	 * Constructor
-	 * @since 1.0
 	 *
 	 * @param AC\ListScreen $list_screen Associated Admin Columns list screen object
+	 *
+	 * @since 1.0
 	 */
 	public function __construct( AC\ListScreen $list_screen ) {
 		$this->list_screen = $list_screen;
@@ -59,29 +60,25 @@ abstract class Strategy {
 			return;
 		}
 
-		// Validate nonce
 		if ( ! wp_verify_nonce( filter_input( INPUT_GET, '_wpnonce' ), 'acp_export_listscreen_export' ) ) {
-			wp_send_json_error();
+			return;
 		}
 
-		// Validate counter
 		if ( $this->get_export_counter() === false ) {
 			wp_send_json_error( __( 'Invalid value supplied for export counter.', 'codepress-admin-columns' ) );
 		}
 
-		// Validate hash
 		if ( $this->get_export_hash() === false ) {
 			wp_send_json_error( __( 'Invalid value supplied for export hash.', 'codepress-admin-columns' ) );
 		}
 
-		// Run the actual export
 		$this->ajax_export();
 	}
 
 	/**
 	 * Get the counter value passed for the AJAX export
-	 * @since 1.0
 	 * @return int Counter value, or false if there is no valid counter value
+	 * @since 1.0
 	 */
 	protected function get_export_counter() {
 		$counter = (int) filter_input( INPUT_GET, 'acp_export_counter', FILTER_SANITIZE_NUMBER_INT );
@@ -91,19 +88,19 @@ abstract class Strategy {
 
 	/**
 	 * Get the hash value passed for the AJAX export
-	 * @since 1.0
 	 * @return string|bool Hash value, or false if there is no valid hash value
+	 * @since 1.0
 	 */
 	protected function get_export_hash() {
 		$hash = filter_input( INPUT_GET, 'acp_export_hash' );
 
-		return $hash ? $hash : false;
+		return $hash ?: false;
 	}
 
 	/**
 	 * Get the Admin Columns list screen object associated with this object
-	 * @since 1.0
 	 * @return AC\ListScreen Associated Admin Columns list screen object
+	 * @since 1.0
 	 */
 	public function get_list_screen() {
 		return $this->list_screen;
@@ -112,11 +109,11 @@ abstract class Strategy {
 	/**
 	 * Retrieve the rows to export based on a set of item IDs. The rows contain the column data to
 	 * export for each item
-	 * @since 1.0
 	 *
 	 * @param array [int] $items IDs of the items to export
 	 *
 	 * @return array[mixed] Rows to export. One row is returned for each item ID
+	 * @since 1.0
 	 */
 	public function get_rows( $ids ) {
 		// Retrieve list screen columns
@@ -146,18 +143,28 @@ abstract class Strategy {
 				 * Filter the column value exported to CSV or another file format in the
 				 * exportability add-on. This filter is applied to each value individually, i.e.,
 				 * once for every column for every item in the list screen.
-				 * @since 1.0
 				 *
 				 * @param string     $value                  Column value to export for item
 				 * @param Column     $column                 Column object to export for
 				 * @param int        $id                     Item ID to export for
 				 * @param ListScreen $exportable_list_screen Exportable list screen instance
+				 *
+				 * @since 1.0
 				 */
 				$value = apply_filters( 'ac/export/value', $value, $column, $id, $this );
 
 				// Add column to row data
 				$row[ $header ] = $value;
 			}
+
+			/**
+			 * Filter the complete row. Allows to add extra columns to the exported file
+			 *
+			 * @param array      $row         Associative array of data for corresponding headers
+			 * @param int        $id          Item ID to export for
+			 * @param ListScreen $list_screen Exportable list screen instance
+			 */
+			$row = apply_filters( 'ac/export/row', $row, $id, $this );
 
 			// Add current row to list of rows
 			$rows[] = $row;
@@ -178,8 +185,8 @@ abstract class Strategy {
 	 *
 	 * @param Column[] $columns
 	 *
-	 * @since 1.0
 	 * @return string[] Associative array of header labels for the columns.
+	 * @since 1.0
 	 */
 	public function get_headers( array $columns ) {
 		$headers = array();
@@ -209,15 +216,24 @@ abstract class Strategy {
 			$headers[ $header ] = $label;
 		}
 
+		/**
+		 * Filter to alter the headers. Allows to add extra headers to the exported file
+		 *
+		 * @param array      $headers     Associative array of data for corresponding headers
+		 * @param ListScreen $list_screen Exportable list screen instance
+		 */
+		$headers = apply_filters( 'ac/export/headers', $headers, $this );
+
 		return $headers;
 	}
 
 	/**
 	 * Export a list of items, given the item IDs, and sends the output as JSON to the requesting
 	 * AJAX process
-	 * @since 1.0
 	 *
 	 * @param array [int] $items Array of item IDs
+	 *
+	 * @since 1.0
 	 */
 	public function export( $ids ) {
 		// Retrieve list screen items and columns
@@ -257,18 +273,19 @@ abstract class Strategy {
 
 	/**
 	 * Get the filtered number of items per iteration of the exporting algorithm
-	 * @since 1.0
 	 * @return int Number of items per export iteration
+	 * @since 1.0
 	 */
 	protected function get_num_items_per_iteration() {
 		/**
 		 * Filters the number of items to export per iteration of the exporting mechanism. It
 		 * controls the number of items per batch, i.e., the number of items to process at once:
 		 * the final number of items in the export file does not depend on this parameter
-		 * @since 1.0
 		 *
 		 * @param int        $num_items              Number of items per export iteration
 		 * @param ListScreen $exportable_list_screen Exportable list screen instance
+		 *
+		 * @since 1.0
 		 */
 		return apply_filters( 'ac/export/exportable_list_screen/num_items_per_iteration', 250, $this );
 	}

@@ -1,6 +1,6 @@
 <?php
 
-namespace ACP\License;
+namespace ACP\API;
 
 class Request {
 

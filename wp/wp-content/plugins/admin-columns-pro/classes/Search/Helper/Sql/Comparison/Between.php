@@ -30,8 +30,8 @@ class Between extends Comparison {
 			throw new LogicException( 'This statement requires an array with two values.' );
 		}
 
-		foreach ( $values as $value ) {
-			parent::bind_value( new Value( $value, $type ) );
+		foreach ( $values as $v ) {
+			parent::bind_value( new Value( $v, $type ) );
 		}
 
 		return $this;

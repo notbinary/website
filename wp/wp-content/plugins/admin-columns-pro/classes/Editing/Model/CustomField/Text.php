@@ -16,6 +16,7 @@ class Text extends Model\CustomField {
 		);
 	}
 
+	// todo
 	public function register_settings() {
 		$this->column->add_setting( new Settings\Excerpt( $this->column ) );
 	}

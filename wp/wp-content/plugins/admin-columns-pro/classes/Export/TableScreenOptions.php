@@ -40,7 +40,7 @@ class TableScreenOptions {
 
 		if ( ! apply_filters( 'acp/export/is_active', true, $table->get_list_screen() ) ) {
 			return;
-		};
+		}
 
 		$check_box = new AC\Form\Element\Checkbox( 'acp_export_show_export_button' );
 		$check_box->set_options( array( 1 => __( 'Show Export Button', 'codepress-admin-columns' ) ) )
@@ -51,7 +51,6 @@ class TableScreenOptions {
 		$button = new AC\Table\Button( 'export' );
 		$button->set_label( __( 'Export to CSV', 'codepress-admin-columns' ) )
 		       ->set_text( __( 'Export', 'codepress-admin-columns' ) )
-		       ->set_dashicon( 'migrate' )
 		       ->set_url( '#' );
 
 		$table->register_button( $button );

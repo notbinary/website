@@ -12,7 +12,7 @@ class SmartFiltering extends Tooltip {
 			array(
 				'title'      => __( 'Smart Filtering', 'codepress-admin-columns' ),
 				'content'    => $this->get_tooltip_content(),
-				'link_label' => __( 'What is smart filtering?', 'codepress-admin-columns' ),
+				'link_label' => '<span class="dashicons dashicons-editor-help"></span>',
 			)
 		);
 	}

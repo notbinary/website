@@ -17,7 +17,6 @@ class Comment extends Query {
 	 * @param WP_Comment_Query $query
 	 */
 	public function callback_meta_query( WP_Comment_Query $query ) {
-		remove_filter( 'pre_get_comments', array( $this, __FUNCTION__ ), 1 );
 
 		$meta_query = $this->get_meta_query();
 
@@ -36,7 +35,6 @@ class Comment extends Query {
 	 * @param WP_Comment_Query $query
 	 */
 	public function callback_parent( WP_Comment_Query $query ) {
-		remove_filter( 'pre_get_comments', array( $this, __FUNCTION__ ), 1 );
 
 		foreach ( $this->bindings as $binding ) {
 			if ( $binding instanceof Query\Bindings\Comment && $binding->get_parent() ) {
@@ -51,7 +49,6 @@ class Comment extends Query {
 	 * @return array
 	 */
 	public function callback_clauses( array $comments_clauses ) {
-		remove_filter( 'comments_clauses', array( $this, __FUNCTION__ ), 20 );
 
 		foreach ( $this->bindings as $binding ) {
 			if ( $binding->get_where() ) {

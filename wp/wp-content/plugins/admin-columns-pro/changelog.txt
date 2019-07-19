@@ -1,5 +1,54 @@
 == Changelog ==
 
+= 4.6.3 =
+Release Date: July 16th, 2019
+
+* [Added] Two new hooks to add/alter the export data `ac/export/headers` and `ac/export/row`
+* [Improved] Short delay when search for records in Editing
+* [Fixed] Bulk Edit was processing a maximum of 1000 records
+* [Fixed] Filter button for User and Taxonomy was sometimes not available
+* [Fixed] Export on Taxonomy overview pages did not work in combination with Smart Filtering
+* [Fixed] Segments where shared between original column sets
+* [Fixed] Styling issue on the WordPress Customize page
+* [Updated] Admin Column Core changes ( 3.4.5 )
+    * [Fixed] Javascript errors on admin pages for specific columns
+    * [Fixed] Removed flikering for Pro modal
+    * [Fixed] Re-init tooltips when column is reloaded or added
+
+= 4.6.2 =
+Release Date: May 21th, 2019
+
+* [Fixed] Fixed an issue where the plugin would show a PHP timeout on multisite making it inaccessible.
+
+= 4.6.1 =
+Release Date: May 20th, 2019
+
+* [Fixed] Fixed an issue where an error occurred when using the Custom Field column with the inline editing setting set to 'false'.
+
+= 4.6 =
+Release Date: May 20th, 2019
+
+* [Improved] API refactored, resulting in less calls to our server for license related stuff
+* [Improved] Add-on installs are now done on Ajax
+* [Improved] Changelog display now uses the same markup as WordPress
+* [Fixed] Only one single call is necessary to check plugin updates. This could decrease the loading times on the plugin overview page
+* [Updated] Admin Column Core changes ( 3.4.4 )
+    * [Fixed] Transient class fixed. Unchanged data did not update the timestamp resulting in invalidating the transient constantly
+
+= 4.5.9 =
+Release Date: May 14th, 2019
+
+* [Fixed] Error on the MS Site overview page
+* [Fixed] Rebuilt Javascript to prevent Date Time picker issues for editing
+
+= 4.5.8 =
+Release Date: May 10th, 2019
+
+* [Added] It is now possible to recheck the status of your license on the settings page
+* [Improved] Bulk Edit is now always enabled (even when Inline Edit setting is disabled). The only way to disable it, is with the `acp/editing/active` hook
+* [Improved] Column setting will show if "Export" is disabled or enabled
+* [Improved] Limit Ajax Calls for Select2 drop downs by adding a short delay
+
 = 4.5.7 =
 Release Date: March 29th, 2019
 

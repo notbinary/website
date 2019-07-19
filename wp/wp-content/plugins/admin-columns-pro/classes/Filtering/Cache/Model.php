@@ -7,7 +7,7 @@ use ACP\Filtering;
 class Model extends Filtering\Cache {
 
 	/**
-	 * @var Model
+	 * @var Filtering\Model
 	 */
 	protected $model;
 

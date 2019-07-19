@@ -3,6 +3,7 @@
 namespace ACP\Export;
 
 use AC;
+use ACP;
 use ACP\Asset\Location;
 use ACP\Asset\Script;
 use ACP\Asset\Style;
@@ -24,6 +25,11 @@ class Addon implements AC\Registrable {
 		new Admin();
 
 		$this->register_table_screen_options();
+
+		$settings = new Settings( array(
+			new ACP\Asset\Style( 'acp-search-admin', $this->get_location()->with_suffix( 'assets/search/css/admin.css' ) ),
+		) );
+		$settings->register();
 
 		add_action( 'ac/table/list_screen', array( $this, 'register_table_screen' ) );
 		add_action( 'ac/table/list_screen', array( $this, 'load_list_screen' ) );
@@ -83,9 +89,9 @@ class Addon implements AC\Registrable {
 	 * Load a list screen and potentially attach the proper exporting information to it
 	 * @since 1.0
 	 *
-	 * @param AC\ListScreen $list_screen List screen for current table screen
+	 * @param ListScreen $list_screen List screen for current table screen
 	 */
-	public function load_list_screen( $list_screen ) {
+	public function load_list_screen( AC\ListScreen $list_screen ) {
 		if ( $list_screen instanceof ListScreen ) {
 			$list_screen->export()->attach();
 		}

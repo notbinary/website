@@ -29,7 +29,7 @@ class Column extends AC\Settings\Column {
 		$view->set( 'label', __( 'Smart Filtering', 'codepress-admin-columns' ) )
 		     ->set( 'tooltip', __( 'Smart filtering is always enabled.', 'codepress-admin-columns' ) )
 		     ->set( 'setting',
-			     sprintf( '<em>%s</em> %s', __( 'Enabled.', 'codepress-admin-columns' ), $this->get_tooltip()->get_label() . $this->get_tooltip()->get_instructions() )
+			     sprintf( '<em>%s</em> %s', __( 'Enabled', 'codepress-admin-columns' ), $this->get_tooltip()->get_label() . $this->get_tooltip()->get_instructions() )
 		     );
 
 		return $view;

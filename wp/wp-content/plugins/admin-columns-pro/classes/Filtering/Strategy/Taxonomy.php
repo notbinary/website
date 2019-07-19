@@ -18,7 +18,9 @@ final class Taxonomy extends ACP\Filtering\Strategy {
 	 * @param WP_Term_Query $query
 	 */
 	public function handle_filter_requests( WP_Term_Query $query ) {
-		if ( isset( $query->query_vars['echo'] ) || 'all' !== $query->query_vars['fields'] ) {
+		$term_query = new ACP\TermQueryInformation();
+
+		if ( ! $term_query->is_main_query( $query ) ) {
 			return;
 		}
 
