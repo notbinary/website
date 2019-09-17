@@ -9,10 +9,10 @@ function globals () {
 
 	// FastClick
     fastClick(document.body);
-    
+
     // iframe video in body content
     iframer();
-    
+
     // Small Screen Navigation
     mNav(
         '#navigation-primary-toggle',
