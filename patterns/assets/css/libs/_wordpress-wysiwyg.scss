@@ -6,7 +6,7 @@
 .wysiwyg {
 
 	.wp-smiley {
-		display: none!important; // They're darn ugly
+		display: none!important;
 	}
 
 	.wp-caption {
@@ -23,7 +23,6 @@
 
 
 	%wp-image-align {
-		// max-width: 500px;
 		max-width: 100%;
 		width: 100%;
 		display: block;
@@ -32,7 +31,6 @@
 	}
 
 	.alignleft, blockquote.left, aside.left {
-		@extend %wp-image-align;
 		@include respond-to($menu-respond) {
 			margin-right: 40px;
 			float: left;
@@ -40,7 +38,6 @@
 	}
 
 	.alignright, blockquote.right, aside.right {
-		@extend %wp-image-align;
 		@include respond-to($menu-respond) {
 			margin-left: 40px;
 			float: right;
@@ -62,19 +59,27 @@
 
 	// Image size control
 	.size-full {
-
+		@extend %wp-image-align;
 	}
 
 	.size-large {
-
+		@extend %wp-image-align;
 	}
 
 	.size-medium {
-
+		max-width: 390px;
+		width: 390px;
+		display: block;
+		vertical-align: top;
+		position: relative;
 	}
 
 	.size-thumbnail {
-
+		max-width: 180px;
+		width: 180px;
+		display: block;
+		vertical-align: top;
+		position: relative;
 	}
 
 	// Callout control
