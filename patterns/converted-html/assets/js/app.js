@@ -4,6 +4,7 @@ import $ from 'jquery';
 import skipLinks from './utils/skipLinks';
 import iframer from './utils/iframer';
 import mNav from './utils/mNav';
+import setupNotices from './utils/setupNotices';
 
 function globals () {
 
@@ -20,6 +21,9 @@ function globals () {
         '#navigation-primary',
         'navigation-primary--active'
     );
+
+    // Notices
+    setupNotices();
 }
 
 $(function run () {
