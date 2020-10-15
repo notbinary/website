@@ -57,6 +57,8 @@ function add_to_context($data) {
         ),
     );
     $data['contact_page'] = get_page_by_template('page-templates/contact.php');
+    $data['notice_title'] = get_field('notice_title', 'option');
+    $data['notice_text'] = get_field('notice_text', 'option');
 
     return $data;
 }

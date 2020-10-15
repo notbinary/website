@@ -18,6 +18,7 @@
 <body class="body body--{% block body_class %}{% endblock %} {{ fn('get_body_class') | join(' ') }}" id="body-{% block body_id %}{% endblock %}">
     <div class="ui-base">
         <a href="#pagecontent" class="skiplink" data-js="skiplink">Skip to main content</a>
+        {% include 'partials/message.html' %}
         {% block header %}
             {% include 'scaffold/header.html' %}
         {% endblock %}

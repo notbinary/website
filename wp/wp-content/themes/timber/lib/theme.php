@@ -66,6 +66,10 @@ if( function_exists('acf_add_options_page') ) {
 
     // add sub pages
     acf_add_options_sub_page(array(
+        'page_title'    => 'Site notice',
+        'parent_slug'   => $parent['menu_slug'],
+    ));
+    acf_add_options_sub_page(array(
         'page_title'    => 'Footer',
         'parent_slug'   => $parent['menu_slug'],
     ));
